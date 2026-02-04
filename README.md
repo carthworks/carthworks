@@ -1,86 +1,154 @@
-# Karthikeyan T - Portfolio
+# 👋 Hi, I'm Karthikeyan T
 
-A professional, minimalist portfolio website built with Next.js and Tailwind CSS, showcasing my work as a Senior AI Engineer, LLM Engineer, and SaaS Architect.
+<div align="center">
 
-## Features
+### Senior AI Engineer • LLM Engineer • SaaS Architect
 
-- **Three Theme Options**: Switch between Minimalist, Glassmorphism (dark), and Claymorphism themes
-- **Fixed Navigation**: Smooth scrolling navigation with logo and menu links
-- **One-Page Layout**: All content on a single scrollable page
-- **Fully Responsive**: Optimized for mobile, tablet, and desktop
-- **SEO Ready**: Comprehensive meta tags and semantic HTML
-- **Dark Mode Support**: Theme-aware dark mode
-- **Contact Form**: Integrated contact form with mailto fallback
-- **Modern Card Design**: Project cards with header, image, body, and link sections
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-carthworks-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/carthworks)
+[![GitHub](https://img.shields.io/badge/GitHub-carthworks-black?style=flat-square&logo=github)](https://github.com/carthworks)
+[![Behance](https://img.shields.io/badge/Behance-carthworks-1769ff?style=flat-square&logo=behance)](https://behance.net/carthworks)
+[![Flickr](https://img.shields.io/badge/Flickr-carthworks-ff0084?style=flat-square&logo=flickr)](https://flickr.com/photos/carthworks)
 
-## Tech Stack
+📍 Chennai, Tamil Nadu, India | 📧 tkarthikeyan@gmail.com | 📱 +91 94867 72206
 
-- **Framework**: Next.js 16 (App Router)
-- **Styling**: Tailwind CSS
-- **Language**: TypeScript
-- **Font**: Inter (Google Fonts)
+</div>
 
-## Getting Started
+---
 
-### Development
+## 🚀 About Me
 
-```bash
-npm run dev
-```
+Senior AI Engineer, LLM Engineer, and SaaS Architect with **20+ years** of engineering experience designing and delivering AI-powered, multi-tenant SaaS platforms. I specialize in integrating LLMs (Qwen3, Llama3, Claude, GPT, Mistral) using **a/ollama**, **LangChain**, **LlamaIndex**, and custom retrieval pipelines.
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+Currently co-founding multiple startups, translating deep technical expertise into product-focused execution.
 
-### Build
+---
 
-```bash
-npm run build
-```
+## 💼 Professional Experience
 
-### Production
+### 🏢 Current & Recent Roles
 
-```bash
-npm start
-```
+| Company | Role | Period |
+|---------|------|--------|
+| **Virtusa** | Lead Consultant / Senior Lead Engineer (AI & Full-Stack) | 2023 – Present |
+| **Buckman** | Senior Digital Innovation Engineer | 2021 – 2023 |
+| **PushPros** | Senior Full-Stack Developer | 2020 – 2021 |
+| **AURISS Technologies** | Senior Engineer (AI & Cybersecurity SaaS) | 2017 – 2020 |
+| **Pacific Controls** | UI/Web Developer (IoT Platforms) | 2015 – 2016 |
 
-## Project Structure
+---
 
-```
-├── app/
-│   ├── layout.tsx          # Root layout with SEO metadata
-│   ├── page.tsx            # Main page composing all sections
-│   └── globals.css         # Global styles and Tailwind directives
-├── components/
-│   ├── sections/
-│   │   ├── Hero.tsx        # Hero section with CTA
-│   │   ├── Experience.tsx  # Work experience timeline
-│   │   ├── Skills.tsx      # Technical competencies
-│   │   ├── Projects.tsx    # Portfolio projects
-│   │   └── Contact.tsx     # Contact form
-│   └── Footer.tsx          # Footer with links
-├── lib/
-│   └── data.ts             # Structured portfolio data
-└── public/
-    └── kt_logo_github_sized.png  # Logo
+## 🛠️ Core Competencies
 
-```
+### 🤖 AI & LLM Engineering
+- **a/ollama** + Qwen3 / Llama models integration
+- **RAG pipelines** with LangChain, ChromaDB, Faiss, pgVector
+- **AI agents** for workflow automation and penetration testing
+- Secure prompt pipelines, autonomous agent chaining
 
-## Sections
+### ☁️ SaaS Architecture
+- Multi-tenant architecture (isolation, RBAC, API gateway)
+- Next.js, .NET Core, Node.js, PostgreSQL systems design
+- Serverless functions, edge APIs, observability, tracing
 
-1. **Hero**: Introduction with logo, bio, and call-to-action buttons
-2. **Experience**: Timeline of professional work history
-3. **Skills**: Core technical competencies organized by category
-4. **Projects**: Portfolio of websites, AI applications, tools, and creative projects
-5. **Contact**: Contact form and information
-6. **Footer**: Social links and copyright
+### 💻 Full-Stack Engineering
+- **Frontend**: Next.js, React, Angular
+- **Backend**: Node.js, .NET Core
+- **Database**: Prisma ORM, PostgreSQL schema optimization
+- **APIs**: REST/GraphQL secure API development
 
-## Customization
+### 🔧 AI Ecosystem
+- **APIs**: OpenAI, Claude, Cohere, Hugging Face, Together.ai
+- **Libraries**: LangChain, LlamaIndex, Transformers
 
-All content is centralized in `lib/data.ts` for easy updates. Modify this file to update:
-- Personal information
-- Skills and competencies
-- Work experience
-- Projects and portfolio items
+### 🚢 Cloud & DevOps
+- **CI/CD**: GitHub Actions, Azure DevOps
+- **Deployment**: Docker on Vercel, Azure, AWS
 
-## License
+### 🎨 UI/UX
+- Figma, Tailwind CSS, design systems, accessibility
 
-© 2026 Karthikeyan T. All rights reserved.
+---
+
+## 📊 Tech Stack
+
+<div align="center">
+
+### Languages & Frameworks
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+
+### AI & ML
+![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+
+### Databases & Cloud
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+### Styling & Design
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+
+</div>
+
+---
+
+## 🎓 Education & Certifications
+
+- **B.Sc – Computer Science** | Bharathiar University
+- **Gen AI Assisted Engineer** | Virtusa (Issued Feb 2025)
+
+---
+
+## 🌐 Portfolio Websites
+
+Check out my live projects and portfolio work:
+
+- **🎨 UI Portfolio**: [behance.net/carthworks](https://behance.net/carthworks)
+- **📸 UX Portfolio**: [flickr.com/photos/carthworks](https://flickr.com/photos/carthworks)
+- **💻 Code Portfolio**: [github.com/carthworks](https://github.com/carthworks)
+
+---
+
+## 📫 Let's Connect
+
+I'm always interested in collaborating on innovative AI and SaaS projects. Feel free to reach out!
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-tkarthikeyan@gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tkarthikeyan@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/carthworks)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/carthworks)
+
+</div>
+
+---
+
+## 📈 GitHub Stats
+
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=carthworks&show_icons=true&theme=radical&hide_border=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=carthworks&layout=compact&theme=radical&hide_border=true)
+
+</div>
+
+---
+
+<div align="center">
+
+### 💡 "Translating technical depth into product-focused execution"
+
+⭐️ From [carthworks](https://github.com/carthworks)
+
+</div>
