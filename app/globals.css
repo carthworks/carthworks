@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  font-variation-settings: 'opsz' 32;
+  transition: background 0.3s ease;
+}
+
+/* Glassmorphism Theme - Dark */
+[data-theme="glassmorphism"] {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+[data-theme="glassmorphism"] body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-attachment: fixed;
+}
+
+[data-theme="glassmorphism"] .glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="glassmorphism"] .glass-section {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+/* Claymorphism Theme */
+[data-theme="claymorphism"] body {
+  background: #e0e5ec;
+}
+
+[data-theme="claymorphism"].dark body {
+  background: #2a2d35;
+}
+
+[data-theme="claymorphism"] .clay-card {
+  background: #e0e5ec;
+  border-radius: 20px;
+  box-shadow:
+    9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="claymorphism"].dark .clay-card {
+  background: #2a2d35;
+  box-shadow:
+    9px 9px 16px rgba(0, 0, 0, 0.4),
+    -9px -9px 16px rgba(60, 65, 75, 0.4);
+}
+
+[data-theme="claymorphism"] .clay-card:hover {
+  box-shadow:
+    inset 9px 9px 16px rgba(163, 177, 198, 0.6),
+    inset -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="claymorphism"].dark .clay-card:hover {
+  box-shadow:
+    inset 9px 9px 16px rgba(0, 0, 0, 0.4),
+    inset -9px -9px 16px rgba(60, 65, 75, 0.4);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
