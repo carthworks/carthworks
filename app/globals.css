@@ -29,8 +29,14 @@ body {
 }
 
 [data-theme="glassmorphism"] body {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background:
+    linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.7) 50%, rgba(15, 52, 96, 0.7) 100%),
+    url('/glassmorphism_background_blur.png');
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 [data-theme="glassmorphism"] .glass-card {
@@ -39,12 +45,16 @@ body {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
 }
 
 [data-theme="glassmorphism"] .glass-section {
   background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  position: relative;
+  z-index: 1;
 }
 
 /* Claymorphism Theme */
