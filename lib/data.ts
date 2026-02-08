@@ -178,6 +178,13 @@ export const projects = {
             url: "https://kapan01.vercel.app/",
             image: "/images/kapan.png",
         },
+
+        {
+            name: "CodeShield Local ",
+            description: "Your Code Deserves a Security Expert.Now you have one — right on your machine. A 100% local AI-powered code security auditor that scans, explains, and fixes vulnerabilities without sending a single byte to the cloud.Start Secure Scan.",
+            url: "https://code-shield-local.vercel.app/",
+            image: "/images/codeshieldai.png",
+        },
     ],
     extensions: [
         {
@@ -225,6 +232,12 @@ export const projects = {
             description: "An interactive meditation and breathing experience using particle-based visualizations to improve focus and mindfulness. Designed for children, educators, and yoga practitioners.",
             url: "https://aether-gestural-engine.vercel.app/",
             image: "/images/aether.png",
+        },
+        {
+            name: "Enhanced Audio Visualizer",
+            description: "Cinematic 3D · Real-time · Beat-Reactive- Transform your music into mesmerizing visual experiences",
+            url: "https://audio-visualizer-six-inky.vercel.app/",
+            image: "/images/audio-visualizer.png",
         },
     ],
 };
