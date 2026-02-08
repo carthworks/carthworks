@@ -121,6 +121,12 @@ export const projects = {
             url: "https://hacklab30.netlify.app/",
             image: "/images/hacklab30.png",
         },
+        {
+            name: "IntraChat",
+            description: "Private, internal communication platform built for teams that value control and privacy.",
+            url: "https://intra-chat-eight.vercel.app/",
+            image: "/images/intrachat.png",
+        },
     ],
     aiApplications: [
         {
@@ -147,10 +153,30 @@ export const projects = {
             url: "https://aitoolsbox-io.vercel.app/",
             image: "/images/aitoolsvox.png",
         },
+
         {
-            name: "IntraChat",
+            name: "Research Agent ",
+            description: "A modern, full-stack AI research agent that allows you to upload documents (PDF/TXT), analyze them using local LLMs, view relationship graphs, and chat with your documents.",
+            url: "https://research-agent-web.vercel.app/",
+            image: "/images/researchAgent.gif",
+        },
+        {
+            name: "SolarFlow",
+            description: "Track solar projects from lead to payment. Give customers real-time updates. Get paid on time. All in one place.",
+            url: "https://solarflow-web-beta.vercel.app/",
+            image: "/images/solarflow.png",
+        },
+        {
+            name: "PaperPublish IQ",
+            description: "A comprehensive platform that guides your research from draft to publication-ready with expert mentoring and blind peer review.",
+            url: "https://paperpublish-iq.vercel.app/",
+            image: "/images/paperpublish.png",
+        },
+        {
+            name: "Kapan",
             description: "Private, internal communication platform built for teams that value control and privacy.",
-            url: "https://intra-chat-eight.vercel.app/",
+            url: "https://kapan01.vercel.app/",
+            image: "/images/kapan.png",
         },
     ],
     extensions: [

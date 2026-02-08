@@ -158,8 +158,39 @@ export default function Projects() {
 
                 <ProjectCategory title="Websites" projects={projects.websites} />
                 <ProjectCategory title="AI & LLM Applications" projects={projects.aiApplications} />
-                <ProjectCategory title="Security & Developer Tools" projects={projects.tools} />
-                <ProjectCategory title="Chrome Extensions" projects={projects.extensions} />
+
+                {/* Chrome Extensions with nested Security & Developer Tools */}
+                <div className="mb-16 last:mb-0">
+                    <h3 className={`text-2xl font-semibold mb-6 pb-3 border-b ${theme === 'glassmorphism'
+                        ? 'text-white border-white/20'
+                        : theme === 'claymorphism'
+                            ? 'text-zinc-900 dark:text-zinc-50 border-zinc-300 dark:border-zinc-700'
+                            : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
+                        }`}>
+                        Chrome Extensions
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        {projects.extensions.map((project, index) => (
+                            <ProjectCard key={index} project={{ ...project, category: 'Extension' }} />
+                        ))}
+                    </div>
+
+                    {/* Nested Security & Developer Tools */}
+                    <div className="mt-8 pl-6 border-l-4 border-zinc-300 dark:border-zinc-700">
+                        <h4 className={`text-xl font-semibold mb-4 ${theme === 'glassmorphism'
+                            ? 'text-white/90'
+                            : 'text-zinc-800 dark:text-zinc-200'
+                            }`}>
+                            Security & Developer Tools
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {projects.tools.map((project, index) => (
+                                <ProjectCard key={index} project={{ ...project, category: 'Tool' }} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
                 <ProjectCategory title="Creative Projects" projects={projects.creative} />
             </div>
         </section>
