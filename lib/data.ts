@@ -158,6 +158,7 @@ export const projects = {
             name: "Chrome Web Store Developer Console Extension",
             description: "Developer-focused Chrome extension published on the Chrome Web Store.",
             url: "https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7",
+            image: "/images/chrome_extension.png"
         },
     ],
     tools: [
