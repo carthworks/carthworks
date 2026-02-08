@@ -9,6 +9,7 @@ interface Project {
     description: string;
     url: string | null;
     category?: string;
+    image?: string;
 }
 
 interface ProjectCategoryProps {
@@ -33,20 +34,30 @@ function ProjectCard({ project }: { project: Project }) {
     const content = (
         <div className={getCardClassName()}>
             {/* Header with Image */}
-            <div className="relative w-full h-48 bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl font-bold text-zinc-300 dark:text-zinc-700">
-                        {project.name.charAt(0)}
+            <div className="relative w-full h-48 bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                {project.image ? (
+                    <Image
+                        src={project.image}
+                        alt={project.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-6xl font-bold text-zinc-300 dark:text-zinc-700">
+                            {project.name.charAt(0)}
+                        </div>
                     </div>
-                </div>
+                )}
                 {/* Category badge */}
                 {project.category && (
                     <div className="absolute top-4 right-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'glassmorphism'
-                                ? 'bg-white/20 text-white backdrop-blur-sm'
-                                : theme === 'claymorphism'
-                                    ? 'bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300'
-                                    : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
+                            ? 'bg-white/20 text-white backdrop-blur-sm'
+                            : theme === 'claymorphism'
+                                ? 'bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300'
+                                : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
                             }`}>
                             {project.category}
                         </span>
@@ -69,8 +80,8 @@ function ProjectCard({ project }: { project: Project }) {
                 {project.url && (
                     <div className="mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-800">
                         <div className={`flex items-center gap-2 text-sm font-medium ${theme === 'glassmorphism'
-                                ? 'text-white'
-                                : 'text-zinc-700 dark:text-zinc-300'
+                            ? 'text-white'
+                            : 'text-zinc-700 dark:text-zinc-300'
                             }`}>
                             <span>View Project</span>
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,10 +116,10 @@ function ProjectCategory({ title, projects }: ProjectCategoryProps) {
     return (
         <div className="mb-16 last:mb-0">
             <h3 className={`text-2xl font-semibold mb-6 pb-3 border-b ${theme === 'glassmorphism'
-                    ? 'text-white border-white/20'
-                    : theme === 'claymorphism'
-                        ? 'text-zinc-900 dark:text-zinc-50 border-zinc-300 dark:border-zinc-700'
-                        : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
+                ? 'text-white border-white/20'
+                : theme === 'claymorphism'
+                    ? 'text-zinc-900 dark:text-zinc-50 border-zinc-300 dark:border-zinc-700'
+                    : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
                 }`}>
                 {title}
             </h3>

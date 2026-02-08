@@ -89,31 +89,37 @@ export const projects = {
             name: "Royal Albatross Exports",
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
             url: "https://royalalbatrossexports.in/",
+            image: "/images/royal_albatross.png",
         },
         {
             name: "DSR Photos & Videos",
             description: "Professional photography and videography for destination weddings, editorial shoots, and portrait sessions.",
             url: "https://dsr-photos-web.vercel.app/",
+            image: "/images/dsr.png",
         },
         {
             name: "Chennai Braiding Company",
             description: "Specialized manufacturers of high-quality shoe laces and industrial ropes.",
             url: "https://cbclaces.com/",
+            image: "/images/cbclacs.png",
         },
         {
             name: "Professional Web Security Scanner",
             description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
             url: "https://scanova-web.vercel.app/",
+            image: "/images/scanova.png",
         },
         {
             name: "Ark Veterinary Clinic",
             description: "Comprehensive veterinary care with a focus on preventive and clinical services.",
             url: "https://ark-veterinary-clinics.vercel.app/",
+            image: "/images/ark.png",
         },
         {
             name: "30-Day Ethical Hacking Bootcamp",
             description: "Hands-on ethical hacking training designed to build real-world offensive security skills in 30 days.",
             url: "https://hacklab30.netlify.app/",
+            image: "/images/hacklab30.png",
         },
     ],
     aiApplications: [
@@ -121,21 +127,25 @@ export const projects = {
             name: "RAG System for Your Documents",
             description: "Ask questions and retrieve insights from your own documents using a Retrieval-Augmented Generation system.",
             url: "https://ask-mydocs.vercel.app/",
+            image: "/images/askmydocs.png",
         },
         {
             name: "LibraDigitAI",
             description: "AI-powered digitization and digital archive builder for libraries. A production-grade desktop application that converts scanned documents into searchable, metadata-rich archives through a guided workflow.",
             url: "https://github.com/carthworks/LibraDigitAI",
+            image: "/images/ad_librDigitIT_2026.png",
         },
         {
             name: "SecuTools.io",
             description: "Practical, no-nonsense utilities for cybersecurity engineers and security researchers.",
             url: "https://secutools-io.vercel.app/",
+            image: "/images/sectools_io.png",
         },
         {
             name: "AI & LLM Handy Tools",
             description: "A curated toolbox of practical utilities for AI engineers, researchers, and prompt engineers.",
             url: "https://aitoolsbox-io.vercel.app/",
+            image: "/images/aitoolsvox.png",
         },
         {
             name: "IntraChat",
@@ -187,6 +197,7 @@ export const projects = {
             name: "Aether – Gestural Focus Engine",
             description: "An interactive meditation and breathing experience using particle-based visualizations to improve focus and mindfulness. Designed for children, educators, and yoga practitioners.",
             url: "https://aether-gestural-engine.vercel.app/",
+            image: "/images/aether.png",
         },
     ],
 };
