@@ -109,12 +109,7 @@ export const projects = {
             url: "https://hirench.vercel.app/",
             image: "/images/hirench.png",
         },
-        {
-            name: "Professional Web Security Scanner",
-            description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
-            url: "https://scanova-web.vercel.app/",
-            image: "/images/scanova.png",
-        },
+
         {
             name: "Ark Veterinary Clinic",
             description: "Comprehensive veterinary care with a focus on preventive and clinical services.",
@@ -144,20 +139,15 @@ export const projects = {
         {
             name: "LibraDigitAI",
             description: "AI-powered digitization and digital archive builder for libraries. A production-grade desktop application that converts scanned documents into searchable, metadata-rich archives through a guided workflow.",
-            url: "https://github.com/carthworks/LibraDigitAI",
+            // url: "https://github.com/carthworks/LibraDigitAI",
+            url: "https://libra-digit-web.vercel.app/",
             image: "/images/ad_librDigitIT_2026.png",
         },
         {
-            name: "SecuTools.io",
-            description: "Practical, no-nonsense utilities for cybersecurity engineers and security researchers.",
-            url: "https://secutools-io.vercel.app/",
-            image: "/images/sectools_io.png",
-        },
-        {
-            name: "AI & LLM Handy Tools",
-            description: "A curated toolbox of practical utilities for AI engineers, researchers, and prompt engineers.",
-            url: "https://aitoolsbox-io.vercel.app/",
-            image: "/images/aitoolsvox.png",
+            name: "Professional Web Security Scanner",
+            description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
+            url: "https://scanova-web.vercel.app/",
+            image: "/images/scanova.png",
         },
 
         {
@@ -178,12 +168,12 @@ export const projects = {
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
         },
-        {
-            name: "Kapan",
-            description: "Private, internal communication platform built for teams that value control and privacy.",
-            url: "https://kapan01.vercel.app/",
-            image: "/images/kapan.png",
-        },
+        // {
+        //     name: "Kapan",
+        //     description: "Private, internal communication platform built for teams that value control and privacy.",
+        //     url: "https://kapan01.vercel.app/",
+        //     image: "/images/kapan.png",
+        // },
 
         {
             name: "CodeShield Local ",
@@ -201,6 +191,19 @@ export const projects = {
         },
     ],
     tools: [
+        {
+            name: "SecuTools.io",
+            description: "Practical, no-nonsense utilities for cybersecurity engineers and security researchers.",
+            url: "https://secutools-io.vercel.app/",
+            image: "/images/sectools_io.png",
+        },
+        {
+            name: "AI & LLM Handy Tools",
+            description: "A curated toolbox of practical utilities for AI engineers, researchers, and prompt engineers.",
+            url: "https://aitoolsbox-io.vercel.app/",
+            image: "/images/aitoolsvox.png",
+        },
+
         {
             name: "TrustLens – Website Trust & Risk Checker",
             description: "Instant website trust and risk analysis using real-time domain intelligence.",
