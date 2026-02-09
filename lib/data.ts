@@ -64,7 +64,7 @@ export const experience = [
         period: "2017 – 2020",
     },
     {
-        company: "Pacific Controls",
+        company: "Pacific Controls , Dubai, UAE",
         role: "UI/Web Developer (IoT Platforms)",
         period: "2015 – 2016",
     },
@@ -102,6 +102,12 @@ export const projects = {
             description: "Specialized manufacturers of high-quality shoe laces and industrial ropes.",
             url: "https://cbclaces.com/",
             image: "/images/cbclacs.png",
+        },
+        {
+            name: "HIRENCH HR Solutions",
+            description: "Leading recruitment and HR consulting firm in Chennai, Tamil Nadu. Specializing in permanent staffing, temporary recruitment, executive search, and comprehensive HR services across 15+ industries.",
+            url: "https://hirench.vercel.app/",
+            image: "/images/hirench.png",
         },
         {
             name: "Professional Web Security Scanner",
