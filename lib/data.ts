@@ -117,6 +117,14 @@ export const projects = {
             image: "/images/ark.png",
         },
         {
+            name: "Sri Kaliamman Textiles",
+            description: "Leading textile manufacturer in Chennai, Tamil Nadu. Specializing in permanent staffing, temporary recruitment, executive search, and comprehensive HR services across 15+ industries.",
+            url: "https://srikaliamman-textiles.vercel.app/",
+            image: "/images/srikaliamman.png",
+        },
+
+
+        {
             name: "30-Day Ethical Hacking Bootcamp",
             description: "Hands-on ethical hacking training designed to build real-world offensive security skills in 30 days.",
             url: "https://hacklab30.netlify.app/",
