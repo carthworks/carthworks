@@ -123,7 +123,7 @@ function ProjectCategory({ title, projects }: ProjectCategoryProps) {
                 }`}>
                 {title}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={{ ...project, category: title.split(' ')[0] }} />
                 ))}
@@ -169,7 +169,7 @@ export default function Projects() {
                         }`}>
                         Chrome Extensions
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                         {projects.extensions.map((project, index) => (
                             <ProjectCard key={index} project={{ ...project, category: 'Extension' }} />
                         ))}
@@ -183,7 +183,7 @@ export default function Projects() {
                             }`}>
                             Security & Developer Tools
                         </h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {projects.tools.map((project, index) => (
                                 <ProjectCard key={index} project={{ ...project, category: 'Tool' }} />
                             ))}

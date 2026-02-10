@@ -92,8 +92,8 @@ export default function Contact() {
                                 <a
                                     href={`mailto:${personalInfo.email}`}
                                     className={`transition-colors ${theme === 'glassmorphism'
-                                            ? 'text-white hover:text-white/80'
-                                            : 'text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-400'
+                                        ? 'text-white hover:text-white/80'
+                                        : 'text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-400'
                                         }`}
                                 >
                                     {personalInfo.email}
@@ -105,8 +105,8 @@ export default function Contact() {
                                 <a
                                     href={`tel:${personalInfo.phone}`}
                                     className={`transition-colors ${theme === 'glassmorphism'
-                                            ? 'text-white hover:text-white/80'
-                                            : 'text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-400'
+                                        ? 'text-white hover:text-white/80'
+                                        : 'text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-400'
                                         }`}
                                 >
                                     {personalInfo.phone}
@@ -130,10 +130,10 @@ export default function Contact() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${theme === 'glassmorphism'
-                                            ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
-                                            : theme === 'claymorphism'
-                                                ? 'clay-card text-zinc-900 dark:text-zinc-50'
-                                                : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200'
+                                        ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
+                                        : theme === 'claymorphism'
+                                            ? 'clay-card text-zinc-900 dark:text-zinc-50'
+                                            : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200'
                                         }`}
                                 >
                                     GitHub
@@ -143,14 +143,36 @@ export default function Contact() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${theme === 'glassmorphism'
-                                            ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
-                                            : theme === 'claymorphism'
-                                                ? 'clay-card text-zinc-900 dark:text-zinc-50'
-                                                : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200'
+                                        ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
+                                        : theme === 'claymorphism'
+                                            ? 'clay-card text-zinc-900 dark:text-zinc-50'
+                                            : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200'
                                         }`}
                                 >
                                     LinkedIn
                                 </a>
+                            </div>
+                        </div>
+
+                        {/* GitHub Contribution Graph */}
+                        <div className="mt-8">
+                            <h4 className={`text-sm mb-4 ${theme === 'glassmorphism' ? 'text-white/60' : 'text-zinc-500 dark:text-zinc-500'
+                                }`}>
+                                Open Source Activity
+                            </h4>
+                            <div className={`p-4 rounded-xl overflow-hidden ${theme === 'glassmorphism'
+                                ? 'bg-white/5 border border-white/10'
+                                : theme === 'claymorphism'
+                                    ? 'clay-card'
+                                    : 'bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800'
+                                }`}>
+                                <div className="overflow-x-auto">
+                                    <img
+                                        src={`https://ghchart.rshah.org/${theme === 'glassmorphism' ? 'ffffff' : '10b981'}/${personalInfo.github.split('/')[1]}`}
+                                        alt="GitHub Contributions"
+                                        className="w-full min-w-[600px]"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

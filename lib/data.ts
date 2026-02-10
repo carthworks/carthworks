@@ -8,6 +8,7 @@ export const personalInfo = {
     github: "github.com/carthworks",
     behance: "behance.net/carthworks",
     flickr: "flickr.com/photos/carthworks",
+    resume: "/resume.pdf", // Placeholder for resume file
     bio: "I'm Karthikeyan, a Chennai-based developer from India with 15+ years of hands-on experience and a background spanning over two decades in the software industry. As a Full Stack Developer and AI Product Engineer, I build scalable, secure, and intelligent web and SaaS applications using Next.js, .NET, and AI integrations powered by Ollama with Qwen3, combining modern frontend frameworks, robust backend architecture, and applied AI.",
     summary: "Senior AI Engineer, LLM Engineer, and SaaS Architect with 20+ years of engineering experience designing and delivering AI-powered, multi-tenant SaaS platforms. Specialized in integrating LLMs (Qwen3, Llama3, Claude, GPT, Mistral) using a/ollama, LangChain, LlamaIndex, and custom retrieval pipelines.",
 };
