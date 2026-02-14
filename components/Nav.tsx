@@ -8,7 +8,7 @@ export default function Nav() {
     const { theme } = useTheme();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('#hero');
+    const [activeSection, setActiveSection] = useState('#projects');
 
     useEffect(() => {
         const handleWindowScroll = () => {
@@ -124,9 +124,9 @@ export default function Nav() {
 
     const menuItems = [
         { label: 'Home', href: '#hero' },
+        { label: 'Projects', href: '#projects' },
         { label: 'Experience', href: '#experience' },
         { label: 'Skills', href: '#skills' },
-        { label: 'Projects', href: '#projects' },
         { label: 'Contact', href: '#contact' },
     ];
 
@@ -204,7 +204,7 @@ export default function Nav() {
                     {/* Logo */}
                     <a
                         href="#hero"
-                        className="flex items-center gap-3 group"
+                        className="flex items-center gap-3 group transition-all duration-300 lg:opacity-0 lg:invisible lg:pointer-events-none"
                         onClick={(e) => handleNavClick(e, '#hero')}
                     >
                         <div className={`relative w-10 h-10 rounded-lg overflow-hidden transition-transform group-hover:scale-105 ${theme === 'glassmorphism'

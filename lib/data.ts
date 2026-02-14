@@ -1,17 +1,23 @@
 export const personalInfo = {
     name: "Karthikeyan T",
-    title: "Senior AI Engineer • LLM Engineer • SaaS Architect",
-    location: "Chennai, Tamil Nadu, India",
+    title: "AI Engineer • SaaS Architect",
+
+    location: "India",
     phone: "+91 94867 72206",
     email: "tkarthikeyan@gmail.com",
-    linkedin: "www.linkedin.com/in/carthworks",
-    github: "github.com/carthworks",
-    behance: "behance.net/carthworks",
-    flickr: "flickr.com/photos/carthworks",
-    resume: "/resume.pdf", // Placeholder for resume file
-    bio: "I'm Karthikeyan, a Chennai-based developer from India with 15+ years of hands-on experience and a background spanning over two decades in the software industry. As a Full Stack Developer and AI Product Engineer, I build scalable, secure, and intelligent web and SaaS applications using Next.js, .NET, and AI integrations powered by Ollama with Qwen3, combining modern frontend frameworks, robust backend architecture, and applied AI.",
-    summary: "Senior AI Engineer, LLM Engineer, and SaaS Architect with 20+ years of engineering experience designing and delivering AI-powered, multi-tenant SaaS platforms. Specialized in integrating LLMs (Qwen3, Llama3, Claude, GPT, Mistral) using a/ollama, LangChain, LlamaIndex, and custom retrieval pipelines.",
+
+    linkedin: "https://www.linkedin.com/in/carthworks",
+    github: "https://github.com/carthworks",
+    behance: "https://www.behance.net/carthworks",
+    flickr: "https://www.flickr.com/photos/carthworks",
+    resume: "/resume.pdf",
+
+    bio: "I’m a problem solver at heart with 15+ years of hands-on experience and over two decades in the software industry. I design and build production-ready, scalable SaaS platforms by deeply understanding how systems work, identifying real business pain points, and turning them into practical, maintainable solutions. My work focuses on clean architecture, performance, security, and AI systems that ship to real users—not demos.",
+
+    summary:
+        "AI Engineer and SaaS Architect with 20+ years of engineering experience building and scaling multi-tenant web and SaaS platforms. I specialize in full-stack systems using Next.js and .NET, and in integrating practical AI using LLMs such as Qwen3, Llama3, GPT, Claude, and Mistral via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Strong focus on architecture, reliability, and real-world AI adoption."
 };
+
 
 export const skills = {
     "AI & LLM Engineering": [
@@ -144,6 +150,7 @@ export const projects = {
             description: "Ask questions and retrieve insights from your own documents using a Retrieval-Augmented Generation system.",
             url: "https://ask-mydocs.vercel.app/",
             image: "/images/askmydocs.png",
+            staus: "live" ? "Live" : "Coming Soon",
         },
         {
             name: "LibraDigitAI",
@@ -178,6 +185,12 @@ export const projects = {
             image: "/images/paperpublish.png",
         },
         // {
+        //     name: "Cybersecurity Workshop",
+        //     description: "AI-Assisted Cybersecurity Workshop",
+        //     url: "https://cyber2daytraining.vercel.app/",
+        //     image: "/images/cyber2daytraining.png",
+        // },
+        // {
         //     name: "Kapan",
         //     description: "Private, internal communication platform built for teams that value control and privacy.",
         //     url: "https://kapan01.vercel.app/",
@@ -191,14 +204,7 @@ export const projects = {
             image: "/images/codeshieldai.png",
         },
     ],
-    extensions: [
-        {
-            name: "Chrome Web Store Developer Console Extension",
-            description: "Developer-focused Chrome extension published on the Chrome Web Store.",
-            url: "https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7",
-            image: "/images/chrome_extension.png"
-        },
-    ],
+
     tools: [
         {
             name: "SecuTools.io",
@@ -212,8 +218,20 @@ export const projects = {
             url: "https://aitoolsbox-io.vercel.app/",
             image: "/images/aitoolsvox.png",
         },
-
         {
+            name: "MyTeleprompter",
+            description: "A powerful, easy-to-use teleprompter designed for speakers, presenters, and content creators. Upload your script and deliver flawless performances every time",
+            url: "https://teleprompt-seven.vercel.app/",
+            image: "/images/teleprompt.png",
+        }
+    ],
+    extensions: [
+        {
+            name: "Chrome Web Store Developer Console Extension",
+            description: "Developer-focused Chrome extension published on the Chrome Web Store.",
+            url: "https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7",
+            image: "/images/chrome_extension.png"
+        }, {
             name: "TrustLens – Website Trust & Risk Checker",
             description: "Instant website trust and risk analysis using real-time domain intelligence.",
             url: null,
@@ -242,7 +260,8 @@ export const projects = {
             name: "Screenshotify",
             description: "Offline-first Chrome extension for capturing, annotating, blurring, cropping, and zooming screenshots—privacy guaranteed.",
             url: null,
-        },
+        }
+
     ],
     creative: [
         {

@@ -17,18 +17,18 @@ interface ProjectCategoryProps {
     projects: Project[];
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, type }: { project: Project; type?: string }) {
     const { theme } = useTheme();
 
     const getCardClassName = () => {
-        const baseClasses = "h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col";
+        const baseClasses = "h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col hover:-translate-y-1 hover:scale-[1.02]";
 
         if (theme === 'glassmorphism') {
-            return `${baseClasses} glass-card text-white`;
+            return `${baseClasses} glass-card text-white hover:bg-white/10`;
         } else if (theme === 'claymorphism') {
-            return `${baseClasses} clay-card`;
+            return `${baseClasses} clay-card hover:shadow-xl`;
         }
-        return `${baseClasses} bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-lg`;
+        return `${baseClasses} bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xl`;
     };
 
     const content = (
@@ -44,10 +44,13 @@ function ProjectCard({ project }: { project: Project }) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-6xl font-bold text-zinc-300 dark:text-zinc-700">
-                            {project.name.charAt(0)}
-                        </div>
+                    <div className="absolute inset-0 flex items-center justify-center p-12 opacity-50 grayscale">
+                        <Image
+                            src="/kt_logo_github_sized.png"
+                            alt="KT Logo"
+                            fill
+                            className="object-contain"
+                        />
                     </div>
                 )}
                 {/* Category badge */}
@@ -158,7 +161,7 @@ export default function Projects() {
 
                 <ProjectCategory title="Websites" projects={projects.websites} />
                 <ProjectCategory title="AI & LLM Applications" projects={projects.aiApplications} />
-
+                <ProjectCategory title="Tools" projects={projects.tools} />
                 {/* Chrome Extensions with nested Security & Developer Tools */}
                 <div className="mb-16 last:mb-0">
                     <h3 className={`text-2xl font-semibold mb-6 pb-3 border-b ${theme === 'glassmorphism'
@@ -171,12 +174,12 @@ export default function Projects() {
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                         {projects.extensions.map((project, index) => (
-                            <ProjectCard key={index} project={{ ...project, category: 'Extension' }} />
+                            <ProjectCard key={index} type="list" project={{ ...project, category: 'Extension' }} />
                         ))}
                     </div>
 
                     {/* Nested Security & Developer Tools */}
-                    <div className="mt-8 pl-6 border-l-4 border-zinc-300 dark:border-zinc-700">
+                    {/* <div className="mt-8 pl-6 border-l-4 border-zinc-300 dark:border-zinc-700">
                         <h4 className={`text-xl font-semibold mb-4 ${theme === 'glassmorphism'
                             ? 'text-white/90'
                             : 'text-zinc-800 dark:text-zinc-200'
@@ -188,7 +191,7 @@ export default function Projects() {
                                 <ProjectCard key={index} project={{ ...project, category: 'Tool' }} />
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <ProjectCategory title="Creative Projects" projects={projects.creative} />

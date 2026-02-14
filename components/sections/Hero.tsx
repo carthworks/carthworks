@@ -140,19 +140,19 @@ export default function Hero() {
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col gap-2 pt-2">
-                            <a
+                            {/* <a
                                 href="#projects"
                                 className={getButtonClassName('primary')}
                                 onClick={(e) => handleHeroNavClick(e, '#projects')}
                             >
                                 View Projects
-                            </a>
+                            </a> */}
                             <a
                                 href="#contact"
                                 className={getButtonClassName('secondary')}
                                 onClick={(e) => handleHeroNavClick(e, '#contact')}
                             >
-                                Contact Me
+                                Let’s Solve a Real Problem
                             </a>
                         </div>
 

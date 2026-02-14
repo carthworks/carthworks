@@ -12,9 +12,9 @@ export default function Home() {
             {/* Mobile: Stack vertically */}
             <div className="lg:hidden">
                 <Hero />
+                <Projects />
                 <Experience />
                 <Skills />
-                <Projects />
                 <Contact />
                 <Footer />
             </div>
@@ -28,9 +28,9 @@ export default function Home() {
 
                 {/* Right Side - Scrollable Content (3/4 width) */}
                 <div id="content-scroll" className="col-span-3 h-screen overflow-y-auto scroll-smooth">
+                    <Projects />
                     <Experience />
                     <Skills />
-                    <Projects />
                     <Contact />
                     <Footer />
                 </div>
