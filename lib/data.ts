@@ -149,8 +149,7 @@ export const projects = {
             name: "RAG System for Your Documents",
             description: "Ask questions and retrieve insights from your own documents using a Retrieval-Augmented Generation system.",
             url: "https://ask-mydocs.vercel.app/",
-            image: "/images/askmydocs.png",
-            staus: "live" ? "Live" : "Coming Soon",
+            image: "/images/askmydocs.png"
         },
         {
             name: "LibraDigitAI",
