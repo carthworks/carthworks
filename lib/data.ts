@@ -159,6 +159,12 @@ export const projects = {
             image: "/images/ad_librDigitIT_2026.png",
         },
         {
+            name: "ModelMeter: AI FinOps & Observability",
+            description: "ModelMeter is a generic, provider-agnostic AI FinOps and observability platform designed to help organizations monitor, analyze, and optimize their AI/LLM services. It provides real-time insights into usage, costs, performance, and security across different AI providers and models, enabling data-driven decision-making and efficient resource management.",
+            url: "https://model-meter.vercel.app/",
+            image: "/images/hero_dashboard.png"
+        },
+        {
             name: "Professional Web Security Scanner",
             description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
             url: "https://scanova-web.vercel.app/",
