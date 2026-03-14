@@ -53,7 +53,7 @@ export const experience = [
     {
         company: "Virtusa",
         role: "Lead Consultant / Senior Lead Engineer (AI & Full-Stack)",
-        period: "2023 – Present",
+        period: "2023 – 2026",
     },
     {
         company: "Buckman",
@@ -149,7 +149,8 @@ export const projects = {
             name: "RAG System for Your Documents",
             description: "Ask questions and retrieve insights from your own documents using a Retrieval-Augmented Generation system.",
             url: "https://ask-mydocs.vercel.app/",
-            image: "/images/askmydocs.png"
+            image: "/images/askmydocs.png",
+            status: "poc"
         },
         {
             name: "LibraDigitAI",
@@ -157,24 +158,31 @@ export const projects = {
             // url: "https://github.com/carthworks/LibraDigitAI",
             url: "https://libra-digit-web.vercel.app/",
             image: "/images/ad_librDigitIT_2026.png",
+            status: "poc"
+
+
         },
         {
             name: "ModelMeter: AI FinOps & Observability",
-            description: "ModelMeter is a generic, provider-agnostic AI FinOps and observability platform designed to help organizations monitor, analyze, and optimize their AI/LLM services. It provides real-time insights into usage, costs, performance, and security across different AI providers and models, enabling data-driven decision-making and efficient resource management.",
+            description: "ModelMeter is a generic, provider-agnostic AI FinOps and observability platform designed to help organizations monitor, analyze, and optimize their AI/LLM services. ",
+            // It provides real-time insights into usage, costs, performance, and security across different AI providers and models, enabling data-driven decision-making and efficient resource management.
             url: "https://model-meter.vercel.app/",
-            image: "/images/hero_dashboard.png"
+            image: "/images/hero_dashboard.png",
+            status: "idea"
         },
         {
             name: "Professional Web Security Scanner",
             description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
             url: "https://scanova-web.vercel.app/",
             image: "/images/scanova.png",
+            status: "poc"
         },
         {
             name: "ActSMS",
             description: "Automatically converts transactional SMS into reminders, tasks, and alerts — fully on your device with 6 smart pattern types.",
             url: "https://actsms.vercel.app/",
             image: "/images/act-sms.png",
+            status: "idea"
         },
 
         {
@@ -182,18 +190,21 @@ export const projects = {
             description: "A modern, full-stack AI research agent that allows you to upload documents (PDF/TXT), analyze them using local LLMs, view relationship graphs, and chat with your documents.",
             url: "https://research-agent-web.vercel.app/",
             image: "/images/researchAgent.gif",
+            status: "poc"
         },
         {
             name: "SolarFlow",
             description: "Track solar projects from lead to payment. Give customers real-time updates. Get paid on time. All in one place.",
             url: "https://solarflow-web-beta.vercel.app/",
             image: "/images/solarflow.png",
+            status: "idea"
         },
         {
             name: "PaperPublish IQ",
             description: "A comprehensive platform that guides your research from draft to publication-ready with expert mentoring and blind peer review.",
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
+            status: "idea"
         },
         // {
         //     name: "Cybersecurity Workshop",
@@ -213,6 +224,7 @@ export const projects = {
             description: "Your Code Deserves a Security Expert.Now you have one — right on your machine. A 100% local AI-powered code security auditor that scans, explains, and fixes vulnerabilities without sending a single byte to the cloud.Start Secure Scan.",
             url: "https://code-shield-local.vercel.app/",
             image: "/images/codeshieldai.png",
+            status: "poc"
         },
     ],
 
@@ -222,19 +234,23 @@ export const projects = {
             description: "Practical, no-nonsense utilities for cybersecurity engineers and security researchers.",
             url: "https://secutools-io.vercel.app/",
             image: "/images/sectools_io.png",
+            status: "live"
         },
         {
             name: "AI & LLM Handy Tools",
             description: "A curated toolbox of practical utilities for AI engineers, researchers, and prompt engineers.",
             url: "https://aitoolsbox-io.vercel.app/",
             image: "/images/aitoolsvox.png",
+            status: "live"
         },
         {
             name: "MyTeleprompter",
             description: "A powerful, easy-to-use teleprompter designed for speakers, presenters, and content creators. Upload your script and deliver flawless performances every time",
             url: "https://teleprompt-seven.vercel.app/",
             image: "/images/teleprompt.png",
+            status: "live"
         }
+
     ],
     extensions: [
         {

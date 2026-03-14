@@ -10,6 +10,7 @@ interface Project {
     url: string | null;
     category?: string;
     image?: string;
+    status?: string;
 }
 
 interface ProjectCategoryProps {
@@ -19,6 +20,16 @@ interface ProjectCategoryProps {
 
 function ProjectCard({ project, type }: { project: Project; type?: string }) {
     const { theme } = useTheme();
+
+    const getStatusColor = (status: string) => {
+        const s = status.toLowerCase();
+        if (s === 'poc') return 'bg-purple-500 text-white';
+        if (s === 'live') return 'bg-emerald-500 text-white';
+        if (s === 'idea') return 'bg-blue-500 text-white';
+        if (s === 'production') return 'bg-blue-500 text-white';
+        if (s === 'in-progress' || s === 'in progress') return 'bg-amber-500 text-white';
+        return 'bg-zinc-600 dark:bg-zinc-500 text-white';
+    };
 
     const getCardClassName = () => {
         const baseClasses = "h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col hover:-translate-y-1 hover:scale-[1.02]";
@@ -35,6 +46,13 @@ function ProjectCard({ project, type }: { project: Project; type?: string }) {
         <div className={getCardClassName()}>
             {/* Header with Image */}
             <div className="relative w-full h-48 bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
+                {/* Status Ribbon */}
+                {project.status && (
+                    <div className={`absolute top-5 -left-12 w-40 -rotate-45 text-center text-[10px] font-bold py-1.5 shadow-md z-10 uppercase tracking-widest ${getStatusColor(project.status)}`}>
+                        {project.status}
+                    </div>
+                )}
+
                 {project.image ? (
                     <Image
                         src={project.image}
@@ -158,9 +176,9 @@ export default function Projects() {
                     }`}>
                     A selection of production applications, AI tools, and creative experiments
                 </p>
-
-                <ProjectCategory title="Websites" projects={projects.websites} />
                 <ProjectCategory title="AI & LLM Applications" projects={projects.aiApplications} />
+                <ProjectCategory title="Websites" projects={projects.websites} />
+
                 <ProjectCategory title="Tools" projects={projects.tools} />
                 {/* Chrome Extensions with nested Security & Developer Tools */}
                 <div className="mb-16 last:mb-0">
