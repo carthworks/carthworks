@@ -170,6 +170,12 @@ export const projects = {
             url: "https://scanova-web.vercel.app/",
             image: "/images/scanova.png",
         },
+        {
+            name: "ActSMS",
+            description: "Automatically converts transactional SMS into reminders, tasks, and alerts — fully on your device with 6 smart pattern types.",
+            url: "https://actsms.vercel.app/",
+            image: "/images/act-sms.png",
+        },
 
         {
             name: "Research Agent ",
