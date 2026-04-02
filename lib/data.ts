@@ -6,10 +6,10 @@ export const personalInfo = {
     phone: "+91 94867 72206",
     email: "tkarthikeyan@gmail.com",
 
-    linkedin: "https://www.linkedin.com/in/carthworks",
-    github: "https://github.com/carthworks",
-    behance: "https://www.behance.net/carthworks",
-    flickr: "https://www.flickr.com/photos/carthworks",
+    linkedin: "www.linkedin.com/in/carthworks",
+    github: "github.com/carthworks",
+    behance: "www.behance.net/carthworks",
+    flickr: "www.flickr.com/photos/carthworks",
     resume: "/resume.pdf",
 
     bio: "I’m a problem solver at heart with 15+ years of hands-on experience and over two decades in the software industry. I design and build production-ready, scalable SaaS platforms by deeply understanding how systems work, identifying real business pain points, and turning them into practical, maintainable solutions. My work focuses on clean architecture, performance, security, and AI systems that ship to real users—not demos.",
@@ -152,6 +152,7 @@ export const projects = {
             image: "/images/askmydocs.png",
             status: "poc"
         },
+
         {
             name: "LibraDigitAI",
             description: "AI-powered digitization and digital archive builder for libraries. A production-grade desktop application that converts scanned documents into searchable, metadata-rich archives through a guided workflow.",
@@ -205,6 +206,13 @@ export const projects = {
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
             status: "idea"
+        },
+        {
+            name: "WingzAI Platform",
+            description: "One platform to manage multiple connectors and services, build AI agents, and automate workflows.Access security, compliance, automation, and other capabilities from a single, unified workspace.",
+            url: "https://wingzai.deltaphi.in/login",
+            image: "/images/wingzai.png",
+            status: "live"
         },
         // {
         //     name: "Cybersecurity Workshop",
