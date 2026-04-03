@@ -99,6 +99,13 @@ export const projects = {
             image: "/images/royal_albatross.png",
         },
         {
+            name: "Nesam Radio",
+            description: "Live Tamil music, devotional songs, latest hits, news & podcasts – straight from the heart of Tamil Nadu. Listen anytime, anywhere.",
+            url: "https://nesammedia.royalalbatrossexports.in/",
+            image: "/images/nesam_radio.png",
+        },
+
+        {
             name: "DSR Photos & Videos",
             description: "Professional photography and videography for destination weddings, editorial shoots, and portrait sessions.",
             url: "https://dsr-photos-web.vercel.app/",
