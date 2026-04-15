@@ -235,7 +235,7 @@ export const projects = {
         // },
         {
             name: "AI-Powered Crop Intelligence Assistant",
-            description: "https://crop-shield-dusky.vercel.app/",
+            description: "AgriAidAI is an open-source agricultural intelligence platform that uses computer vision and machine learning to detect crop diseases instantly, provide expert treatment plans, and help farmers protect their harvests with data-driven confidence.",
             url: "https://crop-shield-dusky.vercel.app/",
             image: "/images/hero-picture.png",
             status: "poc"
