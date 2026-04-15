@@ -233,6 +233,13 @@ export const projects = {
         //     url: "https://kapan01.vercel.app/",
         //     image: "/images/kapan.png",
         // },
+        {
+            name: "AI-Powered Crop Intelligence Assistant",
+            description: "https://crop-shield-dusky.vercel.app/",
+            url: "https://crop-shield-dusky.vercel.app/",
+            image: "/images/hero-picture.png",
+            status: "poc"
+        },
 
         {
             name: "CodeShield Local ",
