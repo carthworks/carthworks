@@ -248,6 +248,13 @@ export const projects = {
             image: "/images/codeshieldai.png",
             status: "poc"
         },
+        {
+            name: "Hyperlocal-Heat-Intelligence-Platform",
+            description: "The Hyperlocal Heat Intelligence Platform bridges this gap. By combining physical weather forecasting, satellite intelligence, GIS terrain data, and an AI-based downscaling engine, the platform transforms coarse weather data into highly actionable, 100m-resolution predictive heat grids.",
+            url: "https://hyperlocal-heat-intelligence-platfo.vercel.app/",
+            image: "/images/gis_dashboard_1779014141485.png",
+            status: "poc"
+        }
     ],
 
     tools: [
