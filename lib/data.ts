@@ -254,7 +254,15 @@ export const projects = {
             url: "https://hyperlocal-heat-intelligence-platfo.vercel.app/",
             image: "/images/gis_dashboard_1779014141485.png",
             status: "poc"
-        }
+        },
+            {
+             name: "AI-Augmented Security Posture Intelligence Platform",
+            description: "An AI-augmented vulnerability management and security posture platform that unifies vulnerability, container/SCA, and secret scanning into a single multi-tenant SaaS. It enriches findings with real-world risk signals and generates plain-English explanations and remediation plans using Anthropic Claude..",
+            url: "https://github.com/cybersigmaINC/security-platform",
+            image: "/images/security-platform01.jpeg",
+            status: "poc"
+
+            }
     ],
 
     tools: [
