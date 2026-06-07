@@ -255,14 +255,22 @@ export const projects = {
             image: "/images/gis_dashboard_1779014141485.png",
             status: "poc"
         },
-            {
-             name: "AI-Augmented Security Posture Intelligence Platform",
+        {
+            name: "AI-Augmented Security Posture Intelligence Platform",
             description: "An AI-augmented vulnerability management and security posture platform that unifies vulnerability, container/SCA, and secret scanning into a single multi-tenant SaaS. It enriches findings with real-world risk signals and generates plain-English explanations and remediation plans using Anthropic Claude..",
             url: "https://github.com/cybersigmaINC/security-platform",
             image: "/images/security-platform01.jpeg",
             status: "poc"
 
-            }
+        },
+        {
+            name: "ThreatLens",
+            description: "ThreatLens is an AI-powered Security Posture Intelligence Platform that enables organizations to continuously discover assets, assess attack surfaces, model threats, prioritize risk, and improve cybersecurity posture.",
+            url: "https://carthworks.vercel.app/",
+            image: "/images/threatlens.png",
+            status: "idea"
+
+        }
     ],
 
     tools: [
