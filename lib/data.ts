@@ -171,6 +171,13 @@ export const projects = {
 
         },
         {
+            name: "AI-Augmented Security Posture Intelligence Platform",
+            description: "An AI-augmented vulnerability management and security posture platform that unifies vulnerability, container/SCA, and secret scanning into a single multi-tenant SaaS. It enriches findings with real-world risk signals and generates plain-English explanations and remediation plans using Anthropic Claude",
+            url: "https://security-platform-plan.vercel.app/",
+            image: "/images/sec-platform.png",
+            status: "poc"
+        },
+        {
             name: "ModelMeter: AI FinOps & Observability",
             description: "ModelMeter is a generic, provider-agnostic AI FinOps and observability platform designed to help organizations monitor, analyze, and optimize their AI/LLM services. ",
             // It provides real-time insights into usage, costs, performance, and security across different AI providers and models, enabling data-driven decision-making and efficient resource management.
