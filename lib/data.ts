@@ -228,18 +228,18 @@ export const projects = {
             image: "/images/wingzai.png",
             status: "live"
         },
-        // {
-        //     name: "Cybersecurity Workshop",
-        //     description: "AI-Assisted Cybersecurity Workshop",
-        //     url: "https://cyber2daytraining.vercel.app/",
-        //     image: "/images/cyber2daytraining.png",
-        // },
-        // {
-        //     name: "Kapan",
-        //     description: "Private, internal communication platform built for teams that value control and privacy.",
-        //     url: "https://kapan01.vercel.app/",
-        //     image: "/images/kapan.png",
-        // },
+        {
+            name: "Cybersecurity Workshop",
+            description: "AI-Assisted Cybersecurity Workshop",
+            url: "https://cyber2daytraining.vercel.app/",
+            image: "/images/cyber2daytraining.png",
+        },
+        {
+            name: "Kapan",
+            description: "Private, internal communication platform built for teams that value control and privacy.",
+            url: "https://kapan01.vercel.app/",
+            image: "/images/kapan.png",
+        },
         {
             name: "AI-Powered Crop Intelligence Assistant",
             description: "AgriAidAI is an open-source agricultural intelligence platform that uses computer vision and machine learning to detect crop diseases instantly, provide expert treatment plans, and help farmers protect their harvests with data-driven confidence.",
