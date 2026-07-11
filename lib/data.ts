@@ -233,6 +233,7 @@ export const projects = {
             description: "AI-Assisted Cybersecurity Workshop",
             url: "https://cyber2daytraining.vercel.app/",
             image: "/images/cyber2daytraining.png",
+            status: "live"
         },
         {
             name: "Kapan",
