@@ -37,6 +37,7 @@ const filters = [
     { label: 'AI Apps', value: 'AI & LLM Applications' },
     { label: 'Websites', value: 'Websites' },
     { label: 'Tools', value: 'Tools' },
+    { label: 'Extensions', value: 'Chrome Extensions' },
 ];
 
 function getStatusLabel(status: string) {

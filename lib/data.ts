@@ -103,12 +103,14 @@ export const projects = {
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
             url: "https://royalalbatrossexports.in/",
             image: "/images/royal_albatross.png",
+            status: "Live"
         },
         {
             name: "SN Exports",
             description: "Karur Cotton Export Manufacturing Company specializing in high-quality cotton products for global markets.",
             url: "https://snexports.net/",
-            image: "/images/sn_exports.png"
+            image: "/images/sn_exports.png",
+            status: "Live"
         },
         {
             name: "Nesam Radio",
@@ -127,6 +129,7 @@ export const projects = {
             description: "Specialized manufacturers of high-quality shoe laces and industrial ropes.",
             url: "https://cbclaces.com/",
             image: "/images/cbclacs.png",
+            status: "Live"
         },
         {
             name: "HIRENCH HR Solutions",
