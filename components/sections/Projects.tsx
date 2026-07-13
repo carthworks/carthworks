@@ -1,8 +1,9 @@
 'use client';
 
+import { useMemo, useState } from 'react';
+import Image from 'next/image';
 import { projects } from '@/lib/data';
 import { useTheme } from '@/contexts/ThemeContext';
-import Image from 'next/image';
 
 interface Project {
     name: string;
@@ -11,6 +12,8 @@ interface Project {
     category?: string;
     image?: string;
     status?: string;
+    tags?: string[];
+    featured?: boolean;
 }
 
 interface ProjectCategoryProps {
@@ -18,21 +21,44 @@ interface ProjectCategoryProps {
     projects: Project[];
 }
 
-function ProjectCard({ project, type }: { project: Project; type?: string }) {
+const categoryTitles = {
+    aiApplications: 'AI & LLM Applications',
+    websites: 'Websites',
+    tools: 'Tools',
+    extensions: 'Chrome Extensions',
+    creative: 'Creative Projects',
+};
+
+const filters = [
+    { label: 'All', value: 'all' },
+    { label: 'Live', value: 'live' },
+    { label: 'POC', value: 'poc' },
+    { label: 'Idea', value: 'idea' },
+    { label: 'AI Apps', value: 'AI & LLM Applications' },
+    { label: 'Websites', value: 'Websites' },
+    { label: 'Tools', value: 'Tools' },
+];
+
+function getStatusLabel(status: string) {
+    if (status.toLowerCase() === 'poc') return 'POC';
+    return status;
+}
+
+function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
     const { theme } = useTheme();
 
     const getStatusColor = (status: string) => {
-        const s = status.toLowerCase();
-        if (s === 'poc') return 'bg-purple-500 text-white';
-        if (s === 'live') return 'bg-emerald-500 text-white';
-        if (s === 'idea') return 'bg-blue-500 text-white';
-        if (s === 'production') return 'bg-blue-500 text-white';
-        if (s === 'in-progress' || s === 'in progress') return 'bg-amber-500 text-white';
+        const normalizedStatus = status.toLowerCase();
+        if (normalizedStatus === 'poc') return 'bg-violet-600 text-white';
+        if (normalizedStatus === 'live') return 'bg-emerald-600 text-white';
+        if (normalizedStatus === 'idea') return 'bg-sky-600 text-white';
+        if (normalizedStatus === 'production') return 'bg-blue-600 text-white';
+        if (normalizedStatus === 'in-progress' || normalizedStatus === 'in progress') return 'bg-amber-500 text-white';
         return 'bg-zinc-600 dark:bg-zinc-500 text-white';
     };
 
     const getCardClassName = () => {
-        const baseClasses = "h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col hover:-translate-y-1 hover:scale-[1.02]";
+        const baseClasses = `group h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col ${featured ? 'md:flex-row' : ''} hover:-translate-y-1`;
 
         if (theme === 'glassmorphism') {
             return `${baseClasses} glass-card text-white hover:bg-white/10`;
@@ -42,14 +68,14 @@ function ProjectCard({ project, type }: { project: Project; type?: string }) {
         return `${baseClasses} bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xl`;
     };
 
+    const imageClassName = featured ? 'relative w-full md:w-2/5 h-56 md:h-auto min-h-56' : 'relative w-full h-44';
+
     const content = (
         <div className={getCardClassName()}>
-            {/* Header with Image */}
-            <div className="relative w-full h-48 bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
-                {/* Status Ribbon */}
+            <div className={`${imageClassName} bg-zinc-100 dark:bg-zinc-800 overflow-hidden`}>
                 {project.status && (
-                    <div className={`absolute top-5 -left-12 w-40 -rotate-45 text-center text-[10px] font-bold py-1.5 shadow-md z-10 uppercase tracking-widest ${getStatusColor(project.status)}`}>
-                        {project.status}
+                    <div className={`absolute top-4 left-4 z-10 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest shadow-sm ${getStatusColor(project.status)}`}>
+                        {getStatusLabel(project.status)}
                     </div>
                 )}
 
@@ -58,11 +84,11 @@ function ProjectCard({ project, type }: { project: Project; type?: string }) {
                         src={project.image}
                         alt={project.name}
                         fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes={featured ? '(max-width: 768px) 100vw, 40vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw'}
                     />
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center p-12 opacity-50 grayscale">
+                    <div className="absolute inset-0 flex items-center justify-center p-12 opacity-40 grayscale">
                         <Image
                             src="/kt_logo_github_sized.png"
                             alt="KT Logo"
@@ -71,46 +97,63 @@ function ProjectCard({ project, type }: { project: Project; type?: string }) {
                         />
                     </div>
                 )}
-                {/* Category badge */}
-                {project.category && (
-                    <div className="absolute top-4 right-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${theme === 'glassmorphism'
-                            ? 'bg-white/20 text-white backdrop-blur-sm'
-                            : theme === 'claymorphism'
-                                ? 'bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300'
-                                : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
+            </div>
+
+            <div className={`${featured ? 'md:w-3/5' : ''} flex flex-1 flex-col p-5`}>
+                <div className="mb-3 flex items-center justify-between gap-3">
+                    {project.category && (
+                        <span className={`rounded-full px-3 py-1 text-[11px] font-medium ${theme === 'glassmorphism'
+                            ? 'bg-white/15 text-white'
+                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300'
                             }`}>
                             {project.category}
                         </span>
-                    </div>
-                )}
-            </div>
+                    )}
+                    {featured && (
+                        <span className={`text-[11px] font-semibold uppercase tracking-widest ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                            Featured
+                        </span>
+                    )}
+                </div>
 
-            {/* Body */}
-            <div className="flex-1 p-6 flex flex-col">
-                <h4 className={`text-lg font-semibold mb-2 ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
+                <h4 className={`text-lg font-semibold leading-snug ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
                     }`}>
                     {project.name}
                 </h4>
-                <p className={`text-sm leading-relaxed mb-4 flex-1 ${theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-600 dark:text-zinc-400'
+                <p className={`mt-2 text-sm leading-relaxed ${featured ? '' : 'line-clamp-4'} ${theme === 'glassmorphism' ? 'text-white/85' : 'text-zinc-600 dark:text-zinc-400'
                     }`}>
                     {project.description}
                 </p>
 
-                {/* Link */}
-                {project.url && (
-                    <div className="mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                        <div className={`flex items-center gap-2 text-sm font-medium ${theme === 'glassmorphism'
-                            ? 'text-white'
-                            : 'text-zinc-700 dark:text-zinc-300'
-                            }`}>
-                            <span>View Project</span>
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </div>
+                {project.tags && project.tags.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                        {project.tags.slice(0, featured ? 5 : 3).map((tag) => (
+                            <span
+                                key={`${project.name}-${tag}`}
+                                className={`rounded-md px-2 py-1 text-[11px] ${theme === 'glassmorphism'
+                                    ? 'bg-white/10 text-white/80'
+                                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300'
+                                    }`}
+                            >
+                                {tag}
+                            </span>
+                        ))}
                     </div>
                 )}
+
+                <div className={`mt-auto pt-5 ${project.url ? '' : 'opacity-60'}`}>
+                    <div className={`flex items-center gap-2 text-sm font-medium ${theme === 'glassmorphism'
+                        ? 'text-white'
+                        : 'text-zinc-700 dark:text-zinc-300'
+                        }`}>
+                        <span>{project.url ? 'View Project' : 'Concept Preview'}</span>
+                        {project.url && (
+                            <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
+                            </svg>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -134,19 +177,24 @@ function ProjectCard({ project, type }: { project: Project; type?: string }) {
 function ProjectCategory({ title, projects }: ProjectCategoryProps) {
     const { theme } = useTheme();
 
+    if (projects.length === 0) return null;
+
     return (
-        <div className="mb-16 last:mb-0">
-            <h3 className={`text-2xl font-semibold mb-6 pb-3 border-b ${theme === 'glassmorphism'
-                ? 'text-white border-white/20'
-                : theme === 'claymorphism'
-                    ? 'text-zinc-900 dark:text-zinc-50 border-zinc-300 dark:border-zinc-700'
-                    : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
-                }`}>
-                {title}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} project={{ ...project, category: title.split(' ')[0] }} />
+        <div className="mb-14 last:mb-0">
+            <div className="mb-6 flex items-end justify-between gap-4 border-b border-zinc-200 pb-3 dark:border-zinc-800">
+                <h3 className={`text-2xl font-semibold ${theme === 'glassmorphism'
+                    ? 'text-white'
+                    : 'text-zinc-900 dark:text-zinc-50'
+                    }`}>
+                    {title}
+                </h3>
+                <span className={`text-sm ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                    {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+                </span>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {projects.map((project) => (
+                    <ProjectCard key={`${title}-${project.name}`} project={project} />
                 ))}
             </div>
         </div>
@@ -155,6 +203,27 @@ function ProjectCategory({ title, projects }: ProjectCategoryProps) {
 
 export default function Projects() {
     const { theme } = useTheme();
+    const [activeFilter, setActiveFilter] = useState('all');
+
+    const allProjects = useMemo<Project[]>(() => Object.entries(projects).flatMap(([key, projectList]) => {
+        const title = categoryTitles[key as keyof typeof categoryTitles];
+        return projectList.map((project): Project => ({
+            ...project,
+            category: title,
+        }));
+    }), []);
+
+    const featuredProjects = allProjects.filter((project) => project.featured);
+    const visibleProjects = allProjects.filter((project) => {
+        if (activeFilter === 'all') return true;
+        const normalizedFilter = activeFilter.toLowerCase();
+        return project.status?.toLowerCase() === normalizedFilter || project.category === activeFilter;
+    });
+
+    const groupedProjects = Object.values(categoryTitles).map((title) => ({
+        title,
+        projects: visibleProjects.filter((project) => project.category === title),
+    }));
 
     const getSectionClassName = () => {
         if (theme === 'glassmorphism') {
@@ -165,54 +234,82 @@ export default function Projects() {
         return 'py-24 px-6 bg-white dark:bg-zinc-900';
     };
 
+    const getFilterClassName = (value: string) => {
+        const isActive = activeFilter === value;
+        const baseClasses = 'rounded-full px-4 py-2 text-sm font-medium transition-all';
+
+        if (theme === 'glassmorphism') {
+            return `${baseClasses} ${isActive ? 'bg-white text-zinc-950' : 'bg-white/10 text-white hover:bg-white/20'}`;
+        } else if (theme === 'claymorphism') {
+            return `${baseClasses} ${isActive ? 'clay-card text-zinc-900 dark:text-zinc-50' : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'}`;
+        }
+        return `${baseClasses} ${isActive
+            ? 'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900'
+            : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700'
+            }`;
+    };
+
     return (
         <section id="projects" className={getSectionClassName()}>
-            <div className="max-w-6xl mx-auto">
-                <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
-                    }`}>
-                    Projects & Portfolio
-                </h2>
-                <p className={`text-lg mb-12 max-w-2xl ${theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-600 dark:text-zinc-400'
-                    }`}>
-                    A selection of production applications, AI tools, and creative experiments
-                </p>
-                <ProjectCategory title="AI & LLM Applications" projects={projects.aiApplications} />
-                <ProjectCategory title="Websites" projects={projects.websites} />
-
-                <ProjectCategory title="Tools" projects={projects.tools} />
-                {/* Chrome Extensions with nested Security & Developer Tools */}
-                <div className="mb-16 last:mb-0">
-                    <h3 className={`text-2xl font-semibold mb-6 pb-3 border-b ${theme === 'glassmorphism'
-                        ? 'text-white border-white/20'
-                        : theme === 'claymorphism'
-                            ? 'text-zinc-900 dark:text-zinc-50 border-zinc-300 dark:border-zinc-700'
-                            : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
-                        }`}>
-                        Chrome Extensions
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                        {projects.extensions.map((project, index) => (
-                            <ProjectCard key={index} type="list" project={{ ...project, category: 'Extension' }} />
-                        ))}
+            <div className="mx-auto max-w-6xl">
+                <div className="mb-10 flex flex-col gap-6">
+                    <div>
+                        <h2 className={`text-4xl font-bold lg:text-5xl ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
+                            }`}>
+                            Projects & Portfolio
+                        </h2>
+                        <p className={`mt-4 max-w-2xl text-lg ${theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-600 dark:text-zinc-400'
+                            }`}>
+                            Production applications, AI tools, SaaS platforms, and practical experiments built around real problems.
+                        </p>
                     </div>
 
-                    {/* Nested Security & Developer Tools */}
-                    {/* <div className="mt-8 pl-6 border-l-4 border-zinc-300 dark:border-zinc-700">
-                        <h4 className={`text-xl font-semibold mb-4 ${theme === 'glassmorphism'
-                            ? 'text-white/90'
-                            : 'text-zinc-800 dark:text-zinc-200'
-                            }`}>
-                            Security & Developer Tools
-                        </h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {projects.tools.map((project, index) => (
-                                <ProjectCard key={index} project={{ ...project, category: 'Tool' }} />
-                            ))}
-                        </div>
-                    </div> */}
+                    <div className="flex flex-wrap gap-2" aria-label="Project filters">
+                        {filters.map((filter) => (
+                            <button
+                                key={filter.value}
+                                type="button"
+                                onClick={() => setActiveFilter(filter.value)}
+                                className={getFilterClassName(filter.value)}
+                            >
+                                {filter.label}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                <ProjectCategory title="Creative Projects" projects={projects.creative} />
+                {activeFilter === 'all' && featuredProjects.length > 0 && (
+                    <div className="mb-16">
+                        <div className="mb-6 flex items-end justify-between gap-4">
+                            <div>
+                                <h3 className={`text-2xl font-semibold ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'}`}>
+                                    Featured Builds
+                                </h3>
+                                <p className={`mt-2 text-sm ${theme === 'glassmorphism' ? 'text-white/75' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                                    A quick signal of the strongest AI, SaaS, and security work.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                            {featuredProjects.map((project) => (
+                                <ProjectCard key={`featured-${project.name}`} project={project} featured />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {visibleProjects.length > 0 ? (
+                    groupedProjects.map((group) => (
+                        <ProjectCategory key={group.title} title={group.title} projects={group.projects} />
+                    ))
+                ) : (
+                    <div className={`rounded-lg p-8 text-center ${theme === 'glassmorphism'
+                        ? 'glass-card text-white'
+                        : 'bg-zinc-50 text-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-300'
+                        }`}>
+                        No projects match this filter yet.
+                    </div>
+                )}
             </div>
         </section>
     );

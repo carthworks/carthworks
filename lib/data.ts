@@ -1,6 +1,6 @@
 export const personalInfo = {
     name: "Karthikeyan T",
-    title: "AI Engineer • SaaS Architect",
+    title: "AI Engineer | SaaS Architect",
 
     location: "India",
     phone: "+91 94867 72206",
@@ -12,16 +12,22 @@ export const personalInfo = {
     flickr: "www.flickr.com/photos/carthworks",
     resume: "/resume.pdf",
 
-    bio: "I’m a problem solver at heart with 15+ years of hands-on experience and over two decades in the software industry. I design and build production-ready, scalable SaaS platforms by deeply understanding how systems work, identifying real business pain points, and turning them into practical, maintainable solutions. My work focuses on clean architecture, performance, security, and AI systems that ship to real users—not demos.",
+    bio: "I am a problem solver at heart with 15+ years of hands-on experience and over two decades in software. I design and build production-ready SaaS platforms by understanding how systems work, identifying real business pain points, and turning them into practical, maintainable solutions. My work focuses on clean architecture, performance, security, and AI systems that ship to real users.",
 
     summary:
-        "AI Engineer and SaaS Architect with 20+ years of engineering experience building and scaling multi-tenant web and SaaS platforms. I specialize in full-stack systems using Next.js and .NET, and in integrating practical AI using LLMs such as Qwen3, Llama3, GPT, Claude, and Mistral via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Strong focus on architecture, reliability, and real-world AI adoption."
+        "AI Engineer and SaaS Architect with 20+ years of engineering experience building and scaling multi-tenant web and SaaS platforms. I specialize in full-stack systems using Next.js and .NET, and in integrating practical AI using LLMs such as Qwen3, Llama3, GPT, Claude, and Mistral via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Strong focus on architecture, reliability, and real-world AI adoption.",
 };
 
+export const portfolioStats = [
+    { value: "20+", label: "Years engineering" },
+    { value: "15+", label: "Products shipped" },
+    { value: "AI", label: "LLM, RAG, agents" },
+    { value: "SaaS", label: "Multi-tenant systems" },
+];
 
 export const skills = {
     "AI & LLM Engineering": [
-        "a/ollama + Qwen3 / Llama models integration",
+        "Ollama + Qwen3 / Llama models integration",
         "RAG pipelines with LangChain, ChromaDB, Faiss, pgVector",
         "AI agents for workflow automation and penetration testing",
         "Secure prompt pipelines, autonomous agent chaining",
@@ -53,32 +59,32 @@ export const experience = [
     {
         company: "Virtusa",
         role: "Lead Consultant / Senior Lead Engineer (AI & Full-Stack)",
-        period: "2023 – 2026",
+        period: "2023 - 2026",
     },
     {
         company: "Buckman",
         role: "Senior Digital Innovation Engineer",
-        period: "2021 – 2023",
+        period: "2021 - 2023",
     },
     {
         company: "PushPros",
         role: "Senior Full-Stack Developer",
-        period: "2020 – 2021",
+        period: "2020 - 2021",
     },
     {
         company: "AURISS Technologies",
         role: "Senior Engineer (AI & Cybersecurity SaaS)",
-        period: "2017 – 2020",
+        period: "2017 - 2020",
     },
     {
-        company: "Pacific Controls , Dubai, UAE",
+        company: "Pacific Controls, Dubai, UAE",
         role: "UI/Web Developer (IoT Platforms)",
-        period: "2015 – 2016",
+        period: "2015 - 2016",
     },
 ];
 
 export const education = {
-    degree: "B.Sc – Computer Science",
+    degree: "B.Sc - Computer Science",
     institution: "Bharathiar University",
 };
 
@@ -100,11 +106,10 @@ export const projects = {
         },
         {
             name: "Nesam Radio",
-            description: "Live Tamil music, devotional songs, latest hits, news & podcasts – straight from the heart of Tamil Nadu. Listen anytime, anywhere.",
+            description: "Tamil music, devotional programs, news, and podcasts streamed from Tamil Nadu.",
             url: "https://nesammedia.royalalbatrossexports.in/",
             image: "/images/nesam_radio.png",
         },
-
         {
             name: "DSR Photos & Videos",
             description: "Professional photography and videography for destination weddings, editorial shoots, and portrait sessions.",
@@ -119,11 +124,10 @@ export const projects = {
         },
         {
             name: "HIRENCH HR Solutions",
-            description: "Leading recruitment and HR consulting firm in Chennai, Tamil Nadu. Specializing in permanent staffing, temporary recruitment, executive search, and comprehensive HR services across 15+ industries.",
+            description: "Recruitment and HR consulting platform for staffing, executive search, and industry hiring workflows.",
             url: "https://hirench.vercel.app/",
             image: "/images/hirench.png",
         },
-
         {
             name: "Ark Veterinary Clinic",
             description: "Comprehensive veterinary care with a focus on preventive and clinical services.",
@@ -132,12 +136,10 @@ export const projects = {
         },
         {
             name: "Sri Kaliamman Textiles",
-            description: "Leading textile manufacturer in Chennai, Tamil Nadu. Specializing in permanent staffing, temporary recruitment, executive search, and comprehensive HR services across 15+ industries.",
+            description: "Textile manufacturer website focused on product presentation, credibility, and inbound enquiries.",
             url: "https://srikaliamman-textiles.vercel.app/",
             image: "/images/srikaliamman.png",
         },
-
-
         {
             name: "30-Day Ethical Hacking Bootcamp",
             description: "Hands-on ethical hacking training designed to build real-world offensive security skills in 30 days.",
@@ -157,128 +159,116 @@ export const projects = {
             description: "Ask questions and retrieve insights from your own documents using a Retrieval-Augmented Generation system.",
             url: "https://ask-mydocs.vercel.app/",
             image: "/images/askmydocs.png",
-            status: "poc"
+            status: "poc",
+            tags: ["RAG", "LLM", "Documents"],
         },
-
         {
             name: "LibraDigitAI",
-            description: "AI-powered digitization and digital archive builder for libraries. A production-grade desktop application that converts scanned documents into searchable, metadata-rich archives through a guided workflow.",
-            // url: "https://github.com/carthworks/LibraDigitAI",
+            description: "AI-powered digitization system that turns scanned library documents into searchable, metadata-rich archives.",
             url: "https://libra-digit-web.vercel.app/",
             image: "/images/ad_librDigitIT_2026.png",
-            status: "poc"
-
-
+            status: "poc",
+            tags: ["AI", "OCR", "Archives"],
+            featured: true,
         },
         {
-            name: "AI-Augmented Security Posture Intelligence Platform",
-            description: "An AI-augmented vulnerability management and security posture platform that unifies vulnerability, container/SCA, and secret scanning into a single multi-tenant SaaS. It enriches findings with real-world risk signals and generates plain-English explanations and remediation plans using Anthropic Claude",
+            name: "Security Posture Intelligence Platform",
+            description: "Multi-tenant security platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
             url: "https://security-platform-plan.vercel.app/",
             image: "/images/sec-platform.png",
-            status: "poc"
+            status: "poc",
+            tags: ["Security", "SaaS", "Claude"],
         },
         {
             name: "ModelMeter: AI FinOps & Observability",
-            description: "ModelMeter is a generic, provider-agnostic AI FinOps and observability platform designed to help organizations monitor, analyze, and optimize their AI/LLM services. ",
-            // It provides real-time insights into usage, costs, performance, and security across different AI providers and models, enabling data-driven decision-making and efficient resource management.
+            description: "Provider-agnostic AI FinOps platform for monitoring LLM usage, costs, performance, and reliability.",
             url: "https://model-meter.vercel.app/",
             image: "/images/hero_dashboard.png",
-            status: "idea"
+            status: "idea",
+            tags: ["FinOps", "Observability", "LLM"],
         },
         {
             name: "Professional Web Security Scanner",
             description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
             url: "https://scanova-web.vercel.app/",
             image: "/images/scanova.png",
-            status: "poc"
+            status: "poc",
+            tags: ["Security", "Scanner", "Web"],
         },
         {
             name: "ActSMS",
-            description: "Automatically converts transactional SMS into reminders, tasks, and alerts — fully on your device with 6 smart pattern types.",
+            description: "On-device assistant that converts transactional SMS messages into reminders, tasks, and alerts.",
             url: "https://actsms.vercel.app/",
             image: "/images/act-sms.png",
-            status: "idea"
-        },
-
-        {
-            name: "Research Agent ",
-            description: "A modern, full-stack AI research agent that allows you to upload documents (PDF/TXT), analyze them using local LLMs, view relationship graphs, and chat with your documents.",
-            url: "https://research-agent-web.vercel.app/",
-            image: "/images/researchAgent.gif",
-            status: "poc"
+            status: "idea",
+            tags: ["Mobile", "Automation", "Privacy"],
         },
         {
             name: "SolarFlow",
-            description: "Track solar projects from lead to payment. Give customers real-time updates. Get paid on time. All in one place.",
+            description: "Track solar projects from lead to payment, customer updates, and collection follow-ups in one workflow.",
             url: "https://solarflow-web-beta.vercel.app/",
             image: "/images/solarflow.png",
-            status: "idea"
+            status: "idea",
+            tags: ["SaaS", "Workflow", "Solar"],
         },
         {
             name: "PaperPublish IQ",
-            description: "A comprehensive platform that guides your research from draft to publication-ready with expert mentoring and blind peer review.",
+            description: "Research workflow platform that guides drafts toward publication with mentoring and blind peer review.",
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
-            status: "idea"
+            status: "idea",
+            tags: ["Research", "Publishing", "Workflow"],
         },
         {
             name: "WingzAI Platform",
-            description: "One platform to manage multiple connectors and services, build AI agents, and automate workflows.Access security, compliance, automation, and other capabilities from a single, unified workspace.",
+            description: "Unified workspace to manage connectors, build AI agents, and automate security, compliance, and service workflows.",
             url: "https://wingzai.deltaphi.in/login",
             image: "/images/wingzai.png",
-            status: "live"
+            status: "live",
+            tags: ["AI Agents", "Automation", "Connectors"],
+            featured: true,
         },
         {
             name: "Cybersecurity Workshop",
-            description: "AI-Assisted Cybersecurity Workshop",
+            description: "AI-assisted cybersecurity workshop site for hands-on training, security learning paths, and practical labs.",
             url: "https://cyber2daytraining.vercel.app/",
             image: "/images/cyber2daytraining.png",
-            status: "live"
+            status: "live",
+            tags: ["Training", "Security", "AI"],
         },
         {
             name: "Kapan",
             description: "Private, internal communication platform built for teams that value control and privacy.",
             url: "https://kapan01.vercel.app/",
             image: "/images/kapan.png",
+            status: "idea",
+            tags: ["Messaging", "Privacy", "Teams"],
         },
         {
             name: "AI-Powered Crop Intelligence Assistant",
-            description: "AgriAidAI is an open-source agricultural intelligence platform that uses computer vision and machine learning to detect crop diseases instantly, provide expert treatment plans, and help farmers protect their harvests with data-driven confidence.",
+            description: "Agricultural intelligence platform using computer vision and ML to detect crop diseases and recommend treatment plans.",
             url: "https://crop-shield-dusky.vercel.app/",
             image: "/images/hero-picture.png",
-            status: "poc"
+            status: "poc",
+            tags: ["Computer Vision", "Agritech", "ML"],
         },
-
         {
-            name: "CodeShield Local ",
-            description: "Your Code Deserves a Security Expert.Now you have one — right on your machine. A 100% local AI-powered code security auditor that scans, explains, and fixes vulnerabilities without sending a single byte to the cloud.Start Secure Scan.",
+            name: "CodeShield Local",
+            description: "Local AI-powered code security auditor that scans, explains, and helps fix vulnerabilities without sending code to the cloud.",
             url: "https://code-shield-local.vercel.app/",
             image: "/images/codeshieldai.png",
-            status: "poc"
+            status: "poc",
+            tags: ["Local AI", "AppSec", "Privacy"],
+            featured: true,
         },
         {
-            name: "Hyperlocal-Heat-Intelligence-Platform",
-            description: "The Hyperlocal Heat Intelligence Platform bridges this gap. By combining physical weather forecasting, satellite intelligence, GIS terrain data, and an AI-based downscaling engine, the platform transforms coarse weather data into highly actionable, 100m-resolution predictive heat grids.",
+            name: "Hyperlocal Heat Intelligence Platform",
+            description: "AI downscaling platform that combines weather, satellite, and GIS data into 100m-resolution predictive heat grids.",
             url: "https://hyperlocal-heat-intelligence-platfo.vercel.app/",
             image: "/images/gis_dashboard_1779014141485.png",
-            status: "poc"
+            status: "poc",
+            tags: ["GIS", "Climate", "AI"],
         },
-        {
-            name: "AI-Augmented Security Posture Intelligence Platform",
-            description: "An AI-augmented vulnerability management and security posture platform that unifies vulnerability, container/SCA, and secret scanning into a single multi-tenant SaaS. It enriches findings with real-world risk signals and generates plain-English explanations and remediation plans using Anthropic Claude..",
-            url: "https://github.com/cybersigmaINC/security-platform",
-            image: "/images/security-platform01.jpeg",
-            status: "poc"
-
-        },
-        {
-            name: "ThreatLens",
-            description: "ThreatLens is an AI-powered Security Posture Intelligence Platform that enables organizations to continuously discover assets, assess attack surfaces, model threats, prioritize risk, and improve cybersecurity posture.",
-            url: "https://carthworks.vercel.app/",
-            image: "/images/threatlens.png",
-            status: "idea"
-
-        }
     ],
 
     tools: [
@@ -287,48 +277,51 @@ export const projects = {
             description: "Practical, no-nonsense utilities for cybersecurity engineers and security researchers.",
             url: "https://secutools-io.vercel.app/",
             image: "/images/sectools_io.png",
-            status: "live"
+            status: "live",
+            tags: ["Security", "Utilities"],
         },
         {
             name: "AI & LLM Handy Tools",
             description: "A curated toolbox of practical utilities for AI engineers, researchers, and prompt engineers.",
             url: "https://aitoolsbox-io.vercel.app/",
             image: "/images/aitoolsvox.png",
-            status: "live"
+            status: "live",
+            tags: ["LLM", "Utilities"],
         },
         {
             name: "MyTeleprompter",
-            description: "A powerful, easy-to-use teleprompter designed for speakers, presenters, and content creators. Upload your script and deliver flawless performances every time",
+            description: "Easy-to-use teleprompter for speakers, presenters, and creators who need smoother delivery.",
             url: "https://teleprompt-seven.vercel.app/",
             image: "/images/teleprompt.png",
-            status: "live"
-        }
-
+            status: "live",
+            tags: ["Creator Tools", "Video"],
+        },
     ],
     extensions: [
         {
             name: "Chrome Web Store Developer Console Extension",
             description: "Developer-focused Chrome extension published on the Chrome Web Store.",
             url: "https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7",
-            image: "/images/chrome_extension.png"
-        }, {
-            name: "TrustLens – Website Trust & Risk Checker",
+            image: "/images/chrome_extension.png",
+        },
+        {
+            name: "TrustLens - Website Trust & Risk Checker",
             description: "Instant website trust and risk analysis using real-time domain intelligence.",
             url: null,
         },
         {
             name: "AI Image Signal Analyzer",
-            description: "Analyzes visual and metadata signals to estimate the probability of AI-generated images (no absolute claims).",
+            description: "Analyzes visual and metadata signals to estimate the probability of AI-generated images.",
             url: null,
         },
         {
-            name: "Gantto – Project Timeline Manager",
+            name: "Gantto - Project Timeline Manager",
             description: "AI-assisted Gantt chart tool with progress tracking and smart task suggestions.",
             url: null,
         },
         {
             name: "AppSec Inspector",
-            description: "Local-first application security inspection tool. Scan headers, detect secrets, and audit authentication—no data collection.",
+            description: "Local-first application security inspection tool for headers, secrets, and authentication checks.",
             url: null,
         },
         {
@@ -338,21 +331,20 @@ export const projects = {
         },
         {
             name: "Screenshotify",
-            description: "Offline-first Chrome extension for capturing, annotating, blurring, cropping, and zooming screenshots—privacy guaranteed.",
+            description: "Offline-first Chrome extension for capturing, annotating, blurring, cropping, and zooming screenshots.",
             url: null,
-        }
-
+        },
     ],
     creative: [
         {
-            name: "Aether – Gestural Focus Engine",
-            description: "An interactive meditation and breathing experience using particle-based visualizations to improve focus and mindfulness. Designed for children, educators, and yoga practitioners.",
+            name: "Aether - Gestural Focus Engine",
+            description: "Interactive meditation and breathing experience using particle-based visualizations for focus and mindfulness.",
             url: "https://aether-gestural-engine.vercel.app/",
             image: "/images/aether.png",
         },
         {
             name: "Enhanced Audio Visualizer",
-            description: "Cinematic 3D · Real-time · Beat-Reactive- Transform your music into mesmerizing visual experiences",
+            description: "Cinematic 3D, real-time, beat-reactive visuals that transform music into immersive motion.",
             url: "https://audio-visualizer-six-inky.vercel.app/",
             image: "/images/audio-visualizer.png",
         },

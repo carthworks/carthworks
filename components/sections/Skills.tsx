@@ -42,19 +42,19 @@ export default function Skills() {
                     {Object.entries(skills).map(([category, items]) => (
                         <div key={category} className={getCardClassName()}>
                             <h3 className={`text-lg font-semibold mb-4 pb-3 border-b ${theme === 'glassmorphism'
-                                    ? 'text-white border-white/20'
-                                    : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
+                                ? 'text-white border-white/20'
+                                : 'text-zinc-900 dark:text-zinc-50 border-zinc-200 dark:border-zinc-800'
                                 }`}>
                                 {category}
                             </h3>
                             <ul className="space-y-2">
-                                {items.map((skill, index) => (
+                                {items.map((skill) => (
                                     <li
-                                        key={index}
+                                        key={`${category}-${skill}`}
                                         className={`text-sm flex items-start gap-2 ${theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-700 dark:text-zinc-300'
                                             }`}
                                     >
-                                        <span className={theme === 'glassmorphism' ? 'text-white/60 mt-1.5' : 'text-zinc-400 dark:text-zinc-600 mt-1.5'}>•</span>
+                                        <span className={`mt-1.5 h-1.5 w-1.5 flex-none rounded-full ${theme === 'glassmorphism' ? 'bg-white/60' : 'bg-zinc-400 dark:bg-zinc-600'}`} />
                                         <span>{skill}</span>
                                     </li>
                                 ))}

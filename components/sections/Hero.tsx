@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { personalInfo } from '@/lib/data';
+import { personalInfo, portfolioStats } from '@/lib/data';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Hero() {
@@ -138,21 +138,42 @@ export default function Hero() {
                             {personalInfo.bio}
                         </p>
 
+                        <div className="grid grid-cols-2 gap-2 pt-2">
+                            {portfolioStats.map((stat) => (
+                                <div
+                                    key={`${stat.value}-${stat.label}`}
+                                    className={`rounded-lg px-3 py-2 text-left ${theme === 'glassmorphism'
+                                        ? 'bg-white/10 border border-white/10'
+                                        : theme === 'claymorphism'
+                                            ? 'clay-card'
+                                            : 'bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800'
+                                        }`}
+                                >
+                                    <div className={`text-sm font-bold ${getTextColor()}`}>
+                                        {stat.value}
+                                    </div>
+                                    <div className={`text-[11px] leading-snug ${getSubTextColor()}`}>
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
                         {/* CTA Buttons */}
                         <div className="flex flex-col gap-2 pt-2">
-                            {/* <a
+                            <a
                                 href="#projects"
                                 className={getButtonClassName('primary')}
                                 onClick={(e) => handleHeroNavClick(e, '#projects')}
                             >
                                 View Projects
-                            </a> */}
+                            </a>
                             <a
                                 href="#contact"
                                 className={getButtonClassName('secondary')}
                                 onClick={(e) => handleHeroNavClick(e, '#contact')}
                             >
-                                Let’s Solve a Real Problem
+                                Let's Solve a Real Problem
                             </a>
                         </div>
 
