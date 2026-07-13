@@ -1,9 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import Image from 'next/image';
-import { projects } from '@/lib/data';
 import { useTheme } from '@/contexts/ThemeContext';
+import { projects } from '@/lib/data';
+import Image from 'next/image';
+import { useMemo, useState } from 'react';
 
 interface Project {
     name: string;
@@ -38,6 +38,7 @@ const filters = [
     { label: 'Websites', value: 'Websites' },
     { label: 'Tools', value: 'Tools' },
     { label: 'Extensions', value: 'Chrome Extensions' },
+    { label: 'Creative', value: 'Creative Projects' },
 ];
 
 function getStatusLabel(status: string) {
