@@ -9,11 +9,11 @@ export default function Hero() {
 
     const getSectionClassName = () => {
         if (theme === 'glassmorphism') {
-            return 'min-h-screen flex items-center justify-center px-6 py-20 glass-section';
+            return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 glass-section';
         } else if (theme === 'claymorphism') {
-            return 'min-h-screen flex items-center justify-center px-6 py-20';
+            return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6';
         }
-        return 'min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900';
+        return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900';
     };
 
     const getTextColor = () => {
@@ -97,11 +97,11 @@ export default function Hero() {
 
     return (
         <section id="hero" className={getSectionClassName()}>
-            <div className="w-full h-full flex items-center justify-center px-4 lg:px-6">
+            <div className="w-full h-full flex items-center lg:items-start justify-center px-4 lg:px-4">
                 <div className="w-full max-w-sm">
                     {/* Logo */}
-                    <div className="flex justify-center mb-4">
-                        <div className={`relative w-24 h-24 rounded-xl overflow-hidden shadow-xl transition-transform hover:scale-105 ${theme === 'glassmorphism'
+                    <div className="flex justify-center mb-3 lg:mb-2">
+                        <div className={`relative w-24 h-24 lg:w-16 lg:h-16 rounded-xl overflow-hidden shadow-xl transition-transform hover:scale-105 ${theme === 'glassmorphism'
                             ? 'border-2 border-white/30'
                             : theme === 'claymorphism'
                                 ? 'clay-card'
@@ -118,7 +118,7 @@ export default function Hero() {
                     </div>
 
                     {/* Text Content */}
-                    <div className="text-center space-y-3">
+                    <div className="text-center space-y-3 lg:space-y-2.5">
                         <h1 className={`text-xl lg:text-2xl font-bold tracking-tight ${getTextColor()}`}>
                             {personalInfo.name}
                         </h1>
@@ -133,7 +133,7 @@ export default function Hero() {
                             : 'bg-zinc-300 dark:bg-zinc-700'
                             }`} />
 
-                        <p className={`text-md leading-relaxed line-clamp-9 ${theme === 'glassmorphism' ? 'text-white/75' : 'text-zinc-600 dark:text-zinc-400'
+                        <p className={`text-md leading-relaxed line-clamp-9 lg:line-clamp-7 ${theme === 'glassmorphism' ? 'text-white/75' : 'text-zinc-600 dark:text-zinc-400'
                             }`}>
                             {personalInfo.bio}
                         </p>
