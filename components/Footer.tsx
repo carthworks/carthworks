@@ -83,7 +83,7 @@ export default function Footer() {
                     }`}>
                     <p className={`text-sm ${theme === 'glassmorphism' ? 'text-white/60' : 'text-zinc-500 dark:text-zinc-500'
                         }`}>
-                        © {currentYear} {personalInfo.name}. All rights reserved.
+                        &copy; {currentYear} {personalInfo.name}. All rights reserved.
                     </p>
                 </div>
             </div>

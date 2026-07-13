@@ -105,6 +105,12 @@ export const projects = {
             image: "/images/royal_albatross.png",
         },
         {
+            name: "SN Exports",
+            description: "Karur Cotton Export Manufacturing Company specializing in high-quality cotton products for global markets.",
+            url: "https://snexports.net/",
+            image: "/images/sn_exports.png"
+        },
+        {
             name: "Nesam Radio",
             description: "Tamil music, devotional programs, news, and podcasts streamed from Tamil Nadu.",
             url: "https://nesammedia.royalalbatrossexports.in/",

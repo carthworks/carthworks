@@ -93,6 +93,42 @@ body {
     inset -9px -9px 16px rgba(60, 65, 75, 0.4);
 }
 
+[data-theme="claymorphism"] body,
+[data-theme="claymorphism"] .clay-card,
+[data-theme="claymorphism"] .dark\:text-zinc-50 {
+  color: #18181b;
+}
+
+[data-theme="claymorphism"] .dark\:text-zinc-300,
+[data-theme="claymorphism"] .dark\:text-zinc-400,
+[data-theme="claymorphism"] .dark\:text-zinc-500 {
+  color: #3f3f46;
+}
+
+[data-theme="claymorphism"] .dark\:bg-zinc-50 {
+  background-color: #18181b;
+}
+
+[data-theme="claymorphism"] .dark\:text-zinc-900 {
+  color: #ffffff;
+}
+
+[data-theme="claymorphism"] .dark\:bg-zinc-700,
+[data-theme="claymorphism"] .dark\:bg-zinc-800,
+[data-theme="claymorphism"] .dark\:bg-zinc-900 {
+  background-color: #dfe5ee;
+}
+
+[data-theme="claymorphism"] .dark\:hover\:bg-zinc-700:hover,
+[data-theme="claymorphism"] .dark\:hover\:bg-zinc-800:hover {
+  background-color: #d3dbe6;
+}
+
+[data-theme="claymorphism"] .dark\:border-zinc-700,
+[data-theme="claymorphism"] .dark\:border-zinc-800 {
+  border-color: #c4ccd8;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
