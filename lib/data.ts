@@ -127,7 +127,8 @@ export const projects = {
         {
             name: "Chennai Braiding Company",
             description: "Specialized manufacturers of high-quality shoe laces and industrial ropes.",
-            url: "https://cbclaces.com/",
+            url: "https://cbclaces.vercel.app/",
+            // url: "https://cbclaces.com/",
             image: "/images/cbclacs.png",
             status: "Live"
         },
