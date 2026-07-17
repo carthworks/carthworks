@@ -106,6 +106,13 @@ export const projects = {
             status: "Live"
         },
         {
+            name: "UPSC prep is lonely, but Samarth is not",
+            description: "Samarth is a community-first platform for civil-service aspirants — study pods, verified mentors, and honest Mains answer reviews from real experts delivered in under 48 hours. At a fifth of what coaching charges..",
+            url: "https://samarth-upsc.lovable.app/",
+            image: "/images/samarth.png",
+            status: "Live"
+        },
+        {
             name: "SN Exports",
             description: "Karur Cotton Export Manufacturing Company specializing in high-quality cotton products for global markets.",
             url: "https://snexports.net/",
