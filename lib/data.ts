@@ -189,12 +189,12 @@ export const projects = {
             featured: true,
         },
         {
-            name: "Security Posture Intelligence Platform",
-            description: "Multi-tenant security platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
+            name: "Project tracker",
+            description: "Multi-tenant Security Posture Intelligence Platformthat unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
             url: "https://security-platform-plan.vercel.app/",
             image: "/images/sec-platform.png",
             status: "poc",
-            tags: ["Security", "SaaS", "Claude"],
+            tags: ["Project", "tasks", "tracker"],
         },
         {
             name: "ModelMeter: AI FinOps & Observability",
@@ -203,9 +203,19 @@ export const projects = {
             image: "/images/hero_dashboard.png",
             status: "idea",
             tags: ["FinOps", "Observability", "LLM"],
+            featured: true
         },
         {
-            name: "Professional Web Security Scanner",
+            name: "Security Posture Intelligence Platform",
+            description: "AI-augmented vulnerability management and continuous security posture monitoring across your entire infrastructure",
+            url: "https://github.com/cybersigmaINC/security-platform",
+            image: "/images/formula.jpeg",
+            status: "Prototype",
+            tags: ["Nuclei Scanner", "Trivy SCA", "Gitleaks", "Vulnerability Management"],
+            featured: true
+        },
+        {
+            name: "Web Security Scanner",
             description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
             url: "https://scanova-web.vercel.app/",
             image: "/images/scanova.png",

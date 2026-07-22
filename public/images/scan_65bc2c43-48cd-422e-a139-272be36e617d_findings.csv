@@ -1,0 +1,744 @@
+Title,Severity,CVE ID,Tool,URL,Description,Fixed Version
+"libexpat before 2.8.2 has an integer overflow in doProlog that is rela ...","high","CVE-2026-56407","trivy","N/A","libexpat before 2.8.2 has an integer overflow in doProlog that is related to storeEntityValue and entity textLen.","N/A"
+"curl: curl: Insecure connection establishment due to TLS configuration mismatch","high","CVE-2026-8286","trivy","N/A","A vulnerability exists where a new transfer that uses STARTTLS to upgrade the
+connection might reuse an existing live connection even though the TLS
+configuration mismatches so it should not.","N/A"
+"curl: libcurl: Information disclosure due to cookie leak when reusing connections with custom Host headers","high","CVE-2026-6276","trivy","N/A","Using libcurl, when a custom `Host:` header is first set for an HTTP request
+and a second request is subsequently done using the same *easy handle* but
+without the custom `Host:` header set, the second request would use stale
+information and pass on cookies meant for the first host in the second
+request. Leak them.","N/A"
+"It was found that apt-key in apt, all versions, do not correctly valid ...","low","CVE-2011-3374","trivy","N/A","It was found that apt-key in apt, all versions, do not correctly validate gpg keys with the master keyring, leading to a potential man-in-the-middle attack.","N/A"
+"bash: a heap-buffer-overflow in valid_parameter_transform","high","CVE-2022-3715","trivy","N/A","A flaw was found in the bash package, where a heap-buffer overflow can occur in valid parameter_transform. This issue may lead to memory problems.","N/A"
+"[Privilege escalation possible to other user than root]","low","TEMP-0841856-B18BAF","trivy","N/A","N/A","N/A"
+"[Integer Overflow or Wraparound in libblkid/src/partitions/dos.c]","high","CVE-2026-53615","trivy","N/A","Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:
+CVE-2026-53615:
+	Integer Overflow or Wraparound in libblkid/src/partitions/dos.c
+","N/A"
+"util-linux: util-linux: heap use-after-free in libblkid nested partition probing","medium","CVE-2026-13595","trivy","N/A","A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.","N/A"
+"util-linux: TOCTOU in the mount program when setting up loop devices","medium","CVE-2026-27456","trivy","N/A","util-linux is a random collection of Linux utilities. Prior to version 2.41.4, a TOCTOU (Time-of-Check-Time-of-Use) vulnerability has been identified in the SUID binary /usr/bin/mount from util-linux. The mount binary, when setting up loop devices, validates the source file path with user privileges via fork() + setuid() + realpath(), but subsequently re-canonicalizes and opens it with root privileges (euid=0) without verifying that the path has not been replaced between both operations. Neither O_NOFOLLOW, nor inode comparison, nor post-open fstat() are employed. This allows a local unprivileged user to replace the source file with a symlink pointing to any root-owned file or device during the race window, causing the SUID binary to open and mount it as root. Exploitation requires an /etc/fstab entry with user,loop options whose path points to a directory where the attacker has write permission, and that /usr/bin/mount has the SUID bit set (the default configuration on virtually all Linux distributions). The impact is unauthorized read access to root-protected files and block devices, including backup images, disk volumes, and any file containing a valid filesystem. This issue has been patched in version 2.41.4.","N/A"
+"libexpat before 2.8.2 has an integer overflow in copyString.","high","CVE-2026-56408","trivy","N/A","libexpat before 2.8.2 has an integer overflow in copyString.","N/A"
+"util-linux: util-linux: Access control bypass due to improper hostname canonicalization","medium","CVE-2026-3184","trivy","N/A","A flaw was found in util-linux. Improper hostname canonicalization in the `login(1)` utility, when invoked with the `-h` option, can modify the supplied remote hostname before setting `PAM_RHOST`. A remote attacker could exploit this by providing a specially crafted hostname, potentially bypassing host-based Pluggable Authentication Modules (PAM) access control rules that rely on fully qualified domain names. This could lead to unauthorized access.","N/A"
+"util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline","low","CVE-2022-0563","trivy","N/A","A flaw was found in the util-linux chfn and chsh utilities when compiled with Readline support. The Readline library uses an ""INPUTRC"" environment variable to get a path to the library config file. When the library cannot parse the specified file, it prints an error message containing data from the file. This flaw allows an unprivileged user to read root-owned files, potentially leading to privilege escalation. This flaw affects util-linux versions prior to 2.37.4.","N/A"
+"util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames","low","CVE-2025-14104","trivy","N/A","A flaw was found in util-linux. This vulnerability allows a heap buffer overread when processing 256-byte usernames, specifically within the `setpwnam()` function, affecting SUID (Set User ID) login-utils utilities writing to the password database.","N/A"
+"coreutils: Non-privileged session can escape to the parent session in chroot","low","CVE-2016-2781","trivy","N/A","chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.","N/A"
+"coreutils: race condition vulnerability in chown and chgrp","low","CVE-2017-18018","trivy","N/A","In GNU Coreutils through 8.29, chown-core.c in chown and chgrp does not prevent replacement of a plain file with a symlink during use of the POSIX ""-R -L"" options, which allows local users to modify the ownership of arbitrary files by leveraging a race condition.","N/A"
+"coreutils: Heap Buffer Under-Read in GNU Coreutils sort via Key Specification","low","CVE-2025-5278","trivy","N/A","A flaw was found in GNU Coreutils. The sort utility's begfield() function is vulnerable to a heap buffer under-read. The program may access memory outside the allocated buffer if a user runs a crafted command using the traditional key format. A malicious input could lead to a crash or leak sensitive data.","N/A"
+"curl: HSTS ignored on multiple requests","critical","CVE-2023-23914","trivy","N/A","A cleartext transmission of sensitive information vulnerability exists in curl <v7.88.0 that could cause HSTS functionality fail when multiple URLs are requested serially. Using its HSTS support, curl can be instructed to use HTTPS instead of usingan insecure clear-text HTTP step even when HTTP is provided in the URL. ThisHSTS mechanism would however surprisingly be ignored by subsequent transferswhen done on the same command line because the state would not be properlycarried on.","N/A"
+"curl: HSTS bypass via IDN","high","CVE-2022-42916","trivy","N/A","In curl before 7.86.0, the HSTS check could be bypassed to trick it into staying with HTTP. Using its HSTS support, curl can be instructed to use HTTPS directly (instead of using an insecure cleartext HTTP step) even when HTTP is provided in the URL. This mechanism could be bypassed if the host name in the given URL uses IDN characters that get replaced with ASCII counterparts as part of the IDN conversion, e.g., using the character UTF-8 U+3002 (IDEOGRAPHIC FULL STOP) instead of the common ASCII full stop of U+002E (.). The earliest affected version is 7.77.0 2021-05-26.","N/A"
+"curl: HSTS bypass via IDN","high","CVE-2022-43551","trivy","N/A","A vulnerability exists in curl <7.87.0 HSTS check that could be bypassed to trick it to keep using HTTP. Using its HSTS support, curl can be instructed to use HTTPS instead of using an insecure clear-text HTTP step even when HTTP is provided in the URL. However, the HSTS mechanism could be bypassed if the host name in the given URL first uses IDN characters that get replaced to ASCII counterparts as part of the IDN conversion. Like using the character UTF-8 U+3002 (IDEOGRAPHIC FULL STOP) instead of the common ASCII full stop (U+002E) `.`. Then in a subsequent request, it does not detect the HSTS state and makes a clear text transfer. Because it would store the info IDN encoded but look for it IDN decoded.","N/A"
+"curl: curl: SSH host verification bypass when using schemeless URLs with SFTP/SCP","high","CVE-2026-12064","trivy","N/A","When a user invokes curl using a schemeless URL combined with
+`--proto-default` sftp (or scp), a disconnect occurs between the tool layer
+and libcurl. The tool layer incorrectly infers the URL scheme, which
+erroneously bypasses the initialization of critical SSH security options like
+CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 and CURLOPT_SSH_KNOWNHOSTS. Conversely, the
+libcurl runtime successfully honors CURLOPT_DEFAULT_PROTOCOL and establishes
+the connection via SFTP/SCP as specified. Because the tool layer skipped the
+security configuration, these SSH host verification options are silently
+omitted, causing curl to connect to an unverified SSH remote host without
+throwing an error.","N/A"
+"curl: libcurl: Wrong file transfer due to incorrect SMB connection reuse","high","CVE-2026-5773","trivy","N/A","libcurl might in some circumstances reuse the wrong connection for SMB(S)
+transfers.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criteria must be met. Due to a logical
+error in the code, a network transfer operation that was requested by an
+application could wrongfully reuse an existing SMB connection to the same
+server that was using a different 'share' than the new subsequent transfer
+should.
+
+This could in unlucky situations lead to the download of the wrong file or the
+upload of a file to the wrong place. When this happens, the same credentials
+are used and the server name is the same.","N/A"
+"libcurl: libcurl: Information disclosure due to uncleared proxy authentication state","high","CVE-2026-8927","trivy","N/A","When reusing a libcurl handle for sequential transfers driven by
+environment-variable proxy configuration, libcurl fails to clear the proxy
+authentication state between requests. Specifically, if the initial transfer
+authenticates against `proxyA` using Digest auth, a subsequent transfer routed
+through `proxyB` erroneously leaks the `Proxy-Authorization:` header intended
+solely for `proxyA`.","N/A"
+"libcurl: libcurl: Security feature bypass due to improper mTLS connection reuse","high","CVE-2026-8932","trivy","N/A","libcurl would reuse a previously created connection even when some mTLS config
+related option had been changed that should have prohibited reuse.
+
+libcurl keeps previously used connections in a connection pool for subsequent
+transfers to reuse if one of them matches the setup. However, some TLS
+settings related to client certificates were left out from the configuration
+match checks, making them match too easily. In particular options related to
+the private key.","N/A"
+"curl: curl: Man-in-the-middle attack via SSH host key bypass","high","CVE-2026-9547","trivy","N/A","When a libcurl-based application performs transfers via `SCP://` or `SFTP://`
+and utilizes the `CURLOPT_SSH_KEYFUNCTION` callback, it may silently accept an
+untrusted server. This vulnerability occurs when a server presents a host key
+type that does not match the specific key type already recorded for that host
+in the `known_hosts` file. Instead of rejecting the mismatch, the callback
+mechanism fails to properly enforce the restriction, allowing the connection
+to succeed without warning and risking a potential man-in-the-middle attack.","N/A"
+"curl: HSTS amnesia with --parallel","medium","CVE-2023-23915","trivy","N/A","A cleartext transmission of sensitive information vulnerability exists in curl <v7.88.0 that could cause HSTS functionality to behave incorrectly when multiple URLs are requested in parallel. Using its HSTS support, curl can be instructed to use HTTPS instead of using an insecure clear-text HTTP step even when HTTP is provided in the URL. This HSTS mechanism would however surprisingly fail when multiple transfers are done in parallel as the HSTS cache file gets overwritten by the most recentlycompleted transfer. A later HTTP-only transfer to the earlier host name would then *not* get upgraded properly to HSTS.","N/A"
+"curl: excessively long file name may lead to unknown HSTS status","medium","CVE-2023-46219","trivy","N/A","When saving HSTS data to an excessively long file name, curl could end up
+removing all contents, making subsequent requests using that file unaware of
+the HSTS status they should otherwise use.","N/A"
+"curl: HTTP/2 push headers memory-leak","medium","CVE-2024-2398","trivy","N/A","When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.","N/A"
+"curl: libcurl: ASN.1 date parser overread","medium","CVE-2024-7264","trivy","N/A","libcurl's ASN1 parser code has the `GTime2str()` function, used for parsing an
+ASN.1 Generalized Time field. If given an syntactically incorrect field, the
+parser might end up using -1 for the length of the *time fraction*, leading to
+a `strlen()` getting performed on a pointer to a heap buffer area that is not
+(purposely) null terminated.
+
+This flaw most likely leads to a crash, but can also lead to heap contents
+getting returned to the application when
+[CURLINFO_CERTINFO](https://curl.se/libcurl/c/CURLINFO_CERTINFO.html) is used.","N/A"
+"curl: OCSP stapling bypass with GnuTLS","medium","CVE-2024-8096","trivy","N/A","When curl is told to use the Certificate Status Request TLS extension, often referred to as OCSP stapling, to verify that the server certificate is valid, it might fail to detect some OCSP problems and instead wrongly consider the response as fine.  If the returned status reports another error than 'revoked' (like for example 'unauthorized') it is not treated as a bad certficate.","N/A"
+"curl: HSTS subdomain overwrites parent cache entry","medium","CVE-2024-9681","trivy","N/A","When curl is asked to use HSTS, the expiry time for a subdomain might
+overwrite a parent domain's cache entry, making it end sooner or later than
+otherwise intended.
+
+This affects curl using applications that enable HSTS and use URLs with the
+insecure `HTTP://` scheme and perform transfers with hosts like
+`x.example.com` as well as `example.com` where the first host is a subdomain
+of the second host.
+
+(The HSTS cache either needs to have been populated manually or there needs to
+have been previous HTTPS accesses done as the cache needs to have entries for
+the domains involved to trigger this problem.)
+
+When `x.example.com` responds with `Strict-Transport-Security:` headers, this
+bug can make the subdomain's expiry timeout *bleed over* and get set for the
+parent domain `example.com` in curl's HSTS cache.
+
+The result of a triggered bug is that HTTP accesses to `example.com` get
+converted to HTTPS for a different period of time than what was asked for by
+the origin server. If `example.com` for example stops supporting HTTPS at its
+expiry time, curl might then fail to access `http://example.com` until the
+(wrongly set) timeout expires. This bug can also expire the parent's entry
+*earlier*, thus making curl inadvertently switch back to insecure HTTP earlier
+than otherwise intended.","N/A"
+"libcurl: libcurl: Use-after-free vulnerability leading to Denial of Service","medium","CVE-2026-10536","trivy","N/A","A use-after-free vulnerability exists in libcurl when an application
+configures an HTTP/2 stream-dependency tree via `CURLOPT_STREAM_DEPENDS` or
+`CURLOPT_STREAM_DEPENDS_E`, subsequently invokes `curl_easy_reset()`, and
+finally terminates the handle with `curl_easy_cleanup()`. During this final
+cleanup phase, libcurl attempts to access and modify an internal structure
+that was already freed during the reset operation.","N/A"
+"libexpat: denial of service via crafted XML input","high","CVE-2026-45186","trivy","N/A","In libexpat before 2.8.1, the computational complexity of attribute name collision checks allows a denial of service via moderately sized crafted XML input.","N/A"
+"curl: curl: Information disclosure via incorrect Digest authentication header reuse","medium","CVE-2026-11856","trivy","N/A","Successfully using libcurl to do a transfer to a specific HTTP origin
+(`hostA`) with **Digest** authentication and then changing the origin to a
+different one (`hostB`) for a second transfer, reusing the same handle, makes
+libcurl wrongly pass on the  `Authorization:` header field meant for `hostA`,
+to `hostB`.","N/A"
+"curl: curl: Authentication bypass due to incorrect connection reuse with Negotiate authentication","medium","CVE-2026-1965","trivy","N/A","libcurl can in some circumstances reuse the wrong connection when asked to do
+an Negotiate-authenticated HTTP or HTTPS request.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criterion must first be met. Due to a
+logical error in the code, a request that was issued by an application could
+wrongfully reuse an existing connection to the same server that was
+authenticated using different credentials. One underlying reason being that
+Negotiate sometimes authenticates *connections* and not *requests*, contrary
+to how HTTP is designed to work.
+
+An application that allows Negotiate authentication to a server (that responds
+wanting Negotiate) with `user1:password1` and then does another operation to
+the same server also using Negotiate but with `user2:password2` (while the
+previous connection is still alive) - the second request wrongly reused the
+same connection and since it then sees that the Negotiate negotiation is
+already made, it just sends the request over that connection thinking it uses
+the user2 credentials when it is in fact still using the connection
+authenticated for user1...
+
+The set of authentication methods to use is set with  `CURLOPT_HTTPAUTH`.
+
+Applications can disable libcurl's reuse of connections and thus mitigate this
+problem, by using one of the following libcurl options to alter how
+connections are or are not reused: `CURLOPT_FRESH_CONNECT`,
+`CURLOPT_MAXCONNECTS` and `CURLMOPT_MAX_HOST_CONNECTIONS` (if using the
+curl_multi API).","N/A"
+"curl: curl: Information disclosure via OAuth2 bearer token leakage during HTTP(S) redirect","medium","CVE-2026-3783","trivy","N/A","When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer
+performs a redirect to a second URL, curl could leak that token to the second
+hostname under some circumstances.
+
+If the hostname that the first request is redirected to has information in the
+used .netrc file, with either of the `machine` or `default` keywords, curl
+would pass on the bearer token set for the first host also to the second one.","N/A"
+"curl: curl: Unauthorized access due to improper HTTP proxy connection reuse","medium","CVE-2026-3784","trivy","N/A","curl would wrongly reuse an existing HTTP proxy connection doing CONNECT to a
+server, even if the new request uses different credentials for the HTTP proxy.
+The proper behavior is to create or use a separate connection.","N/A"
+"curl: curl: Information disclosure due to incorrect TLS connection reuse","medium","CVE-2026-4873","trivy","N/A","A vulnerability exists where a connection requiring TLS incorrectly reuses an
+existing unencrypted connection from the same connection pool. If an initial
+transfer is made in clear-text (via IMAP, SMTP, or POP3), a subsequent request
+to that same host bypasses the TLS requirement and instead transmit data
+unencrypted.","N/A"
+"curl: libcurl: Authentication bypass due to incorrect HTTP Negotiate connection reuse","medium","CVE-2026-5545","trivy","N/A","libcurl might in some circumstances reuse the wrong connection when asked to
+do an authenticated HTTP(S) request after a Negotiate-authenticated one, when
+both use the same host.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criteria must be met. Due to a logical
+error in the code, a request that was issued by an application could
+wrongfully reuse an existing connection to the same server that was
+authenticated using different credentials.
+
+An application that first uses Negotiate authentication to a server with
+`user1:password1` and then does another operation to the same server asking
+for any authentication method but for `user2:password2` (while the previous
+connection is still alive) - the second request gets confused and wrongly
+reuses the same connection and sends the new request over that connection
+thinking it uses a mix of user1's and user2's credentials when it is in fact
+still using the connection authenticated for user1...","N/A"
+"curl: curl: Proxy credential disclosure via redirects to unauthenticated proxies","medium","CVE-2026-6253","trivy","N/A","curl might erroneously pass on credentials for a first proxy to a second
+proxy.
+
+This can happen when the following conditions are true:
+
+1. curl is setup to use specific different proxies for different URL schemes
+2. the first proxy needs credentials
+3. the second proxy uses no credentials
+4. while using the first proxy (using say `http://`), curl is asked to follow
+   a redirect to a URL using another scheme (say `https://`), accessed using a
+   second, different, proxy","N/A"
+"curl: libcurl: Credential leak via reused proxy connection during HTTP redirects","medium","CVE-2026-6429","trivy","N/A","When asked to both use a `.netrc` file for credentials and to follow HTTP
+redirects, libcurl could leak the password used for the first host to the
+followed-to host under certain circumstances.","N/A"
+"curl: libcurl: Information disclosure via incorrect Proxy-Authorization header reuse","medium","CVE-2026-7168","trivy","N/A","Successfully using libcurl to do a transfer over a specific HTTP proxy
+(`proxyA`) with **Digest** authentication and then changing the proxy host to
+a second one (`proxyB`) for a second transfer, reusing the same handle, makes
+libcurl wrongly pass on the `Proxy-Authorization:` header field meant for
+`proxyA`, to `proxyB`.","N/A"
+"curl: curl: Cookie injection via malicious HTTP server using super cookies","medium","CVE-2026-8924","trivy","N/A","A flaw in curl’s cookie parsing logic allows a malicious HTTP server to set
+'super cookies' that bypass the Public Suffix List check. This enables an
+attacker-controlled origin to inject cookies that curl subsequently scopes and
+transmits to unrelated third-party domains.","N/A"
+"curl: Content not matching hash in Metalink is not being discarded","low","CVE-2021-22922","trivy","N/A","When curl is instructed to download content using the metalink feature, thecontents is verified against a hash provided in the metalink XML file.The metalink XML file points out to the client how to get the same contentfrom a set of different URLs, potentially hosted by different servers and theclient can then download the file from one or several of them. In a serial orparallel manner.If one of the servers hosting the contents has been breached and the contentsof the specific file on that server is replaced with a modified payload, curlshould detect this when the hash of the file mismatches after a completeddownload. It should remove the contents and instead try getting the contentsfrom another URL. This is not done, and instead such a hash mismatch is onlymentioned in text and the potentially malicious content is kept in the file ondisk.","N/A"
+"curl: Metalink download sends credentials","low","CVE-2021-22923","trivy","N/A","When curl is instructed to get content using the metalink feature, and a user name and password are used to download the metalink XML file, those same credentials are then subsequently passed on to each of the servers from which curl will download or try to download the contents from. Often contrary to the user's expectations and intentions and without telling the user it happened.","N/A"
+"curl: siglongjmp race condition may lead to crash","low","CVE-2023-28320","trivy","N/A","A denial of service vulnerability exists in curl <v8.1.0 in the way libcurl provides several different backends for resolving host names, selected at build time. If it is built to use the synchronous resolver, it allows name resolves to time-out slow operations using `alarm()` and `siglongjmp()`. When doing this, libcurl used a global buffer that was not mutex protected and a multi-threaded application might therefore crash or otherwise misbehave.","N/A"
+"curl: QUIC certificate check bypass with wolfSSL","low","CVE-2024-2379","trivy","N/A","libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.","N/A"
+"libcurl: Buffer Overflow in libcurl via zlib Integer Overflow","low","CVE-2025-0725","trivy","N/A","When libcurl is asked to perform automatic gzip decompression of
+content-encoded HTTP responses with the `CURLOPT_ACCEPT_ENCODING` option,
+**using zlib 1.2.0.3 or older**, an attacker-controlled integer overflow would
+make libcurl perform a buffer overflow.","N/A"
+"curl: Curl missing SFTP host verification with wolfSSH backend","low","CVE-2025-10966","trivy","N/A","curl's code for managing SSH connections when SFTP was done using the wolfSSH
+powered backend was flawed and missed host verification mechanisms.
+
+This prevents curl from detecting MITM attackers and more.","N/A"
+"curl: curl: Security bypass due to global TLS option changes in multi-threaded LDAPS transfers","low","CVE-2025-14017","trivy","N/A","When doing multi-threaded LDAPS transfers (LDAP over TLS) with libcurl,
+changing TLS options in one thread would inadvertently change them globally
+and therefore possibly also affect other concurrently setup transfers.
+
+Disabling certificate verification for a specific transfer could
+unintentionally disable the feature for other threads as well.","N/A"
+"curl: Information disclosure via cross-protocol redirect with OAuth2 bearer token","low","CVE-2025-14524","trivy","N/A","When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer
+performs a cross-protocol redirect to a second URL that uses an IMAP, LDAP,
+POP3 or SMTP scheme, curl might wrongly pass on the bearer token to the new
+target host.","N/A"
+"curl: Host verification bypass during SSH transfers","low","CVE-2025-15079","trivy","N/A","When doing SSH-based transfers using either SCP or SFTP, and setting the
+known_hosts file, libcurl could still mistakenly accept connecting to hosts
+*not present* in the specified file if they were added as recognized in the
+libssh *global* known_hosts file.","N/A"
+"curl: libssh key passphrase bypass without agent set","low","CVE-2025-15224","trivy","N/A","When doing SSH-based transfers using either SCP or SFTP, and asked to do
+public key authentication, curl would wrongly still ask and authenticate using
+a locally running SSH agent.","N/A"
+"libcurl might in some circumstances reuse the wrong connection when as ...","low","CVE-2026-8458","trivy","N/A","libcurl might in some circumstances reuse the wrong connection when asked to
+do Negotiate-authenticated ones, even when they are set to use different
+'services'.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criteria must be met. Due to a logical
+error in the code, a request that was issued by an application could
+wrongfully reuse an existing connection to the same server that was
+authenticated using different services.","N/A"
+"It was discovered that dpkg-deb does not properly sanitize directory p ...","low","CVE-2025-6297","trivy","N/A","It was discovered that dpkg-deb does not properly sanitize directory permissions when extracting a control member into a temporary directory, which is
+documented as being a safe operation even on untrusted data. This may result in leaving temporary files behind on cleanup. Given automated and repeated execution of dpkg-deb commands on
+adversarial .deb packages or with well compressible files, placed
+inside a directory with permissions not allowing removal by a non-root
+user, this can end up in a DoS scenario due to causing disk quota
+exhaustion or disk full conditions.","N/A"
+"e2fsprogs: out-of-bounds read/write via crafted filesystem","high","CVE-2022-1304","trivy","N/A","An out-of-bounds read/write vulnerability was found in e2fsprogs 1.46.5. This issue leads to a segmentation fault and possibly arbitrary code execution via a specially crafted filesystem.","N/A"
+"gcc: -fstack-protector fails to guard dynamic stack allocations on ARM64","low","CVE-2023-4039","trivy","N/A","**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains 
+that target AArch64 allows an attacker to exploit an existing buffer 
+overflow in dynamically-sized local variables in your application 
+without this being detected. This stack-protector failure only applies 
+to C99-style dynamically-sized local variables or those created using 
+alloca(). The stack-protector operates as intended for statically-sized 
+local variables.
+
+The default behavior when the stack-protector 
+detects an overflow is to terminate your application, resulting in 
+controlled loss of availability. An attacker who can exploit a buffer 
+overflow without triggering the stack-protector might be able to change 
+program flow control to cause an uncontrolled loss of availability or to
+ go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.","N/A"
+"gcc: -fstack-protector fails to guard dynamic stack allocations on ARM64","low","CVE-2023-4039","trivy","N/A","**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains 
+that target AArch64 allows an attacker to exploit an existing buffer 
+overflow in dynamically-sized local variables in your application 
+without this being detected. This stack-protector failure only applies 
+to C99-style dynamically-sized local variables or those created using 
+alloca(). The stack-protector operates as intended for statically-sized 
+local variables.
+
+The default behavior when the stack-protector 
+detects an overflow is to terminate your application, resulting in 
+controlled loss of availability. An attacker who can exploit a buffer 
+overflow without triggering the stack-protector might be able to change 
+program flow control to cause an uncontrolled loss of availability or to
+ go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.","N/A"
+"GnuPG: GnuPG: Information disclosure and potential arbitrary code execution via out-of-bounds write","high","CVE-2025-68973","trivy","N/A","In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write for crafted input. (For ExtendedLTS, 2.2.51 and later are fixed versions.)","N/A"
+"gnupg: verification DoS due to a malicious subkey in the keyring","medium","CVE-2025-30258","trivy","N/A","In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a ""verification DoS.""","N/A"
+"gnupg: GnuPG: Signature bypass via form feed character in signed messages","medium","CVE-2025-68972","trivy","N/A","In GnuPG through 2.4.8, if a signed message has \f at the end of a plaintext line, an adversary can construct a modified message that places additional text after the signed material, such that signature verification of the modified message succeeds (although an ""invalid armor"" message is printed during verification). This is related to use of \f as a marker to denote truncation of a long plaintext line.","N/A"
+"gnupg: denial of service issue (resource consumption) using compressed packets","low","CVE-2022-3219","trivy","N/A","GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.","N/A"
+"GnuPG: Incorrect cryptographic message parsing","low","CVE-2026-57062","trivy","N/A","CMS (Cryptographic Message Syntax) parsing in gpgsm in GnuPG through 2.5.20 mishandles the CMS format for AES-GCM because aes-ICVlen is supposed to be 12 bytes but 4 bytes is accepted. NOTE: this is related to CVE-2026-34182.","N/A"
+"GNU gzip contains a global buffer overflow vulnerability in the LZH de ...","high","CVE-2026-41992","trivy","N/A","GNU gzip contains a global buffer overflow vulnerability in the LZH decompression logic caused by improper reuse of shared global state between different decompression formats within a single execution. GNU gzip maintains a global array that is shared across the LZ77, LZW, and LZH decompression routines and is not reinitialized between files processed in the same invocation.
+By decompressing a specially crafted LZW file followed by a specially crafted LZH file in a single gzip -d command, an attacker can poison the shared global state and subsequently trigger an out‑of‑bounds read in the LZH decoder. The LZH decompression logic follows stale values left in the shared array, causing reads past the end of the allocated global buffer.
+
+This issue has been fixed in the commit 63dbf6b3b9e6e781df1a6a64e609b10e23969681","N/A"
+"gzip: gzip: Arbitrary file overwrite via insecure temporary file handling in gzexe utility","medium","CVE-2026-41991","trivy","N/A","GNU gzip contains a vulnerability in the gzexe utility related to insecure temporary file handling. When the mktemp utility is not available in the user’s PATH, gzexe falls back to constructing a temporary file path based solely on the process ID (PID). This predictable filename is created without exclusive access or existence checks.
+A local attacker can pre‑create the predicted temporary file path as a symbolic link pointing to an arbitrary file writable by the victim. When gzexe runs, it follows the symlink and overwrites the target file, resulting in a time‑of‑check to time‑of‑use (TOCTOU) condition that allows arbitrary file overwrite.
+
+This issue has been fixed in the commit 4e6f8b24ab823146ab8776f0b7fe486ab34d4269","N/A"
+"acl: Symlink traversal privilege escalation via libacl functions","high","CVE-2026-54369","trivy","N/A","acl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation.","N/A"
+"acl: TOCTOU Symlink Traversal via getfacl/setfacl","medium","CVE-2026-54370","trivy","N/A","acl before version 2.4.0 contains a time-of-check to time-of-use (TOCTOU) race condition vulnerability that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link between an lstat() check and subsequent symlink-following operations such as stat(), chown(), chmod(), acl_get_file(), and acl_set_file(). Attackers who control a pathname component can redirect file access control list operations to arbitrary files when getfacl, setfacl, or chacl is invoked by a privileged process over an attacker-controlled path, resulting in local privilege escalation.","N/A"
+"It was found that apt-key in apt, all versions, do not correctly valid ...","low","CVE-2011-3374","trivy","N/A","It was found that apt-key in apt, all versions, do not correctly validate gpg keys with the master keyring, leading to a potential man-in-the-middle attack.","N/A"
+"attr: Symlink Traversal Privilege Escalation via getfattr and setfattr","medium","CVE-2026-54371","trivy","N/A","attr before version 2.6.0 contains a symlink traversal vulnerability in the getfattr and setfattr utilities that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link during directory hierarchy traversal. Attackers who control a pathname component can redirect getfattr and setfattr operations to arbitrary files by substituting a symlink, leading to local privilege escalation when getfattr or setfattr is invoked by a privileged process over an attacker-controlled path.","N/A"
+"[Integer Overflow or Wraparound in libblkid/src/partitions/dos.c]","high","CVE-2026-53615","trivy","N/A","Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:
+CVE-2026-53615:
+	Integer Overflow or Wraparound in libblkid/src/partitions/dos.c
+","N/A"
+"util-linux: util-linux: heap use-after-free in libblkid nested partition probing","medium","CVE-2026-13595","trivy","N/A","A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.","N/A"
+"util-linux: TOCTOU in the mount program when setting up loop devices","medium","CVE-2026-27456","trivy","N/A","util-linux is a random collection of Linux utilities. Prior to version 2.41.4, a TOCTOU (Time-of-Check-Time-of-Use) vulnerability has been identified in the SUID binary /usr/bin/mount from util-linux. The mount binary, when setting up loop devices, validates the source file path with user privileges via fork() + setuid() + realpath(), but subsequently re-canonicalizes and opens it with root privileges (euid=0) without verifying that the path has not been replaced between both operations. Neither O_NOFOLLOW, nor inode comparison, nor post-open fstat() are employed. This allows a local unprivileged user to replace the source file with a symlink pointing to any root-owned file or device during the race window, causing the SUID binary to open and mount it as root. Exploitation requires an /etc/fstab entry with user,loop options whose path points to a directory where the attacker has write permission, and that /usr/bin/mount has the SUID bit set (the default configuration on virtually all Linux distributions). The impact is unauthorized read access to root-protected files and block devices, including backup images, disk volumes, and any file containing a valid filesystem. This issue has been patched in version 2.41.4.","N/A"
+"util-linux: util-linux: Access control bypass due to improper hostname canonicalization","medium","CVE-2026-3184","trivy","N/A","A flaw was found in util-linux. Improper hostname canonicalization in the `login(1)` utility, when invoked with the `-h` option, can modify the supplied remote hostname before setting `PAM_RHOST`. A remote attacker could exploit this by providing a specially crafted hostname, potentially bypassing host-based Pluggable Authentication Modules (PAM) access control rules that rely on fully qualified domain names. This could lead to unauthorized access.","N/A"
+"util-linux: partial disclosure of arbitrary files in chfn and chsh when compiled with libreadline","low","CVE-2022-0563","trivy","N/A","A flaw was found in the util-linux chfn and chsh utilities when compiled with Readline support. The Readline library uses an ""INPUTRC"" environment variable to get a path to the library config file. When the library cannot parse the specified file, it prints an error message containing data from the file. This flaw allows an unprivileged user to read root-owned files, potentially leading to privilege escalation. This flaw affects util-linux versions prior to 2.37.4.","N/A"
+"util-linux: util-linux: Heap buffer overread in setpwnam() when processing 256-byte usernames","low","CVE-2025-14104","trivy","N/A","A flaw was found in util-linux. This vulnerability allows a heap buffer overread when processing 256-byte usernames, specifically within the `setpwnam()` function, affecting SUID (Set User ID) login-utils utilities writing to the password database.","N/A"
+"bzip2: bzip2: Denial of Service in bzip2recover via a specially crafted file","medium","CVE-2026-42250","trivy","N/A","bzip2 contains an off‑by‑one error in the bzip2recover utility. When processing a specially crafted file, the application performs an out‑of‑bounds write to a global buffer, resulting in memory corruption and a crash (denial of service).
+
+This issue was fixed in bzip2 patch 35d122a3df8b0cc4082a4d89fdc6ee99f375fe67","N/A"
+"glibc: Out of bounds write in iconv may lead to remote code execution","high","CVE-2024-2961","trivy","N/A","The iconv() function in the GNU C Library versions 2.39 and older may overflow the output buffer passed to it by up to 4 bytes when converting strings to the ISO-2022-CN-EXT character set, which may be used to crash an application or overwrite a neighbouring variable.","N/A"
+"glibc: stack-based buffer overflow in netgroup cache","high","CVE-2024-33599","trivy","N/A","nscd: Stack-based buffer overflow in netgroup cache
+
+If the Name Service Cache Daemon's (nscd) fixed size cache is exhausted
+by client requests then a subsequent client request for netgroup data
+may result in a stack-based buffer overflow.  This flaw was introduced
+in glibc 2.15 when the cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: potential use-after-free in getaddrinfo()","medium","CVE-2023-4806","trivy","N/A","A flaw has been identified in glibc. In an extremely rare situation, the getaddrinfo function may access memory that has been freed, resulting in an application crash. This issue is only exploitable when a NSS module implements only the _nss_*_gethostbyname2_r and _nss_*_getcanonname_r hooks without implementing the _nss_*_gethostbyname3_r hook. The resolved name should return a large number of IPv6 and IPv4, and the call to the getaddrinfo function should have the AF_INET6 address family with AI_CANONNAME, AI_ALL and AI_V4MAPPED as flags.","N/A"
+"glibc: potential use-after-free in gaih_inet()","medium","CVE-2023-4813","trivy","N/A","A flaw has been identified in glibc. In an uncommon situation, the gaih_inet function may use memory that has been freed, resulting in an application crash. This issue is only exploitable when the getaddrinfo function is called and the hosts database in /etc/nsswitch.conf is configured with SUCCESS=continue or SUCCESS=merge.","N/A"
+"glibc: null pointer dereferences after failed netgroup cache insertion","medium","CVE-2024-33600","trivy","N/A","nscd: Null pointer crashes after notfound response
+
+If the Name Service Cache Daemon's (nscd) cache fails to add a not-found
+netgroup response to the cache, the client request can result in a null
+pointer dereference.  This flaw was introduced in glibc 2.15 when the
+cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: buffer overflow in the GNU C Library's assert()","medium","CVE-2025-0395","trivy","N/A","When the assert() function in the GNU C Library versions 2.13 to 2.40 fails, it does not allocate enough space for the assertion failure message string and size information, which may lead to a buffer overflow if the message string size aligns to page size.","N/A"
+"glibc: static setuid binary dlopen may incorrectly search LD_LIBRARY_PATH","medium","CVE-2025-4802","trivy","N/A","Untrusted LD_LIBRARY_PATH environment variable vulnerability in the GNU C Library version 2.27 to 2.38 allows attacker controlled loading of dynamically shared library in statically compiled setuid binaries that call dlopen (including internal dlopen calls after setlocale or calls to NSS functions such as getaddrinfo).","N/A"
+"glibc: Double free in glibc","medium","CVE-2025-8058","trivy","N/A","The regcomp function in the GNU C library version from 2.4 to 2.41 is 
+subject to a double free if some previous allocation fails. It can be 
+accomplished either by a malloc failure or by using an interposed malloc
+ that injects random malloc failures. The double free can allow buffer 
+manipulation depending of how the regex is constructed. This issue 
+affects all architectures and ABIs supported by the GNU C library.","N/A"
+"glibc: glibc: Information disclosure via zero-valued network query","medium","CVE-2026-0915","trivy","N/A","Calling getnetbyaddr or getnetbyaddr_r with a configured nsswitch.conf that specifies the library's DNS backend for networks and queries for a zero-valued network in the GNU C Library version 2.0 to version 2.42 can leak stack contents to the configured DNS resolver.","N/A"
+"glibc: glibc: Denial of Service via iconv() function with specific character sets","medium","CVE-2026-4046","trivy","N/A","The iconv() function in the GNU C Library versions 2.43 and earlier may crash due to an assertion failure when converting inputs from the IBM1390 or IBM1399 character sets, which may be used to remotely crash an application.
+
+
+
+This vulnerability can be trivially mitigated by removing the IBM1390 and IBM1399 character sets from systems that do not need them.","N/A"
+"glibc: glibc: Out-of-bounds write via TSIG record processing","medium","CVE-2026-5435","trivy","N/A","The deprecated functions ns_printrrf, ns_printrr and fp_nquery in the GNU C Library version 2.2 and newer fail to enforce the caller-supplied buffer length, and can result in an out-of-bounds write when printing TSIG records.","N/A"
+"glibc: glibc: Heap Buffer Overflow in `scanf` with `%mc` format specifier and large width","medium","CVE-2026-5450","trivy","N/A","Calling the scanf family of functions with a %mc (malloc'd character match) in the GNU C Library version 2.7 to version 2.43 with a format width specifier with an explicit width greater than 1024 could result in a one byte heap buffer overflow.","N/A"
+"glibc: glibc: Information disclosure or denial of service via ungetwc function with specific wide character encodings","medium","CVE-2026-5928","trivy","N/A","Calling the ungetwc function on a FILE stream with wide characters encoded in a character set that has overlaps between its single byte and multi-byte character encodings, in the GNU C Library version 2.43 or earlier, may result in an attempt to read bytes before an allocated buffer, potentially resulting in unintentional disclosure of neighboring data in the heap, or a program crash.
+
+A bug in the wide character pushback implementation (_IO_wdefault_pbackfail in libio/wgenops.c) causes ungetwc() to operate on the regular character buffer (fp->_IO_read_ptr) instead of the actual wide-stream read pointer (fp->_wide_data->_IO_read_ptr). The program crash may happen in cases where fp->_IO_read_ptr is not initialized and hence points to NULL. The buffer under-read requires a special situation where the input character encoding is such that there are overlaps between single byte representations and multibyte representations in that encoding, resulting in spurious matches. The spurious match case is not possible in the standard Unicode character sets.","N/A"
+"expat: XML Entity Expansion","low","CVE-2024-28757","trivy","N/A","libexpat through 2.6.1 allows an XML Entity Expansion attack when there is isolated use of external parsers (created via XML_ExternalEntityParserCreate).","N/A"
+"glibc: glibc: Application crash or uninitialized memory read via crafted DNS response","medium","CVE-2026-6238","trivy","N/A","The deprecated functions ns_printrrf, ns_printrr and fp_nquery in the GNU C Library version 2.0.1 to version 2.43 fail to validate the RDATA content against the RDATA length in a DNS response when processing A6, CERT, LOC, TKEY or TSIG records, which may allow an attacker to craft a DNS response, causing a target application to crash or read uninitialized memory.
+
+These functions are for application debugging only and hence not in the path of code executed by the DNS resolver.  Further, they have been deprecated since version 2.34 and should not be used by any new applications.  Applications should consider porting away from these interfaces since they may be removed in future versions.","N/A"
+"glibc: glob implementation can cause excessive CPU and memory consumption due to crafted glob expressions","low","CVE-2010-4756","trivy","N/A","The glob implementation in the GNU C Library (aka glibc or libc6) allows remote authenticated users to cause a denial of service (CPU and memory consumption) via crafted glob expressions that do not match any pathnames, as demonstrated by glob expressions in STAT commands to an FTP daemon, a different vulnerability than CVE-2010-2632.","N/A"
+"glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c","low","CVE-2018-20796","trivy","N/A","In the GNU C Library (aka glibc or libc6) through 2.29, check_dst_limits_calc_pos_1 in posix/regexec.c has Uncontrolled Recursion, as demonstrated by '(\227|)(\\1\\1|t1|\\\2537)+' in grep.","N/A"
+"glibc: stack guard protection bypass","low","CVE-2019-1010022","trivy","N/A","GNU Libc current is affected by: Mitigation bypass. The impact is: Attacker may bypass stack guard protection. The component is: nptl. The attack vector is: Exploit stack buffer overflow vulnerability and use this bypass vulnerability to bypass stack guard. NOTE: Upstream comments indicate ""this is being treated as a non-security bug and no real threat.","N/A"
+"glibc: running ldd on malicious ELF leads to code execution because of wrong size computation","low","CVE-2019-1010023","trivy","N/A","GNU Libc current is affected by: Re-mapping current loaded library with malicious ELF file. The impact is: In worst case attacker may evaluate privileges. The component is: libld. The attack vector is: Attacker sends 2 ELF files to victim and asks to run ldd on it. ldd execute code. NOTE: Upstream comments indicate ""this is being treated as a non-security bug and no real threat.","N/A"
+"glibc: ASLR bypass using cache of thread stack and heap","low","CVE-2019-1010024","trivy","N/A","GNU Libc current is affected by: Mitigation bypass. The impact is: Attacker may bypass ASLR using cache of thread stack and heap. The component is: glibc. NOTE: Upstream comments indicate ""this is being treated as a non-security bug and no real threat.","N/A"
+"glibc: information disclosure of heap addresses of pthread_created thread","low","CVE-2019-1010025","trivy","N/A","GNU Libc current is affected by: Mitigation bypass. The impact is: Attacker may guess the heap addresses of pthread_created thread. The component is: glibc. NOTE: the vendor's position is ""ASLR bypass itself is not a vulnerability.","N/A"
+"glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c","low","CVE-2019-9192","trivy","N/A","In the GNU C Library (aka glibc or libc6) through 2.29, check_dst_limits_calc_pos_1 in posix/regexec.c has Uncontrolled Recursion, as demonstrated by '(|)(\\1\\1)*' in grep, a different issue than CVE-2018-20796. NOTE: the software maintainer disputes that this is a vulnerability because the behavior occurs only with a crafted pattern","N/A"
+"glibc: netgroup cache may terminate daemon on memory allocation failure","low","CVE-2024-33601","trivy","N/A","nscd: netgroup cache may terminate daemon on memory allocation failure
+
+The Name Service Cache Daemon's (nscd) netgroup cache uses xmalloc or
+xrealloc and these functions may terminate the process due to a memory
+allocation failure resulting in a denial of service to the clients.  The
+flaw was introduced in glibc 2.15 when the cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: netgroup cache assumes NSS callback uses in-buffer strings","low","CVE-2024-33602","trivy","N/A","nscd: netgroup cache assumes NSS callback uses in-buffer strings
+
+The Name Service Cache Daemon's (nscd) netgroup cache can corrupt memory
+when the NSS callback does not store all strings in the provided buffer.
+The flaw was introduced in glibc 2.15 when the cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: wordexp with WRDE_REUSE and WRDE_APPEND may return uninitialized memory","low","CVE-2025-15281","trivy","N/A","Calling wordexp with WRDE_REUSE in conjunction with WRDE_APPEND in the GNU C Library version 2.0 to version 2.42 may cause the interface to return uninitialized memory in the we_wordv member, which on subsequent calls to wordfree may abort the process.","N/A"
+"glibc: Integer overflow in memalign leads to heap corruption","low","CVE-2026-0861","trivy","N/A","Passing too large an alignment to the memalign suite of functions (memalign, posix_memalign, aligned_alloc) in the GNU C Library version 2.30 to 2.42 may result in an integer overflow, which could consequently result in a heap corruption.
+
+Note that the attacker must have control over both, the size as well as the alignment arguments of the memalign function to be able to exploit this.  The size parameter must be close enough to PTRDIFF_MAX so as to overflow size_t along with the large alignment argument.  This limits the malicious inputs for the alignment for memalign to the range [1<<62+ 1, 1<<63] and exactly 1<<63 for posix_memalign and aligned_alloc.
+
+Typically the alignment argument passed to such functions is a known constrained quantity (e.g. page size, block size, struct sizes) and is not attacker controlled, because of which this may not be easily exploitable in practice.  An application bug could potentially result in the input alignment being too large, e.g. due to a different buffer overflow or integer overflow in the application or its dependent libraries, but that is again an uncommon usage pattern given typical sources of alignments.","N/A"
+"glibc: Out of bounds write in iconv may lead to remote code execution","high","CVE-2024-2961","trivy","N/A","The iconv() function in the GNU C Library versions 2.39 and older may overflow the output buffer passed to it by up to 4 bytes when converting strings to the ISO-2022-CN-EXT character set, which may be used to crash an application or overwrite a neighbouring variable.","N/A"
+"glibc: stack-based buffer overflow in netgroup cache","high","CVE-2024-33599","trivy","N/A","nscd: Stack-based buffer overflow in netgroup cache
+
+If the Name Service Cache Daemon's (nscd) fixed size cache is exhausted
+by client requests then a subsequent client request for netgroup data
+may result in a stack-based buffer overflow.  This flaw was introduced
+in glibc 2.15 when the cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: potential use-after-free in getaddrinfo()","medium","CVE-2023-4806","trivy","N/A","A flaw has been identified in glibc. In an extremely rare situation, the getaddrinfo function may access memory that has been freed, resulting in an application crash. This issue is only exploitable when a NSS module implements only the _nss_*_gethostbyname2_r and _nss_*_getcanonname_r hooks without implementing the _nss_*_gethostbyname3_r hook. The resolved name should return a large number of IPv6 and IPv4, and the call to the getaddrinfo function should have the AF_INET6 address family with AI_CANONNAME, AI_ALL and AI_V4MAPPED as flags.","N/A"
+"glibc: potential use-after-free in gaih_inet()","medium","CVE-2023-4813","trivy","N/A","A flaw has been identified in glibc. In an uncommon situation, the gaih_inet function may use memory that has been freed, resulting in an application crash. This issue is only exploitable when the getaddrinfo function is called and the hosts database in /etc/nsswitch.conf is configured with SUCCESS=continue or SUCCESS=merge.","N/A"
+"glibc: null pointer dereferences after failed netgroup cache insertion","medium","CVE-2024-33600","trivy","N/A","nscd: Null pointer crashes after notfound response
+
+If the Name Service Cache Daemon's (nscd) cache fails to add a not-found
+netgroup response to the cache, the client request can result in a null
+pointer dereference.  This flaw was introduced in glibc 2.15 when the
+cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: buffer overflow in the GNU C Library's assert()","medium","CVE-2025-0395","trivy","N/A","When the assert() function in the GNU C Library versions 2.13 to 2.40 fails, it does not allocate enough space for the assertion failure message string and size information, which may lead to a buffer overflow if the message string size aligns to page size.","N/A"
+"glibc: static setuid binary dlopen may incorrectly search LD_LIBRARY_PATH","medium","CVE-2025-4802","trivy","N/A","Untrusted LD_LIBRARY_PATH environment variable vulnerability in the GNU C Library version 2.27 to 2.38 allows attacker controlled loading of dynamically shared library in statically compiled setuid binaries that call dlopen (including internal dlopen calls after setlocale or calls to NSS functions such as getaddrinfo).","N/A"
+"glibc: Double free in glibc","medium","CVE-2025-8058","trivy","N/A","The regcomp function in the GNU C library version from 2.4 to 2.41 is 
+subject to a double free if some previous allocation fails. It can be 
+accomplished either by a malloc failure or by using an interposed malloc
+ that injects random malloc failures. The double free can allow buffer 
+manipulation depending of how the regex is constructed. This issue 
+affects all architectures and ABIs supported by the GNU C library.","N/A"
+"glibc: glibc: Information disclosure via zero-valued network query","medium","CVE-2026-0915","trivy","N/A","Calling getnetbyaddr or getnetbyaddr_r with a configured nsswitch.conf that specifies the library's DNS backend for networks and queries for a zero-valued network in the GNU C Library version 2.0 to version 2.42 can leak stack contents to the configured DNS resolver.","N/A"
+"glibc: glibc: Denial of Service via iconv() function with specific character sets","medium","CVE-2026-4046","trivy","N/A","The iconv() function in the GNU C Library versions 2.43 and earlier may crash due to an assertion failure when converting inputs from the IBM1390 or IBM1399 character sets, which may be used to remotely crash an application.
+
+
+
+This vulnerability can be trivially mitigated by removing the IBM1390 and IBM1399 character sets from systems that do not need them.","N/A"
+"glibc: glibc: Out-of-bounds write via TSIG record processing","medium","CVE-2026-5435","trivy","N/A","The deprecated functions ns_printrrf, ns_printrr and fp_nquery in the GNU C Library version 2.2 and newer fail to enforce the caller-supplied buffer length, and can result in an out-of-bounds write when printing TSIG records.","N/A"
+"glibc: glibc: Heap Buffer Overflow in `scanf` with `%mc` format specifier and large width","medium","CVE-2026-5450","trivy","N/A","Calling the scanf family of functions with a %mc (malloc'd character match) in the GNU C Library version 2.7 to version 2.43 with a format width specifier with an explicit width greater than 1024 could result in a one byte heap buffer overflow.","N/A"
+"libcurl: libcurl: Security feature bypass due to improper mTLS connection reuse","high","CVE-2026-8932","trivy","N/A","libcurl would reuse a previously created connection even when some mTLS config
+related option had been changed that should have prohibited reuse.
+
+libcurl keeps previously used connections in a connection pool for subsequent
+transfers to reuse if one of them matches the setup. However, some TLS
+settings related to client certificates were left out from the configuration
+match checks, making them match too easily. In particular options related to
+the private key.","N/A"
+"libexpat before 2.8.2 lacks handler call depth tracking for calls to X ...","high","CVE-2026-56131","trivy","N/A","libexpat before 2.8.2 lacks handler call depth tracking for calls to XML_ResumeParser from within handlers in cases of a policy violation. Thus, a use-after-free can occur (similar to the CVE-2026-50219 situation).","N/A"
+"glibc: glibc: Information disclosure or denial of service via ungetwc function with specific wide character encodings","medium","CVE-2026-5928","trivy","N/A","Calling the ungetwc function on a FILE stream with wide characters encoded in a character set that has overlaps between its single byte and multi-byte character encodings, in the GNU C Library version 2.43 or earlier, may result in an attempt to read bytes before an allocated buffer, potentially resulting in unintentional disclosure of neighboring data in the heap, or a program crash.
+
+A bug in the wide character pushback implementation (_IO_wdefault_pbackfail in libio/wgenops.c) causes ungetwc() to operate on the regular character buffer (fp->_IO_read_ptr) instead of the actual wide-stream read pointer (fp->_wide_data->_IO_read_ptr). The program crash may happen in cases where fp->_IO_read_ptr is not initialized and hence points to NULL. The buffer under-read requires a special situation where the input character encoding is such that there are overlaps between single byte representations and multibyte representations in that encoding, resulting in spurious matches. The spurious match case is not possible in the standard Unicode character sets.","N/A"
+"glibc: glibc: Application crash or uninitialized memory read via crafted DNS response","medium","CVE-2026-6238","trivy","N/A","The deprecated functions ns_printrrf, ns_printrr and fp_nquery in the GNU C Library version 2.0.1 to version 2.43 fail to validate the RDATA content against the RDATA length in a DNS response when processing A6, CERT, LOC, TKEY or TSIG records, which may allow an attacker to craft a DNS response, causing a target application to crash or read uninitialized memory.
+
+These functions are for application debugging only and hence not in the path of code executed by the DNS resolver.  Further, they have been deprecated since version 2.34 and should not be used by any new applications.  Applications should consider porting away from these interfaces since they may be removed in future versions.","N/A"
+"glibc: glob implementation can cause excessive CPU and memory consumption due to crafted glob expressions","low","CVE-2010-4756","trivy","N/A","The glob implementation in the GNU C Library (aka glibc or libc6) allows remote authenticated users to cause a denial of service (CPU and memory consumption) via crafted glob expressions that do not match any pathnames, as demonstrated by glob expressions in STAT commands to an FTP daemon, a different vulnerability than CVE-2010-2632.","N/A"
+"glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c","low","CVE-2018-20796","trivy","N/A","In the GNU C Library (aka glibc or libc6) through 2.29, check_dst_limits_calc_pos_1 in posix/regexec.c has Uncontrolled Recursion, as demonstrated by '(\227|)(\\1\\1|t1|\\\2537)+' in grep.","N/A"
+"glibc: stack guard protection bypass","low","CVE-2019-1010022","trivy","N/A","GNU Libc current is affected by: Mitigation bypass. The impact is: Attacker may bypass stack guard protection. The component is: nptl. The attack vector is: Exploit stack buffer overflow vulnerability and use this bypass vulnerability to bypass stack guard. NOTE: Upstream comments indicate ""this is being treated as a non-security bug and no real threat.","N/A"
+"glibc: running ldd on malicious ELF leads to code execution because of wrong size computation","low","CVE-2019-1010023","trivy","N/A","GNU Libc current is affected by: Re-mapping current loaded library with malicious ELF file. The impact is: In worst case attacker may evaluate privileges. The component is: libld. The attack vector is: Attacker sends 2 ELF files to victim and asks to run ldd on it. ldd execute code. NOTE: Upstream comments indicate ""this is being treated as a non-security bug and no real threat.","N/A"
+"glibc: ASLR bypass using cache of thread stack and heap","low","CVE-2019-1010024","trivy","N/A","GNU Libc current is affected by: Mitigation bypass. The impact is: Attacker may bypass ASLR using cache of thread stack and heap. The component is: glibc. NOTE: Upstream comments indicate ""this is being treated as a non-security bug and no real threat.","N/A"
+"glibc: information disclosure of heap addresses of pthread_created thread","low","CVE-2019-1010025","trivy","N/A","GNU Libc current is affected by: Mitigation bypass. The impact is: Attacker may guess the heap addresses of pthread_created thread. The component is: glibc. NOTE: the vendor's position is ""ASLR bypass itself is not a vulnerability.","N/A"
+"glibc: uncontrolled recursion in function check_dst_limits_calc_pos_1 in posix/regexec.c","low","CVE-2019-9192","trivy","N/A","In the GNU C Library (aka glibc or libc6) through 2.29, check_dst_limits_calc_pos_1 in posix/regexec.c has Uncontrolled Recursion, as demonstrated by '(|)(\\1\\1)*' in grep, a different issue than CVE-2018-20796. NOTE: the software maintainer disputes that this is a vulnerability because the behavior occurs only with a crafted pattern","N/A"
+"glibc: netgroup cache may terminate daemon on memory allocation failure","low","CVE-2024-33601","trivy","N/A","nscd: netgroup cache may terminate daemon on memory allocation failure
+
+The Name Service Cache Daemon's (nscd) netgroup cache uses xmalloc or
+xrealloc and these functions may terminate the process due to a memory
+allocation failure resulting in a denial of service to the clients.  The
+flaw was introduced in glibc 2.15 when the cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: netgroup cache assumes NSS callback uses in-buffer strings","low","CVE-2024-33602","trivy","N/A","nscd: netgroup cache assumes NSS callback uses in-buffer strings
+
+The Name Service Cache Daemon's (nscd) netgroup cache can corrupt memory
+when the NSS callback does not store all strings in the provided buffer.
+The flaw was introduced in glibc 2.15 when the cache was added to nscd.
+
+This vulnerability is only present in the nscd binary.","N/A"
+"glibc: wordexp with WRDE_REUSE and WRDE_APPEND may return uninitialized memory","low","CVE-2025-15281","trivy","N/A","Calling wordexp with WRDE_REUSE in conjunction with WRDE_APPEND in the GNU C Library version 2.0 to version 2.42 may cause the interface to return uninitialized memory in the we_wordv member, which on subsequent calls to wordfree may abort the process.","N/A"
+"glibc: Integer overflow in memalign leads to heap corruption","low","CVE-2026-0861","trivy","N/A","Passing too large an alignment to the memalign suite of functions (memalign, posix_memalign, aligned_alloc) in the GNU C Library version 2.30 to 2.42 may result in an integer overflow, which could consequently result in a heap corruption.
+
+Note that the attacker must have control over both, the size as well as the alignment arguments of the memalign function to be able to exploit this.  The size parameter must be close enough to PTRDIFF_MAX so as to overflow size_t along with the large alignment argument.  This limits the malicious inputs for the alignment for memalign to the range [1<<62+ 1, 1<<63] and exactly 1<<63 for posix_memalign and aligned_alloc.
+
+Typically the alignment argument passed to such functions is a known constrained quantity (e.g. page size, block size, struct sizes) and is not attacker controlled, because of which this may not be easily exploitable in practice.  An application bug could potentially result in the input alignment being too large, e.g. due to a different buffer overflow or integer overflow in the application or its dependent libraries, but that is again an uncommon usage pattern given typical sources of alignments.","N/A"
+"e2fsprogs: out-of-bounds read/write via crafted filesystem","high","CVE-2022-1304","trivy","N/A","An out-of-bounds read/write vulnerability was found in e2fsprogs 1.46.5. This issue leads to a segmentation fault and possibly arbitrary code execution via a specially crafted filesystem.","N/A"
+"curl: HSTS ignored on multiple requests","critical","CVE-2023-23914","trivy","N/A","A cleartext transmission of sensitive information vulnerability exists in curl <v7.88.0 that could cause HSTS functionality fail when multiple URLs are requested serially. Using its HSTS support, curl can be instructed to use HTTPS instead of usingan insecure clear-text HTTP step even when HTTP is provided in the URL. ThisHSTS mechanism would however surprisingly be ignored by subsequent transferswhen done on the same command line because the state would not be properlycarried on.","N/A"
+"curl: HSTS bypass via IDN","high","CVE-2022-42916","trivy","N/A","In curl before 7.86.0, the HSTS check could be bypassed to trick it into staying with HTTP. Using its HSTS support, curl can be instructed to use HTTPS directly (instead of using an insecure cleartext HTTP step) even when HTTP is provided in the URL. This mechanism could be bypassed if the host name in the given URL uses IDN characters that get replaced with ASCII counterparts as part of the IDN conversion, e.g., using the character UTF-8 U+3002 (IDEOGRAPHIC FULL STOP) instead of the common ASCII full stop of U+002E (.). The earliest affected version is 7.77.0 2021-05-26.","N/A"
+"curl: HSTS bypass via IDN","high","CVE-2022-43551","trivy","N/A","A vulnerability exists in curl <7.87.0 HSTS check that could be bypassed to trick it to keep using HTTP. Using its HSTS support, curl can be instructed to use HTTPS instead of using an insecure clear-text HTTP step even when HTTP is provided in the URL. However, the HSTS mechanism could be bypassed if the host name in the given URL first uses IDN characters that get replaced to ASCII counterparts as part of the IDN conversion. Like using the character UTF-8 U+3002 (IDEOGRAPHIC FULL STOP) instead of the common ASCII full stop (U+002E) `.`. Then in a subsequent request, it does not detect the HSTS state and makes a clear text transfer. Because it would store the info IDN encoded but look for it IDN decoded.","N/A"
+"curl: curl: SSH host verification bypass when using schemeless URLs with SFTP/SCP","high","CVE-2026-12064","trivy","N/A","When a user invokes curl using a schemeless URL combined with
+`--proto-default` sftp (or scp), a disconnect occurs between the tool layer
+and libcurl. The tool layer incorrectly infers the URL scheme, which
+erroneously bypasses the initialization of critical SSH security options like
+CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256 and CURLOPT_SSH_KNOWNHOSTS. Conversely, the
+libcurl runtime successfully honors CURLOPT_DEFAULT_PROTOCOL and establishes
+the connection via SFTP/SCP as specified. Because the tool layer skipped the
+security configuration, these SSH host verification options are silently
+omitted, causing curl to connect to an unverified SSH remote host without
+throwing an error.","N/A"
+"curl: libcurl: Wrong file transfer due to incorrect SMB connection reuse","high","CVE-2026-5773","trivy","N/A","libcurl might in some circumstances reuse the wrong connection for SMB(S)
+transfers.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criteria must be met. Due to a logical
+error in the code, a network transfer operation that was requested by an
+application could wrongfully reuse an existing SMB connection to the same
+server that was using a different 'share' than the new subsequent transfer
+should.
+
+This could in unlucky situations lead to the download of the wrong file or the
+upload of a file to the wrong place. When this happens, the same credentials
+are used and the server name is the same.","N/A"
+"curl: libcurl: Information disclosure due to cookie leak when reusing connections with custom Host headers","high","CVE-2026-6276","trivy","N/A","Using libcurl, when a custom `Host:` header is first set for an HTTP request
+and a second request is subsequently done using the same *easy handle* but
+without the custom `Host:` header set, the second request would use stale
+information and pass on cookies meant for the first host in the second
+request. Leak them.","N/A"
+"curl: curl: Insecure connection establishment due to TLS configuration mismatch","high","CVE-2026-8286","trivy","N/A","A vulnerability exists where a new transfer that uses STARTTLS to upgrade the
+connection might reuse an existing live connection even though the TLS
+configuration mismatches so it should not.","N/A"
+"libcurl: libcurl: Information disclosure due to uncleared proxy authentication state","high","CVE-2026-8927","trivy","N/A","When reusing a libcurl handle for sequential transfers driven by
+environment-variable proxy configuration, libcurl fails to clear the proxy
+authentication state between requests. Specifically, if the initial transfer
+authenticates against `proxyA` using Digest auth, a subsequent transfer routed
+through `proxyB` erroneously leaks the `Proxy-Authorization:` header intended
+solely for `proxyA`.","N/A"
+"curl: curl: Man-in-the-middle attack via SSH host key bypass","high","CVE-2026-9547","trivy","N/A","When a libcurl-based application performs transfers via `SCP://` or `SFTP://`
+and utilizes the `CURLOPT_SSH_KEYFUNCTION` callback, it may silently accept an
+untrusted server. This vulnerability occurs when a server presents a host key
+type that does not match the specific key type already recorded for that host
+in the `known_hosts` file. Instead of rejecting the mismatch, the callback
+mechanism fails to properly enforce the restriction, allowing the connection
+to succeed without warning and risking a potential man-in-the-middle attack.","N/A"
+"curl: HSTS amnesia with --parallel","medium","CVE-2023-23915","trivy","N/A","A cleartext transmission of sensitive information vulnerability exists in curl <v7.88.0 that could cause HSTS functionality to behave incorrectly when multiple URLs are requested in parallel. Using its HSTS support, curl can be instructed to use HTTPS instead of using an insecure clear-text HTTP step even when HTTP is provided in the URL. This HSTS mechanism would however surprisingly fail when multiple transfers are done in parallel as the HSTS cache file gets overwritten by the most recentlycompleted transfer. A later HTTP-only transfer to the earlier host name would then *not* get upgraded properly to HSTS.","N/A"
+"curl: excessively long file name may lead to unknown HSTS status","medium","CVE-2023-46219","trivy","N/A","When saving HSTS data to an excessively long file name, curl could end up
+removing all contents, making subsequent requests using that file unaware of
+the HSTS status they should otherwise use.","N/A"
+"curl: HTTP/2 push headers memory-leak","medium","CVE-2024-2398","trivy","N/A","When an application tells libcurl it wants to allow HTTP/2 server push, and the amount of received headers for the push surpasses the maximum allowed limit (1000), libcurl aborts the server push. When aborting, libcurl inadvertently does not free all the previously allocated headers and instead leaks the memory.  Further, this error condition fails silently and is therefore not easily detected by an application.","N/A"
+"curl: libcurl: ASN.1 date parser overread","medium","CVE-2024-7264","trivy","N/A","libcurl's ASN1 parser code has the `GTime2str()` function, used for parsing an
+ASN.1 Generalized Time field. If given an syntactically incorrect field, the
+parser might end up using -1 for the length of the *time fraction*, leading to
+a `strlen()` getting performed on a pointer to a heap buffer area that is not
+(purposely) null terminated.
+
+This flaw most likely leads to a crash, but can also lead to heap contents
+getting returned to the application when
+[CURLINFO_CERTINFO](https://curl.se/libcurl/c/CURLINFO_CERTINFO.html) is used.","N/A"
+"curl: OCSP stapling bypass with GnuTLS","medium","CVE-2024-8096","trivy","N/A","When curl is told to use the Certificate Status Request TLS extension, often referred to as OCSP stapling, to verify that the server certificate is valid, it might fail to detect some OCSP problems and instead wrongly consider the response as fine.  If the returned status reports another error than 'revoked' (like for example 'unauthorized') it is not treated as a bad certficate.","N/A"
+"curl: HSTS subdomain overwrites parent cache entry","medium","CVE-2024-9681","trivy","N/A","When curl is asked to use HSTS, the expiry time for a subdomain might
+overwrite a parent domain's cache entry, making it end sooner or later than
+otherwise intended.
+
+This affects curl using applications that enable HSTS and use URLs with the
+insecure `HTTP://` scheme and perform transfers with hosts like
+`x.example.com` as well as `example.com` where the first host is a subdomain
+of the second host.
+
+(The HSTS cache either needs to have been populated manually or there needs to
+have been previous HTTPS accesses done as the cache needs to have entries for
+the domains involved to trigger this problem.)
+
+When `x.example.com` responds with `Strict-Transport-Security:` headers, this
+bug can make the subdomain's expiry timeout *bleed over* and get set for the
+parent domain `example.com` in curl's HSTS cache.
+
+The result of a triggered bug is that HTTP accesses to `example.com` get
+converted to HTTPS for a different period of time than what was asked for by
+the origin server. If `example.com` for example stops supporting HTTPS at its
+expiry time, curl might then fail to access `http://example.com` until the
+(wrongly set) timeout expires. This bug can also expire the parent's entry
+*earlier*, thus making curl inadvertently switch back to insecure HTTP earlier
+than otherwise intended.","N/A"
+"libcurl: libcurl: Use-after-free vulnerability leading to Denial of Service","medium","CVE-2026-10536","trivy","N/A","A use-after-free vulnerability exists in libcurl when an application
+configures an HTTP/2 stream-dependency tree via `CURLOPT_STREAM_DEPENDS` or
+`CURLOPT_STREAM_DEPENDS_E`, subsequently invokes `curl_easy_reset()`, and
+finally terminates the handle with `curl_easy_cleanup()`. During this final
+cleanup phase, libcurl attempts to access and modify an internal structure
+that was already freed during the reset operation.","N/A"
+"curl: curl: Information disclosure via incorrect Digest authentication header reuse","medium","CVE-2026-11856","trivy","N/A","Successfully using libcurl to do a transfer to a specific HTTP origin
+(`hostA`) with **Digest** authentication and then changing the origin to a
+different one (`hostB`) for a second transfer, reusing the same handle, makes
+libcurl wrongly pass on the  `Authorization:` header field meant for `hostA`,
+to `hostB`.","N/A"
+"curl: Content not matching hash in Metalink is not being discarded","low","CVE-2021-22922","trivy","N/A","When curl is instructed to download content using the metalink feature, thecontents is verified against a hash provided in the metalink XML file.The metalink XML file points out to the client how to get the same contentfrom a set of different URLs, potentially hosted by different servers and theclient can then download the file from one or several of them. In a serial orparallel manner.If one of the servers hosting the contents has been breached and the contentsof the specific file on that server is replaced with a modified payload, curlshould detect this when the hash of the file mismatches after a completeddownload. It should remove the contents and instead try getting the contentsfrom another URL. This is not done, and instead such a hash mismatch is onlymentioned in text and the potentially malicious content is kept in the file ondisk.","N/A"
+"curl: curl: Authentication bypass due to incorrect connection reuse with Negotiate authentication","medium","CVE-2026-1965","trivy","N/A","libcurl can in some circumstances reuse the wrong connection when asked to do
+an Negotiate-authenticated HTTP or HTTPS request.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criterion must first be met. Due to a
+logical error in the code, a request that was issued by an application could
+wrongfully reuse an existing connection to the same server that was
+authenticated using different credentials. One underlying reason being that
+Negotiate sometimes authenticates *connections* and not *requests*, contrary
+to how HTTP is designed to work.
+
+An application that allows Negotiate authentication to a server (that responds
+wanting Negotiate) with `user1:password1` and then does another operation to
+the same server also using Negotiate but with `user2:password2` (while the
+previous connection is still alive) - the second request wrongly reused the
+same connection and since it then sees that the Negotiate negotiation is
+already made, it just sends the request over that connection thinking it uses
+the user2 credentials when it is in fact still using the connection
+authenticated for user1...
+
+The set of authentication methods to use is set with  `CURLOPT_HTTPAUTH`.
+
+Applications can disable libcurl's reuse of connections and thus mitigate this
+problem, by using one of the following libcurl options to alter how
+connections are or are not reused: `CURLOPT_FRESH_CONNECT`,
+`CURLOPT_MAXCONNECTS` and `CURLMOPT_MAX_HOST_CONNECTIONS` (if using the
+curl_multi API).","N/A"
+"curl: curl: Information disclosure via OAuth2 bearer token leakage during HTTP(S) redirect","medium","CVE-2026-3783","trivy","N/A","When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer
+performs a redirect to a second URL, curl could leak that token to the second
+hostname under some circumstances.
+
+If the hostname that the first request is redirected to has information in the
+used .netrc file, with either of the `machine` or `default` keywords, curl
+would pass on the bearer token set for the first host also to the second one.","N/A"
+"curl: curl: Unauthorized access due to improper HTTP proxy connection reuse","medium","CVE-2026-3784","trivy","N/A","curl would wrongly reuse an existing HTTP proxy connection doing CONNECT to a
+server, even if the new request uses different credentials for the HTTP proxy.
+The proper behavior is to create or use a separate connection.","N/A"
+"curl: curl: Information disclosure due to incorrect TLS connection reuse","medium","CVE-2026-4873","trivy","N/A","A vulnerability exists where a connection requiring TLS incorrectly reuses an
+existing unencrypted connection from the same connection pool. If an initial
+transfer is made in clear-text (via IMAP, SMTP, or POP3), a subsequent request
+to that same host bypasses the TLS requirement and instead transmit data
+unencrypted.","N/A"
+"curl: libcurl: Authentication bypass due to incorrect HTTP Negotiate connection reuse","medium","CVE-2026-5545","trivy","N/A","libcurl might in some circumstances reuse the wrong connection when asked to
+do an authenticated HTTP(S) request after a Negotiate-authenticated one, when
+both use the same host.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criteria must be met. Due to a logical
+error in the code, a request that was issued by an application could
+wrongfully reuse an existing connection to the same server that was
+authenticated using different credentials.
+
+An application that first uses Negotiate authentication to a server with
+`user1:password1` and then does another operation to the same server asking
+for any authentication method but for `user2:password2` (while the previous
+connection is still alive) - the second request gets confused and wrongly
+reuses the same connection and sends the new request over that connection
+thinking it uses a mix of user1's and user2's credentials when it is in fact
+still using the connection authenticated for user1...","N/A"
+"curl: curl: Proxy credential disclosure via redirects to unauthenticated proxies","medium","CVE-2026-6253","trivy","N/A","curl might erroneously pass on credentials for a first proxy to a second
+proxy.
+
+This can happen when the following conditions are true:
+
+1. curl is setup to use specific different proxies for different URL schemes
+2. the first proxy needs credentials
+3. the second proxy uses no credentials
+4. while using the first proxy (using say `http://`), curl is asked to follow
+   a redirect to a URL using another scheme (say `https://`), accessed using a
+   second, different, proxy","N/A"
+"curl: libcurl: Credential leak via reused proxy connection during HTTP redirects","medium","CVE-2026-6429","trivy","N/A","When asked to both use a `.netrc` file for credentials and to follow HTTP
+redirects, libcurl could leak the password used for the first host to the
+followed-to host under certain circumstances.","N/A"
+"curl: libcurl: Information disclosure via incorrect Proxy-Authorization header reuse","medium","CVE-2026-7168","trivy","N/A","Successfully using libcurl to do a transfer over a specific HTTP proxy
+(`proxyA`) with **Digest** authentication and then changing the proxy host to
+a second one (`proxyB`) for a second transfer, reusing the same handle, makes
+libcurl wrongly pass on the `Proxy-Authorization:` header field meant for
+`proxyA`, to `proxyB`.","N/A"
+"curl: curl: Cookie injection via malicious HTTP server using super cookies","medium","CVE-2026-8924","trivy","N/A","A flaw in curl’s cookie parsing logic allows a malicious HTTP server to set
+'super cookies' that bypass the Public Suffix List check. This enables an
+attacker-controlled origin to inject cookies that curl subsequently scopes and
+transmits to unrelated third-party domains.","N/A"
+"curl: Metalink download sends credentials","low","CVE-2021-22923","trivy","N/A","When curl is instructed to get content using the metalink feature, and a user name and password are used to download the metalink XML file, those same credentials are then subsequently passed on to each of the servers from which curl will download or try to download the contents from. Often contrary to the user's expectations and intentions and without telling the user it happened.","N/A"
+"curl: siglongjmp race condition may lead to crash","low","CVE-2023-28320","trivy","N/A","A denial of service vulnerability exists in curl <v8.1.0 in the way libcurl provides several different backends for resolving host names, selected at build time. If it is built to use the synchronous resolver, it allows name resolves to time-out slow operations using `alarm()` and `siglongjmp()`. When doing this, libcurl used a global buffer that was not mutex protected and a multi-threaded application might therefore crash or otherwise misbehave.","N/A"
+"curl: QUIC certificate check bypass with wolfSSL","low","CVE-2024-2379","trivy","N/A","libcurl skips the certificate verification for a QUIC connection under certain conditions, when built to use wolfSSL. If told to use an unknown/bad cipher or curve, the error path accidentally skips the verification and returns OK, thus ignoring any certificate problems.","N/A"
+"libcurl: Buffer Overflow in libcurl via zlib Integer Overflow","low","CVE-2025-0725","trivy","N/A","When libcurl is asked to perform automatic gzip decompression of
+content-encoded HTTP responses with the `CURLOPT_ACCEPT_ENCODING` option,
+**using zlib 1.2.0.3 or older**, an attacker-controlled integer overflow would
+make libcurl perform a buffer overflow.","N/A"
+"curl: Curl missing SFTP host verification with wolfSSH backend","low","CVE-2025-10966","trivy","N/A","curl's code for managing SSH connections when SFTP was done using the wolfSSH
+powered backend was flawed and missed host verification mechanisms.
+
+This prevents curl from detecting MITM attackers and more.","N/A"
+"curl: curl: Security bypass due to global TLS option changes in multi-threaded LDAPS transfers","low","CVE-2025-14017","trivy","N/A","When doing multi-threaded LDAPS transfers (LDAP over TLS) with libcurl,
+changing TLS options in one thread would inadvertently change them globally
+and therefore possibly also affect other concurrently setup transfers.
+
+Disabling certificate verification for a specific transfer could
+unintentionally disable the feature for other threads as well.","N/A"
+"curl: Information disclosure via cross-protocol redirect with OAuth2 bearer token","low","CVE-2025-14524","trivy","N/A","When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer
+performs a cross-protocol redirect to a second URL that uses an IMAP, LDAP,
+POP3 or SMTP scheme, curl might wrongly pass on the bearer token to the new
+target host.","N/A"
+"curl: Host verification bypass during SSH transfers","low","CVE-2025-15079","trivy","N/A","When doing SSH-based transfers using either SCP or SFTP, and setting the
+known_hosts file, libcurl could still mistakenly accept connecting to hosts
+*not present* in the specified file if they were added as recognized in the
+libssh *global* known_hosts file.","N/A"
+"curl: libssh key passphrase bypass without agent set","low","CVE-2025-15224","trivy","N/A","When doing SSH-based transfers using either SCP or SFTP, and asked to do
+public key authentication, curl would wrongly still ask and authenticate using
+a locally running SSH agent.","N/A"
+"libcurl might in some circumstances reuse the wrong connection when as ...","low","CVE-2026-8458","trivy","N/A","libcurl might in some circumstances reuse the wrong connection when asked to
+do Negotiate-authenticated ones, even when they are set to use different
+'services'.
+
+libcurl features a pool of recent connections so that subsequent requests can
+reuse an existing connection to avoid overhead.
+
+When reusing a connection a range of criteria must be met. Due to a logical
+error in the code, a request that was issued by an application could
+wrongfully reuse an existing connection to the same server that was
+authenticated using different services.","N/A"
+"sqlite: heap out-of-bound read in function rtreenode()","critical","CVE-2019-8457","trivy","N/A","SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the rtreenode() function when handling invalid rtree tables.","N/A"
+"libexpat: Integer Overflow or Wraparound","critical","CVE-2024-45491","trivy","N/A","An issue was discovered in libexpat before 2.6.3. dtdCopy in xmlparse.c can have an integer overflow for nDefaultAtts on 32-bit platforms (where UINT_MAX equals SIZE_MAX).","N/A"
+"libexpat: integer overflow","critical","CVE-2024-45492","trivy","N/A","An issue was discovered in libexpat before 2.6.3. nextScaffoldPart in xmlparse.c can have an integer overflow for m_groupSize on 32-bit platforms (where UINT_MAX equals SIZE_MAX).","N/A"
+"expat: parsing large tokens can trigger a denial of service","high","CVE-2023-52425","trivy","N/A","libexpat through 2.5.0 allows a denial of service (resource consumption) because many full reparsings are required in the case of a large token for which multiple buffer fills are needed.","N/A"
+"libexpat: Negative Length Parsing Vulnerability in libexpat","high","CVE-2024-45490","trivy","N/A","An issue was discovered in libexpat before 2.6.3. xmlparse.c does not reject a negative length for XML_ParseBuffer.","N/A"
+"firefox: thunderbird: expat: libexpat in Expat allows attackers to trigger large dynamic memory allocations via a small document that is submitted for parsing","high","CVE-2025-59375","trivy","N/A","libexpat in Expat before 2.7.2 allows attackers to trigger large dynamic memory allocations via a small document that is submitted for parsing.","N/A"
+"libexpat: libexpat: Information disclosure and data integrity issues due to integer overflow in buffer reallocation","high","CVE-2026-25210","trivy","N/A","In libexpat before 2.7.4, the doContent function does not properly determine the buffer size bufSize because there is no integer overflow check for tag buffer reallocation.","N/A"
+"libexpat: expat: DoS via XML_ResumeParser","medium","CVE-2024-50602","trivy","N/A","An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.","N/A"
+"libexpat: expat: Improper Restriction of XML Entity Expansion Depth in libexpat","medium","CVE-2024-8176","trivy","N/A","A stack overflow vulnerability exists in the libexpat library due to the way it handles recursive entity expansion in XML documents. When parsing an XML document with deeply nested entity references, libexpat can be forced to recurse indefinitely, exhausting the stack space and causing a crash. This issue could lead to denial of service (DoS) or, in some cases, exploitable memory corruption, depending on the environment and library usage.","N/A"
+"libexpat: libexpat: Denial of service via crafted file processing","medium","CVE-2025-66382","trivy","N/A","In libexpat through 2.7.3, a crafted file with an approximate size of 2 MiB can lead to dozens of seconds of processing time.","N/A"
+"libexpat: libexpat: Denial of Service due to NULL pointer dereference","medium","CVE-2026-32776","trivy","N/A","libexpat before 2.7.5 allows a NULL pointer dereference with empty external parameter entity content.","N/A"
+"libexpat: libexpat: Denial of Service via infinite loop in DTD content parsing","medium","CVE-2026-32777","trivy","N/A","libexpat before 2.7.5 allows an infinite loop while parsing DTD content.","N/A"
+"libexpat: libexpat: Denial of Service via NULL pointer dereference after out-of-memory condition","medium","CVE-2026-32778","trivy","N/A","libexpat before 2.7.5 allows a NULL pointer dereference in the function setContext on retry after an earlier ouf-of-memory condition.","N/A"
+"expat: libexpat: Use-after-free vulnerability due to improper handler call depth tracking","medium","CVE-2026-50219","trivy","N/A","libexpat before 2.8.2 lacks handler call depth tracking for calls to XML_GetBuffer, XML_Parse, XML_ParseBuffer, XML_ParserFree, or XML_ParserReset from within handlers in cases of a policy violation. Thus, a use-after-free can occur,","N/A"
+"expat: libexpat: Arbitrary Code Execution via Heap-based Buffer Overflow","medium","CVE-2026-56132","trivy","N/A","In libexpat before 2.8.2, there is a heap-based buffer overflow in doProlog in xmlparse.c because scaffold backing array reallocation is mishandled when there is data-structure sharing across parsers.","N/A"
+"libexpat: libexpat: Arbitrary code execution due to integer overflow in storeAtts","medium","CVE-2026-56403","trivy","N/A","libexpat before 2.8.2 has an integer overflow in storeAtts.","N/A"
+"libexpat before 2.8.2 has an integer overflow in addBinding.","medium","CVE-2026-56404","trivy","N/A","libexpat before 2.8.2 has an integer overflow in addBinding.","N/A"
+"libexpat: libexpat: Information disclosure and arbitrary code execution via integer overflow","medium","CVE-2026-56405","trivy","N/A","libexpat before 2.8.2 has an integer overflow in getAttributeId.","N/A"
+"libexpat: libexpat: Arbitrary code execution via integer overflow in XML_ParseBuffer","medium","CVE-2026-56406","trivy","N/A","libexpat before 2.8.2 has an integer overflow in XML_ParseBuffer because it lacked a check that was present in XML_Parse.","N/A"
+"xmlwf in libexpat before 2.8.2 has an integer overflow for the output  ...","medium","CVE-2026-56409","trivy","N/A","xmlwf in libexpat before 2.8.2 has an integer overflow for the output filename when -d outputDir is used.","N/A"
+"libexpat: libexpat: Integer overflow in xmlwf can lead to information disclosure and arbitrary code execution.","medium","CVE-2026-56410","trivy","N/A","xmlwf in libexpat before 2.8.2 has an integer overflow in resolveSystemId.","N/A"
+"expat: libexpat: Integer Overflow Vulnerability Leading to Information Disclosure or Code Execution","medium","CVE-2026-56411","trivy","N/A","xmlwf in libexpat before 2.8.2 has an integer overflow in endDoctypeDecl via NOTATION declarations.","N/A"
+"libexpat: libexpat: Use-after-free vulnerability due to improper handling of XML CDATA sections","medium","CVE-2026-56412","trivy","N/A","libexpat before 2.8.2 does not consider XML_TOK_DATA_CHARS in doCdataSection and thus lacks handler call depth tracking for various calls from within handlers in cases of a policy violation. Thus, a use-after-free can occur. NOTE: this issue exists because of an incomplete fix for CVE-2026-50219.","N/A"
+"expat: internal entity expansion","low","CVE-2013-0340","trivy","N/A","expat before version 2.4.0 does not properly handle entities expansion unless an application developer uses the XML_SetEntityDeclHandler function, which allows remote attackers to cause a denial of service (resource consumption), send HTTP requests to intranet servers, or read arbitrary files via a crafted XML document, aka an XML External Entity (XXE) issue.  NOTE: it could be argued that because expat already provides the ability to disable external entity expansion, the responsibility for resolving this issue lies with application developers; according to this argument, this entry should be REJECTed, and each affected application would need its own CVE.","N/A"
+"expat: recursive XML entity expansion vulnerability","low","CVE-2023-52426","trivy","N/A","libexpat through 2.5.0 allows recursive XML Entity Expansion if XML_DTD is undefined at compile time.","N/A"
+"libexpat: libexpat null pointer dereference","low","CVE-2026-24515","trivy","N/A","In libexpat before 2.7.4, XML_ExternalEntityParserCreate does not copy unknown encoding handler user data.","N/A"
+"libexpat: expat: libexpat: Denial of Service via hash flooding with crafted XML","low","CVE-2026-41080","trivy","N/A","libexpat before 2.8.0 uses insufficient entropy, and thus hash flooding can occur via a crafted XML document.","N/A"
+"e2fsprogs: out-of-bounds read/write via crafted filesystem","high","CVE-2022-1304","trivy","N/A","An out-of-bounds read/write vulnerability was found in e2fsprogs 1.46.5. This issue leads to a segmentation fault and possibly arbitrary code execution via a specially crafted filesystem.","N/A"
+"freetype: OOB write when attempting to parse font subglyph structures related to TrueType GX and variable font files","high","CVE-2025-27363","trivy","N/A","An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.","N/A"
+"ftbench.c in FreeType Demo Programs through 2.12.1 has a heap-based bu ...","low","CVE-2022-31782","trivy","N/A","ftbench.c in FreeType Demo Programs through 2.12.1 has a heap-based buffer overflow.","N/A"
+"gcc: -fstack-protector fails to guard dynamic stack allocations on ARM64","low","CVE-2023-4039","trivy","N/A","**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains 
+that target AArch64 allows an attacker to exploit an existing buffer 
+overflow in dynamically-sized local variables in your application 
+without this being detected. This stack-protector failure only applies 
+to C99-style dynamically-sized local variables or those created using 
+alloca(). The stack-protector operates as intended for statically-sized 
+local variables.
+
+The default behavior when the stack-protector 
+detects an overflow is to terminate your application, resulting in 
+controlled loss of availability. An attacker who can exploit a buffer 
+overflow without triggering the stack-protector might be able to change 
+program flow control to cause an uncontrolled loss of availability or to
+ go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.","N/A"
+"libgcrypt: mishandles ElGamal encryption because it lacks exponent blinding to address a side-channel attack against mpi_powm","high","CVE-2021-33560","trivy","N/A","Libgcrypt before 1.8.8 and 1.9.x before 1.9.3 mishandles ElGamal encryption because it lacks exponent blinding to address a side-channel attack against mpi_powm, and the window size is not chosen appropriately. This, for example, affects use of ElGamal in OpenPGP.","N/A"
+"libgcrypt: ElGamal implementation doesn't have semantic security due to incorrectly encoded plaintexts possibly allowing to obtain sensitive information","low","CVE-2018-6829","trivy","N/A","cipher/elgamal.c in Libgcrypt through 1.8.2, when used to encrypt messages directly, improperly encodes plaintexts, which allows attackers to obtain sensitive information by reading ciphertext data (i.e., it does not have semantic security in face of a ciphertext-only attack). The Decisional Diffie-Hellman (DDH) assumption does not hold for Libgcrypt's ElGamal implementation.","N/A"
+"libgcrypt: vulnerable to Marvin Attack","low","CVE-2024-2236","trivy","N/A","A timing-based side-channel flaw was found in libgcrypt's RSA implementation. This issue may allow a remote attacker to initiate a Bleichenbacher-style attack, which can lead to the decryption of RSA ciphertexts.","N/A"
+"gdImageGd2Ptr in gd_gd2.c in the GD Graphics Library (aka LibGD) throu ...","high","CVE-2021-40145","trivy","N/A","gdImageGd2Ptr in gd_gd2.c in the GD Graphics Library (aka LibGD) through 2.3.2 has a double free. NOTE: the vendor's position is ""The GD2 image format is a proprietary image format of libgd. It has to be regarded as being obsolete, and should only be used for development and testing purposes.","N/A"
+"read_header_tga in gd_tga.c in the GD Graphics Library (aka LibGD) thr ...","medium","CVE-2021-38115","trivy","N/A","read_header_tga in gd_tga.c in the GD Graphics Library (aka LibGD) through 2.3.2 allows remote attackers to cause a denial of service (out-of-bounds read) via a crafted TGA file.","N/A"
+"The GD Graphics Library (aka LibGD) through 2.3.2 has an out-of-bounds ...","medium","CVE-2021-40812","trivy","N/A","The GD Graphics Library (aka LibGD) through 2.3.2 has an out-of-bounds read because of the lack of certain gdGetBuf and gdPutBuf return value checks.","N/A"
+"gnutls: GnuTLS: Denial of Service via DTLS zero-length fragment","critical","CVE-2026-33845","trivy","N/A","A flaw in GnuTLS DTLS handshake parsing allows malformed fragments with zero length and non-zero offset, leading to an integer underflow during reassembly and resulting in an out-of-bounds read. This issue is remotely exploitable and may cause information disclosure or denial of service.","N/A"
+"gnutls: gnutls: Authentication Bypass via NUL Character in Username","critical","CVE-2026-42010","trivy","N/A","A flaw was found in gnutls. Servers configured with RSA-PSK (Rivest–Shamir–Adleman – Pre-Shared Key) wrongfully matched usernames containing a NUL character with truncated usernames. A remote attacker could exploit this by sending a specially crafted username, leading to an authentication bypass. This vulnerability allows an attacker to gain unauthorized access by circumventing the authentication process.","N/A"
+"krb5: Memory leak at /krb5/src/lib/rpc/pmap_rmt.c","low","CVE-2024-26458","trivy","N/A","Kerberos 5 (aka krb5) 1.21.2 contains a memory leak in /krb5/src/lib/rpc/pmap_rmt.c.","N/A"
+"gnutls: incomplete fix for CVE-2023-5981","high","CVE-2024-0553","trivy","N/A","A vulnerability was found in GnuTLS. The response times to malformed ciphertexts in RSA-PSK ClientKeyExchange differ from the response times of ciphertexts with correct PKCS
