@@ -29,7 +29,7 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 | Company | Role | Period |
 |---------|------|--------|
-| **Virtusa** | Lead Consultant / Senior Lead Engineer (AI & Full-Stack) | 2023 – Present |
+| **Virtusa** | Lead Consultant / Senior Lead Engineer (AI & Full-Stack) | 2023 – 2026 |
 | **Buckman** | Senior Digital Innovation Engineer | 2021 – 2023 |
 | **PushPros** | Senior Full-Stack Developer | 2020 – 2021 |
 | **AURISS Technologies** | Senior Engineer (AI & Cybersecurity SaaS) | 2017 – 2020 |
