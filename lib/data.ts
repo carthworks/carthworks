@@ -285,8 +285,8 @@ export const projects = {
             url: "https://code-shield-local.vercel.app/",
             image: "/images/codeshieldai.png",
             status: "poc",
-            tags: ["Local AI", "AppSec", "Privacy"],
-            featured: true,
+            tags: ["Local AI", "AppSec", "Privacy"]
+            // featured: true,
         },
         {
             name: "Hyperlocal Heat Intelligence Platform",
@@ -299,6 +299,16 @@ export const projects = {
     ],
 
     tools: [
+        {
+            name: "ExtractTheme Studio",
+            description: "Extract CSS variables, Tailwind configs, typography, WCAG contrast matrices, font files, logos, and interactive HTML style guides in seconds.",
+            url: "https://extract-theme.onrender.com/",
+            image: "/images/extract-theme.png",
+            status: "live",
+            tags: ["Web Development", "Design Systems", "Utilities"],
+            featured: true
+        },
+
         {
             name: "SecuTools.io",
             description: "Practical, no-nonsense utilities for cybersecurity engineers and security researchers.",

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karthikeyan T — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#12161F; --panel-2:#171C27; --line:#232936; --line-2:#303747;
+    --tx:#EDF1F7; --tx-2:#94A3B8; --tx-3:#5B6572;
+    --emerald:#34D399; --emerald-dim:#0F2B22;
+    --indigo:#818CF8; --indigo-dim:#1D2140;
+    --slate:#64748B; --slate-dim:#1B212D;
+    --r:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--tx);font-family:"Inter",-apple-system,sans-serif;
+    font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:"Space Grotesk",sans-serif}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;object-fit:cover}
+  :focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:4px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* ---- status badge system (signature element) ---- */
+  .status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;
+    padding:3px 9px 3px 7px;border-radius:20px;font-family:"JetBrains Mono",monospace;letter-spacing:.01em}
+  .status::before{content:"";width:6px;height:6px;border-radius:50%}
+  .status.shipped{background:var(--emerald-dim);color:var(--emerald)}
+  .status.shipped::before{background:var(--emerald)}
+  .status.mvp{background:var(--indigo-dim);color:var(--indigo)}
+  .status.mvp::before{background:var(--indigo)}
+  .status.concept{background:var(--slate-dim);color:var(--slate)}
+  .status.concept::before{background:var(--slate)}
+
+  /* ---- header / nav ---- */
+  header{position:sticky;top:0;z-index:20;background:rgba(11,14,20,.88);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line)}
+  .hbar{display:flex;align-items:center;gap:20px;padding:15px 28px;max-width:1120px;margin:0 auto}
+  .id{display:flex;align-items:center;gap:11px}
+  .id .av{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--indigo),var(--emerald));
+    flex:none}
+  .id b{font-size:14px;font-weight:600;display:block}
+  .id span{font-size:12px;color:var(--tx-3)}
+  .filters{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+  .filters button{background:none;border:1px solid var(--line);color:var(--tx-2);border-radius:7px;
+    padding:6px 13px;font:inherit;font-size:12.5px;cursor:pointer;transition:.12s}
+  .filters button:hover{border-color:var(--line-2);color:var(--tx)}
+  .filters button.on{background:var(--panel-2);border-color:var(--line-2);color:var(--tx);font-weight:500}
+  .cta-top{display:flex;gap:8px}
+  .btn{padding:8px 15px;border-radius:8px;font:inherit;font-size:13px;font-weight:500;
+    border:1px solid var(--line-2);cursor:pointer;white-space:nowrap}
+  .btn.p{background:var(--indigo);border-color:var(--indigo);color:#0B0E14}
+  .btn.g{background:none;color:var(--tx-2)}
+  .btn.g:hover{color:var(--tx);border-color:var(--tx-3)}
+
+  /* ---- hero / evidence strip ---- */
+  .hero{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:end}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--emerald);
+    letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--emerald);
+    box-shadow:0 0 0 3px var(--emerald-dim)}
+  .hero h1{font-size:38px;font-weight:600;letter-spacing:-.02em;line-height:1.18;max-width:560px}
+  .hero p.sub{color:var(--tx-2);font-size:15.5px;margin-top:16px;max-width:480px}
+  .stats{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .stat{flex:1;padding:18px 16px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat b{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:600;display:block}
+  .stat span{font-size:11.5px;color:var(--tx-3);display:block;margin-top:3px}
+
+  /* ---- sections ---- */
+  section{padding:52px 0}
+  section+section{border-top:1px solid var(--line)}
+  .sec-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:26px;gap:16px}
+  .sec-hd h2{font-size:20px;font-weight:600;letter-spacing:-.01em}
+  .sec-hd .cnt{font-size:12.5px;color:var(--tx-3);font-family:"JetBrains Mono",monospace}
+
+  /* ---- featured (3 max, elevated) ---- */
+  .featured{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fcard{background:var(--panel);border:1px solid var(--line-2);border-radius:16px;overflow:hidden;
+    box-shadow:0 24px 48px -28px rgba(0,0,0,.6);transition:.15s;cursor:pointer}
+  .fcard:hover{border-color:var(--indigo);transform:translateY(-2px)}
+  .fcard .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--panel-2),var(--line));
+    position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:14px}
+  .fcard .fc-body{padding:16px 17px 18px}
+  .fcard h3{font-size:15.5px;font-weight:600;margin-bottom:5px}
+  .fcard p{font-size:13px;color:var(--tx-2);line-height:1.5}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+  .chip{font-size:10.5px;font-family:"JetBrains Mono",monospace;color:var(--tx-3);
+    background:var(--panel-2);border:1px solid var(--line);padding:2px 8px;border-radius:5px}
+
+  /* ---- standard grid ---- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .gcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    transition:.15s;cursor:pointer}
+  .gcard:hover{border-color:var(--line-2)}
+  .gcard .thumb{aspect-ratio:16/10;background:var(--panel-2);position:relative;
+    display:flex;align-items:flex-start;padding:12px}
+  .gcard .gc-body{padding:14px 15px 16px}
+  .gcard h4{font-size:14px;font-weight:600;margin-bottom:4px}
+  .gcard p{font-size:12.5px;color:var(--tx-2);line-height:1.5}
+  .cat-tag{position:absolute;bottom:10px;left:12px;font-size:10px;color:var(--tx-3);
+    font-family:"JetBrains Mono",monospace;background:rgba(11,14,20,.7);padding:2px 7px;border-radius:5px}
+  .gcard[data-cat]{display:none}
+  .gcard.show{display:block}
+
+  /* ---- experience timeline ---- */
+  .tl{display:flex;flex-direction:column}
+  .trow{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .trow:first-child{padding-top:0}
+  .trow:last-child{border-bottom:0}
+  .trow .when{font-size:12.5px;color:var(--tx-3);font-family:"JetBrains Mono",monospace;padding-top:2px}
+  .trow .role b{font-size:15px;font-weight:600}
+  .trow .role .co{color:var(--tx-2);font-weight:400;font-size:14px}
+  .trow .impact{font-size:13px;color:var(--tx-2);margin-top:6px;line-height:1.55}
+  .trow .chips{margin-top:10px}
+
+  /* ---- competencies ---- */
+  .comp{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 19px}
+  .cbox h4{font-size:13px;font-weight:600;margin-bottom:11px;color:var(--indigo)}
+  .cbox ul{list-style:none}
+  .cbox li{font-size:13px;color:var(--tx-2);padding:4px 0;padding-left:14px;position:relative}
+  .cbox li::before{content:"";position:absolute;left:0;top:11px;width:4px;height:4px;border-radius:50%;background:var(--tx-3)}
+
+  /* ---- contact ---- */
+  .contact{background:var(--panel);border:1px solid var(--line-2);border-radius:20px;padding:44px;
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+  .contact h2{font-size:24px;margin-bottom:10px}
+  .contact p{color:var(--tx-2);font-size:14px;max-width:340px}
+  .clinks{display:flex;gap:10px;margin-top:20px}
+  .clinks a{width:36px;height:36px;border:1px solid var(--line-2);border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--tx-2)}
+  .clinks a:hover{border-color:var(--indigo);color:var(--indigo)}
+  .cform{display:flex;flex-direction:column;gap:12px}
+  .cform input,.cform textarea{background:#0A0D13;border:1px solid var(--line-2);border-radius:8px;
+    padding:11px 13px;color:var(--tx);font:inherit;font-size:13.5px;resize:none}
+  .cform input:focus,.cform textarea:focus{border-color:var(--indigo)}
+  .cform button{align-self:flex-start;margin-top:2px}
+
+  footer{padding:24px 0 40px;text-align:center;font-size:12px;color:var(--tx-3)}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr}
+    .featured,.grid,.comp{grid-template-columns:1fr 1fr}
+    .contact{grid-template-columns:1fr}
+    .filters{display:none}
+    .hero h1{font-size:29px}
+  }
+  @media (max-width:560px){
+    .featured,.grid,.comp{grid-template-columns:1fr}
+    .stats{flex-direction:column}
+    .stat{border-right:0;border-bottom:1px solid var(--line)}
+    .stat:last-child{border-bottom:0}
+    .trow{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hbar">
+    <div class="id">
+      <div class="av"></div>
+      <div><b>Karthikeyan T</b><span>AI Engineer · Full-Stack Architect</span></div>
+    </div>
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="ai">AI &amp; LLM</button>
+      <button data-f="sec">Security</button>
+      <button data-f="web">Websites</button>
+      <button data-f="tools">Tools</button>
+    </div>
+    <div class="cta-top">
+      <button class="btn g">Résumé</button>
+      <button class="btn p">Book a call</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO / EVIDENCE STRIP -->
+  <section class="hero" style="border-bottom:1px solid var(--line);padding-top:56px">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Open to Lead / Staff engineering roles</div>
+        <h1>Building AI-augmented products across fintech, security, and talent — end to end.</h1>
+        <p class="sub">20+ years shipping full-stack &amp; SaaS platforms. Currently building TalentForge (verified skill marketplace) and CyberSigma (AI-prioritized vulnerability management).</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>20+</b><span>years engineering</span></div>
+        <div class="stat"><b>12</b><span>products shipped</span></div>
+        <div class="stat"><b>4</b><span>in active build</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED (3 max) -->
+  <section>
+    <div class="sec-hd">
+      <h2>Featured builds</h2>
+      <span class="cnt">flagship · in production</span>
+    </div>
+    <div class="featured">
+      <div class="fcard">
+        <div class="thumb"><span class="status shipped">Shipped</span></div>
+        <div class="fc-body">
+          <h3>CyberSigma — Security Posture Intelligence</h3>
+          <p>AI-augmented vulnerability platform unifying Nuclei, Trivy, Gitleaks &amp; SAST with deterministic severity scoring.</p>
+          <div class="chips"><span class="chip">Celery</span><span class="chip">Postgres</span><span class="chip">Claude API</span></div>
+        </div>
+      </div>
+      <div class="fcard">
+        <div class="thumb"><span class="status mvp">MVP</span></div>
+        <div class="fc-body">
+          <h3>TalentForge</h3>
+          <p>AI-verified technical talent marketplace with cryptographic skill badges on Polygon and sandboxed coding assessments.</p>
+          <div class="chips"><span class="chip">Next.js 15</span><span class="chip">pgvector</span><span class="chip">ERC-721</span></div>
+        </div>
+      </div>
+      <div class="fcard">
+        <div class="thumb"><span class="status shipped">Shipped</span></div>
+        <div class="fc-body">
+          <h3>ModelMeter — AI FinOps &amp; Observability</h3>
+          <p>Cost and performance monitoring for LLM pipelines — token spend, latency, and drift in one operator view.</p>
+          <div class="chips"><span class="chip">TypeScript</span><span class="chip">Grafana</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERED PROJECT GRID -->
+  <section>
+    <div class="sec-hd">
+      <h2>Projects</h2>
+      <span class="cnt" id="gridCount">9 shown</span>
+    </div>
+    <div class="grid" id="grid">
+
+      <div class="gcard" data-cat="ai">
+        <div class="thumb"><span class="status shipped">Shipped</span><span class="cat-tag">AI &amp; LLM</span></div>
+        <div class="gc-body"><h4>RAG System for Documents</h4><p>Semantic search over private document sets with source-cited answers.</p></div>
+      </div>
+      <div class="gcard" data-cat="ai">
+        <div class="thumb"><span class="status mvp">MVP</span><span class="cat-tag">AI &amp; LLM</span></div>
+        <div class="gc-body"><h4>AI-Powered Chat Assistant</h4><p>Agricultural intelligence platform pairing crop data with an LLM advisory layer.</p></div>
+      </div>
+      <div class="gcard" data-cat="ai">
+        <div class="thumb"><span class="status concept">Concept</span><span class="cat-tag">AI &amp; LLM</span></div>
+        <div class="gc-body"><h4>Hyperlocal Heat Intelligence</h4><p>AI-driven urban heat modeling with satellite and IoT sensor fusion.</p></div>
+      </div>
+
+      <div class="gcard" data-cat="sec">
+        <div class="thumb"><span class="status shipped">Shipped</span><span class="cat-tag">Security</span></div>
+        <div class="gc-body"><h4>Web Security Scanner</h4><p>Lightweight security scanner for vulnerability and misconfiguration checks.</p></div>
+      </div>
+      <div class="gcard" data-cat="sec">
+        <div class="thumb"><span class="status shipped">Shipped</span><span class="cat-tag">Security</span></div>
+        <div class="gc-body"><h4>CodeShield Local</h4><p>Local-first secret scanning that never leaves your machine or network.</p></div>
+      </div>
+      <div class="gcard" data-cat="sec">
+        <div class="thumb"><span class="status mvp">MVP</span><span class="cat-tag">Security</span></div>
+        <div class="gc-body"><h4>30-Day Ethical Hacking Bootcamp</h4><p>Hands-on curriculum for practical security skill-building.</p></div>
+      </div>
+
+      <div class="gcard" data-cat="web">
+        <div class="thumb"><span class="status shipped">Shipped</span><span class="cat-tag">Website</span></div>
+        <div class="gc-body"><h4>DK Exports</h4><p>Corporate site for a cotton trade manufacturing company.</p></div>
+      </div>
+      <div class="gcard" data-cat="web">
+        <div class="thumb"><span class="status shipped">Shipped</span><span class="cat-tag">Website</span></div>
+        <div class="gc-body"><h4>HIRENOW HR Solutions</h4><p>Recruitment and staffing platform with candidate pipeline tracking.</p></div>
+      </div>
+
+      <div class="gcard" data-cat="tools">
+        <div class="thumb"><span class="status shipped">Shipped</span><span class="cat-tag">Tools</span></div>
+        <div class="gc-body"><h4>BaruTools.io</h4><p>Practical, no-nonsense utilities for developers and security researchers.</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="sec-hd"><h2>Experience</h2></div>
+    <div class="tl">
+      <div class="trow">
+        <div class="when">2024 — Present</div>
+        <div class="role">
+          <b>Lead Consultant &amp; Senior Full-Stack Architect</b> <span class="co">· Virtusa</span>
+          <div class="impact">Leading frontend, AI UX, and DevOps across two parallel product builds; owns architecture decisions for a 3-person distributed team.</div>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">Prisma</span><span class="chip">Docker</span></div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when">2022 — 2024</div>
+        <div class="role">
+          <b>Senior Digital Innovation Engineer</b> <span class="co">· Buckman</span>
+          <div class="impact">Built internal automation tooling reducing manual reporting time; introduced CI/CD standards adopted org-wide.</div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when">2019 — 2022</div>
+        <div class="role">
+          <b>Senior Full Stack Engineer</b> <span class="co">· PixelPixie</span>
+          <div class="impact">Delivered client SaaS products end-to-end from discovery through production deployment.</div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when">Earlier</div>
+        <div class="role">
+          <b>Engineer, AI &amp; Cybersecurity</b> <span class="co">· AURISS Technologies</span>
+          <div class="impact">Cybersecurity tooling and applied AI research.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETENCIES -->
+  <section>
+    <div class="sec-hd"><h2>Core competencies</h2></div>
+    <div class="comp">
+      <div class="cbox">
+        <h4>AI &amp; LLM Engineering</h4>
+        <ul>
+          <li>RAG pipelines, structured JSON-schema outputs</li>
+          <li>pgvector embedding search</li>
+          <li>AI copilot &amp; agentic workflows</li>
+        </ul>
+      </div>
+      <div class="cbox">
+        <h4>SaaS Architecture</h4>
+        <ul>
+          <li>Multi-tenant systems, auth &amp; billing</li>
+          <li>Event-driven task queues (BullMQ, Celery)</li>
+          <li>Cost-controlled AI cost architecture</li>
+        </ul>
+      </div>
+      <div class="cbox">
+        <h4>Full-Stack Engineering</h4>
+        <ul>
+          <li>Next.js 15, TypeScript end-to-end</li>
+          <li>PostgreSQL 16, Redis, MinIO</li>
+          <li>Production deployment &amp; DevOps</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <div class="contact">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Open to Lead / Staff engineering roles, technical co-founder conversations, and select consulting work.</p>
+        <div class="clinks">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">gh</a>
+          <a href="#" aria-label="Email">@</a>
+        </div>
+      </div>
+      <form class="cform" onsubmit="return false">
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="Email">
+        <textarea rows="3" placeholder="Message"></textarea>
+        <button class="btn p" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Karthikeyan T. Built with Next.js.</footer>
+
+<script>
+  const btns = document.querySelectorAll('#filters button');
+  const cards = document.querySelectorAll('#grid .gcard');
+  const count = document.getElementById('gridCount');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    const f = b.dataset.f;
+    let n = 0;
+    cards.forEach(c => {
+      const show = f === 'all' || c.dataset.cat === f;
+      c.classList.toggle('show', show);
+      c.style.display = show ? '' : 'none';
+      if (show) n++;
+    });
+    count.textContent = n + ' shown';
+  }));
+</script>
+
+</body>
+</html>
