@@ -300,6 +300,16 @@ export const projects = {
 
     tools: [
         {
+            name: "Gantto Project Timeline",
+            description: "A premium, privacy-first fullscreen Gantt chart and project timeline manager Chrome Extension & Web Application.Effortlessly plan, schedule, and track projects with Natural Language processing, Critical Path analysis, smart templates, and interactive timelines.",
+            url: "https://gantto.vercel.app/",
+            image: "/images/gantto.png",
+            status: "live",
+            tags: ["Web Development", "project planning ", "project management", "chrome extension"],
+            github: "https://github.com/carthworks/gantt-pro",
+            featured: true
+        },
+        {
             name: "ExtractTheme Studio",
             description: "Extract CSS variables, Tailwind configs, typography, WCAG contrast matrices, font files, logos, and interactive HTML style guides in seconds.",
             url: "https://extract-theme.onrender.com/",
