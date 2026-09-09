@@ -186,7 +186,7 @@ export const projects = {
             image: "/images/ad_librDigitIT_2026.png",
             status: "poc",
             tags: ["AI", "OCR", "Archives"],
-            featured: true,
+            featured: false,
         },
         {
             name: "Project tracker",
@@ -203,7 +203,7 @@ export const projects = {
             image: "/images/hero_dashboard.png",
             status: "idea",
             tags: ["FinOps", "Observability", "LLM"],
-            featured: true
+            featured: false
         },
         {
             name: "Security Posture Intelligence Platform",
@@ -253,7 +253,7 @@ export const projects = {
             image: "/images/wingzai.png",
             status: "live",
             tags: ["AI Agents", "Automation", "Connectors"],
-            featured: true,
+            featured: false,
         },
         {
             name: "Cybersecurity Workshop",
