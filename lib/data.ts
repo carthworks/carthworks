@@ -300,6 +300,16 @@ export const projects = {
 
     tools: [
         {
+            name: "Supercharge Your AI Coding Agent -SKILLS",
+            description: "Drop-in SKILL.md files that give your AI agent specialised, consistent behaviour — instantly.",
+            url: "https://carthworks.github.io/ai-agent-skills/",
+            image: "/images/ai-skil-set.png",
+            status: "live",
+            tags: ["AI Agent", "Skills", "Agentic AI"],
+            featured: true
+        },
+
+        {
             name: "Gantto Project Timeline",
             description: "A premium, privacy-first fullscreen Gantt chart and project timeline manager Chrome Extension & Web Application.Effortlessly plan, schedule, and track projects with Natural Language processing, Critical Path analysis, smart templates, and interactive timelines.",
             url: "https://gantto.vercel.app/",
