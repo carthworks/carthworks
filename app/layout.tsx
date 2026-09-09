@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ThemeSelector from "@/components/ThemeSelector";
 import Nav from "@/components/Nav";
+import VisitTracker from "@/components/VisitTracker";
 import { personalInfo } from "@/lib/data";
 
 const inter = Inter({
@@ -60,9 +61,6 @@ export const metadata: Metadata = {
         shortcut: '/kt_logo_github_sized.png',
         apple: '/kt_logo_github_sized.png',
     },
-    verification: {
-        google: 'google-site-verification-code', // User might need to replace this
-    },
 };
 
 export default function RootLayout({
@@ -102,6 +100,7 @@ export default function RootLayout({
                 <ThemeProvider>
                     <Nav />
                     <ThemeSelector />
+                    <VisitTracker />
                     {children}
                 </ThemeProvider>
             </body>

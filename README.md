@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Karthikeyan T
+﻿# 👋 Hi, I'm Karthikeyan T
 
 <div align="center">
 
@@ -8,6 +8,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-carthworks-black?style=flat-square&logo=github)](https://github.com/carthworks)
 [![Behance](https://img.shields.io/badge/Behance-carthworks-1769ff?style=flat-square&logo=behance)](https://behance.net/carthworks)
 [![Flickr](https://img.shields.io/badge/Flickr-carthworks-ff0084?style=flat-square&logo=flickr)](https://flickr.com/photos/carthworks)
+[![Portfolio](https://img.shields.io/badge/Portfolio-carthworks.dev-6366f1?style=flat-square&logo=vercel)](https://carthworks.dev)
 
 📍 Chennai, Tamil Nadu, India | 📧 tkarthikeyan@gmail.com | 📱 +91 94867 72206
 
@@ -17,7 +18,9 @@
 
 ## 🚀 About Me
 
-Senior AI Engineer, LLM Engineer, and SaaS Architect with **20+ years** of engineering experience designing and delivering AI-powered, multi-tenant SaaS platforms. I specialize in integrating LLMs (Qwen3, Llama3, Claude, GPT, Mistral) using **a/ollama**, **LangChain**, **LlamaIndex**, and custom retrieval pipelines.
+I build **production-grade AI and SaaS systems** with **20+ years of engineering experience**. From LLM-powered RAG pipelines and autonomous agents to multi-tenant platforms, I ship things that work at scale — with clean architecture, real security, and zero fluff.
+
+Creator of **[Gantto](https://gantto.vercel.app/)**, **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)**, **[ExtractTheme Studio](https://extract-theme.onrender.com/)**, and **30+ shipped products** across AI, security, SaaS, and developer tooling.
 
 Currently co-founding multiple startups, translating deep technical expertise into product-focused execution.
 
@@ -40,7 +43,7 @@ Currently co-founding multiple startups, translating deep technical expertise in
 ## 🛠️ Core Competencies
 
 ### 🤖 AI & LLM Engineering
-- **a/ollama** + Qwen3 / Llama models integration
+- **Ollama** + Qwen3 / Llama3 / Mistral / GPT / Claude integration
 - **RAG pipelines** with LangChain, ChromaDB, Faiss, pgVector
 - **AI agents** for workflow automation and penetration testing
 - Secure prompt pipelines, autonomous agent chaining
@@ -69,6 +72,41 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 ---
 
+## 🌟 Featured Projects & Tools (2026)
+
+### 🧰 Developer Tools
+
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)** | Drop-in SKILL.md files that give AI coding agents specialised, consistent behaviour | 🟢 Live |
+| **[Gantto](https://gantto.vercel.app/)** | Privacy-first fullscreen Gantt chart & project timeline manager with NLP & Critical Path | 🟢 Live |
+| **[ExtractTheme Studio](https://extract-theme.onrender.com/)** | Extract CSS variables, Tailwind configs, WCAG matrices, fonts, logos & style guides in seconds | 🟢 Live |
+| **[SecuTools.io](https://secutools-io.vercel.app/)** | Practical cybersecurity utilities for engineers and researchers | 🟢 Live |
+| **[AI & LLM Handy Tools](https://aitoolsbox-io.vercel.app/)** | Curated toolbox for AI engineers, researchers, and prompt engineers | 🟢 Live |
+
+### 🤖 AI Applications
+
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[WingzAI Platform](https://wingzai.deltaphi.in/login)** | Unified workspace for AI agents, connectors, and automation workflows | 🟢 Live |
+| **[Security Posture Intelligence](https://github.com/cybersigmaINC/security-platform)** | AI-augmented vulnerability management & continuous security posture monitoring | 🔶 Prototype |
+| **[Hyperlocal Heat Intelligence](https://hyperlocal-heat-intelligence-platfo.vercel.app/)** | AI + GIS downscaling platform with 100m-resolution predictive heat grids | 🔬 PoC |
+| **[CodeShield Local](https://code-shield-local.vercel.app/)** | Local AI-powered code security auditor — no code leaves your machine | 🔬 PoC |
+| **[LibraDigitAI](https://libra-digit-web.vercel.app/)** | AI-powered digitization system turning scanned library docs into searchable archives | 🔬 PoC |
+| **[Crop Intelligence Assistant](https://crop-shield-dusky.vercel.app/)** | Computer vision & ML for crop disease detection and treatment recommendations | 🔬 PoC |
+| **[RAG System for Your Docs](https://ask-mydocs.vercel.app/)** | Ask questions and retrieve insights from your own documents using RAG | 🔬 PoC |
+
+### 🌐 Websites
+
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[Royal Albatross Exports](https://royalalbatrossexports.in/)** | Premium fresh exports with reliable sourcing and global distribution | 🟢 Live |
+| **[Samarth UPSC](https://samarth-upsc.lovable.app/)** | Community-first platform for civil-service aspirants with expert mentors | 🟢 Live |
+| **[Chennai Braiding Company](https://cbclaces.vercel.app/)** | Specialized manufacturers of high-quality shoe laces and industrial ropes | 🟢 Live |
+| **[Cybersecurity Workshop](https://cyber2daytraining.vercel.app/)** | AI-assisted cybersecurity training with hands-on labs and learning paths | 🟢 Live |
+
+---
+
 ## 📊 Tech Stack
 
 <div align="center">
@@ -85,6 +123,7 @@ Currently co-founding multiple startups, translating deep technical expertise in
 ### AI & ML
 ![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge)
 ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
 ### Databases & Cloud
@@ -109,19 +148,18 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 ---
 
-## 🌐 Portfolio Websites
+## 🌐 Portfolio & Links
 
-Check out my live projects and portfolio work:
-
+- **🧰 AI Agent Skills**: [carthworks.github.io/ai-agent-skills](https://carthworks.github.io/ai-agent-skills/)
+- **📊 Gantto – Project Timeline**: [gantto.vercel.app](https://gantto.vercel.app/)
 - **🎨 UI Portfolio**: [behance.net/carthworks](https://behance.net/carthworks)
-- **📸 UX Portfolio**: [flickr.com/photos/carthworks](https://flickr.com/photos/carthworks)
+- **📸 Photography**: [flickr.com/photos/carthworks](https://flickr.com/photos/carthworks)
 - **💻 Code Portfolio**: [github.com/carthworks](https://github.com/carthworks)
+- **🌐 Personal Portfolio**: [carthworks.dev](https://carthworks.dev)
 
 ---
 
 ## 📫 Let's Connect
-
-I'm always interested in collaborating on innovative AI and SaaS projects. Feel free to reach out!
 
 <div align="center">
 
@@ -147,7 +185,7 @@ I'm always interested in collaborating on innovative AI and SaaS projects. Feel 
 
 <div align="center">
 
-### 💡 "Translating technical depth into product-focused execution"
+### 💡 "30+ products shipped. 20+ years of engineering. Zero fluff."
 
 ⭐️ From [carthworks](https://github.com/carthworks)
 

@@ -1,6 +1,6 @@
 export const personalInfo = {
     name: "Karthikeyan T",
-    title: "AI Engineer | SaaS Architect",
+    title: "Senior AI Engineer | LLM Engineer | SaaS Architect",
 
     location: "India",
     phone: "+91 94867 72206",
@@ -12,15 +12,15 @@ export const personalInfo = {
     flickr: "www.flickr.com/photos/carthworks",
     resume: "/resume.pdf",
 
-    bio: "I am a problem solver at heart with 15+ years of hands-on experience and over two decades in software. I design and build production-ready SaaS platforms by understanding how systems work, identifying real business pain points, and turning them into practical, maintainable solutions. My work focuses on clean architecture, performance, security, and AI systems that ship to real users.",
+    bio: "I build production-grade AI and SaaS systems with 20+ years of engineering experience. From LLM-powered RAG pipelines and autonomous agents to multi-tenant platforms, I ship things that work at scale — with clean architecture, real security, and zero fluff.",
 
     summary:
-        "AI Engineer and SaaS Architect with 20+ years of engineering experience building and scaling multi-tenant web and SaaS platforms. I specialize in full-stack systems using Next.js and .NET, and in integrating practical AI using LLMs such as Qwen3, Llama3, GPT, Claude, and Mistral via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Strong focus on architecture, reliability, and real-world AI adoption.",
+        "Senior AI Engineer and SaaS Architect with 20+ years of engineering experience building and scaling multi-tenant web and SaaS platforms. Specializing in LLM integration (Qwen3, Llama3, GPT, Claude, Mistral) via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Creator of Gantto, AI Agent Skills, ExtractTheme Studio, and 30+ shipped products across AI, security, SaaS, and developer tooling.",
 };
 
 export const portfolioStats = [
     { value: "20+", label: "Years engineering" },
-    { value: "15+", label: "Products shipped" },
+    { value: "30+", label: "Products shipped" },
     { value: "AI", label: "LLM, RAG, agents" },
     { value: "SaaS", label: "Multi-tenant systems" },
 ];
