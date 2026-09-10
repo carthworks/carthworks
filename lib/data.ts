@@ -99,6 +99,13 @@ export const certifications = [
 export const projects = {
     websites: [
         {
+            name: "FIT BITE",
+            description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
+            url: "https://fit-bite-beige.vercel.app/",
+            image: "/images/fit-bite.png",
+            status: "Live"
+        },
+        {
             name: "Royal Albatross Exports",
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
             url: "https://royalalbatrossexports.in/",
