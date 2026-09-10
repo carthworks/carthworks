@@ -105,6 +105,13 @@ export const projects = {
             image: "/images/fit-bite.png",
             status: "Live"
         },
+		      {
+            name: "FIT BITE CART",
+            description: "Your next good habit starts with a bite.",
+            url: "https://fit-bite-cart.vercel.app/",
+            image: "/images/made-with-care.jpg",
+            status: "Live"
+        },
         {
             name: "Royal Albatross Exports",
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
