@@ -105,7 +105,7 @@ export const projects = {
             image: "/images/fit-bite.png",
             status: "Live"
         },
-		      {
+        {
             name: "FIT BITE CART",
             description: "Your next good habit starts with a bite.",
             url: "https://fit-bite-cart.vercel.app/",
@@ -152,7 +152,15 @@ export const projects = {
             // url: "https://cbclaces.com/",
             image: "/images/cbclacs.png",
             status: "Live"
+        }, {
+            name: "Cyber Risk & Investment Platform",
+            url: "https://sih-26105-security-platform.vercel.app/",
+            description: "Multi-tenant Security Posture Intelligence Platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
+            image: "/images/sec-platform.png",
+            status: "Idea"
+
         },
+
         {
             name: "HIRENCH HR Solutions",
             description: "Recruitment and HR consulting platform for staffing, executive search, and industry hiring workflows.",
