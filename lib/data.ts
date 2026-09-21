@@ -194,6 +194,16 @@ export const projects = {
     ],
     aiApplications: [
         {
+            name: "CogniScale",
+            description: "CogniScale was built to replace rigid, one-size-fits-all testing with a dynamic, mathematically rigorous, and ethically grounded assessment and remediation platform",
+            url: "cognimvpscale-eta.vercel.app",
+            image: "/images/landing-page.png",
+            status: "poc",
+            tags: ["RAG", "LLM", "Documents"]
+
+        }
+        ,
+        {
             name: "RAG System for Your Documents",
             description: "Ask questions and retrieve insights from your own documents using a Retrieval-Augmented Generation system.",
             url: "https://ask-mydocs.vercel.app/",
