@@ -196,9 +196,9 @@ export const projects = {
         {
             name: "CogniScale",
             description: "CogniScale was built to replace rigid, one-size-fits-all testing with a dynamic, mathematically rigorous, and ethically grounded assessment and remediation platform",
-            url: "cognimvpscale-eta.vercel.app",
+            url: "https://cogniscale-eta.vercel.app/",
             image: "/images/landing-page.png",
-            status: "poc",
+            status: "MVP",
             tags: ["RAG", "LLM", "Documents"]
 
         }
