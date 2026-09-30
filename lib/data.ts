@@ -20,8 +20,8 @@ export const personalInfo = {
 
 export const portfolioStats = [
     { value: "20+", label: "Years engineering" },
-    { value: "30+", label: "Products shipped" },
-    { value: "AI", label: "LLM, RAG, agents" },
+    { value: "7+", label: "Products shipped" },
+    { value: "AI", label: "LLM, RAG, agents, " },
     { value: "SaaS", label: "Multi-tenant systems" },
 ];
 
@@ -103,47 +103,54 @@ export const projects = {
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
             url: "https://fit-bite-beige.vercel.app/",
             image: "/images/fit-bite.png",
-            status: "Live"
+            status: "Live",
+            tags: ["E-commerce", "Fruits", "Website"],
         },
         {
             name: "FIT BITE CART",
             description: "Your next good habit starts with a bite.",
             url: "https://fit-bite-cart.vercel.app/",
             image: "/images/made-with-care.jpg",
-            status: "Live"
+            status: "Live",
+            tags: ["E-commerce", "Fruits", "Website"],
         },
         {
             name: "Royal Albatross Exports",
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
             url: "https://royalalbatrossexports.in/",
             image: "/images/royal_albatross.png",
-            status: "Live"
+            status: "Live",
+            tags: ["Exports", "Fruits", "Website"],
         },
-        {
-            name: "UPSC prep is lonely, but Samarth is not",
-            description: "Samarth is a community-first platform for civil-service aspirants — study pods, verified mentors, and honest Mains answer reviews from real experts delivered in under 48 hours. At a fifth of what coaching charges..",
-            url: "https://samarth-upsc.lovable.app/",
-            image: "/images/samarth.png",
-            status: "Live"
-        },
+        // {
+        //     name: "UPSC prep is lonely, but Samarth is not",
+        //     description: "Samarth is a community-first platform for civil-service aspirants — study pods, verified mentors, and honest Mains answer reviews from real experts delivered in under 48 hours. At a fifth of what coaching charges..",
+        //     url: "https://samarth-upsc.lovable.app/",
+        //     image: "/images/samarth.png",
+        //     status: "Live",
+        //     tags: ["Education", "Community", "Website"],
+        // },
         {
             name: "SN Exports",
             description: "Karur Cotton Export Manufacturing Company specializing in high-quality cotton products for global markets.",
             url: "https://snexports.net/",
             image: "/images/sn_exports.png",
-            status: "Live"
+            status: "Live",
+            tags: ["Manufacturing", "Exports", "Website"],
         },
         {
             name: "Nesam Radio",
             description: "Tamil music, devotional programs, news, and podcasts streamed from Tamil Nadu.",
             url: "https://nesammedia.royalalbatrossexports.in/",
             image: "/images/nesam_radio.png",
+            tags: ["Radio", "Tamil", "Streaming"],
         },
         {
             name: "DSR Photos & Videos",
             description: "Professional photography and videography for destination weddings, editorial shoots, and portrait sessions.",
             url: "https://dsr-photos-web.vercel.app/",
             image: "/images/dsr.png",
+            tags: ["Photography", "Videography", "Website"],
         },
         {
             name: "Chennai Braiding Company",
@@ -151,13 +158,15 @@ export const projects = {
             url: "https://cbclaces.vercel.app/",
             // url: "https://cbclaces.com/",
             image: "/images/cbclacs.png",
-            status: "Live"
+            status: "Live",
+            tags: ["Manufacturing", "Website", "E-commerce"],
         }, {
             name: "Cyber Risk & Investment Platform",
             url: "https://sih-26105-security-platform.vercel.app/",
             description: "Multi-tenant Security Posture Intelligence Platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
             image: "/images/sec-platform.png",
-            status: "Idea"
+            status: "Idea",
+            tags: ["Security", "SaaS", "AI"],
 
         },
 
@@ -166,30 +175,35 @@ export const projects = {
             description: "Recruitment and HR consulting platform for staffing, executive search, and industry hiring workflows.",
             url: "https://hirench.vercel.app/",
             image: "/images/hirench.png",
+            tags: ["HR", "Recruitment", "Website"],
         },
         {
             name: "Ark Veterinary Clinic",
             description: "Comprehensive veterinary care with a focus on preventive and clinical services.",
             url: "https://ark-veterinary-clinics.vercel.app/",
             image: "/images/ark.png",
+            tags: ["Veterinary", "Healthcare", "Website"],
         },
         {
             name: "Sri Kaliamman Textiles",
             description: "Textile manufacturer website focused on product presentation, credibility, and inbound enquiries.",
             url: "https://srikaliamman-textiles.vercel.app/",
             image: "/images/srikaliamman.png",
+            tags: ["Textiles", "Manufacturing", "Website"],
         },
         {
             name: "30-Day Ethical Hacking Bootcamp",
             description: "Hands-on ethical hacking training designed to build real-world offensive security skills in 30 days.",
             url: "https://hacklab30.netlify.app/",
             image: "/images/hacklab30.png",
+            tags: ["Ethical Hacking", "Training", "Cybersecurity"],
         },
         {
             name: "IntraChat",
             description: "Private, internal communication platform built for teams that value control and privacy.",
             url: "https://intra-chat-eight.vercel.app/",
             image: "/images/intrachat.png",
+            tags: ["Messaging", "Privacy", "Teams"],
         },
     ],
     aiApplications: [
@@ -367,7 +381,7 @@ export const projects = {
             url: "https://secutools-io.vercel.app/",
             image: "/images/sectools_io.png",
             status: "live",
-            tags: ["Security", "Utilities"],
+            tags: ["Security", "Utilities", "Pentesting", "Web Development"],
         },
         {
             name: "AI & LLM Handy Tools",
@@ -375,7 +389,7 @@ export const projects = {
             url: "https://aitoolsbox-io.vercel.app/",
             image: "/images/aitoolsvox.png",
             status: "live",
-            tags: ["LLM", "Utilities"],
+            tags: ["LLM", "Utilities", "AI"],
         },
         {
             name: "MyTeleprompter",
@@ -383,7 +397,7 @@ export const projects = {
             url: "https://teleprompt-seven.vercel.app/",
             image: "/images/teleprompt.png",
             status: "live",
-            tags: ["Creator Tools", "Video"],
+            tags: ["Creator Tools", "Video"]
         },
     ],
     extensions: [
@@ -392,6 +406,7 @@ export const projects = {
             description: "Developer-focused Chrome extension published on the Chrome Web Store.",
             url: "https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7",
             image: "/images/chrome_extension.png",
+            tags: ["Chrome Extension", "Developer Tools"],
         },
         {
             name: "TrustLens - Website Trust & Risk Checker",
@@ -430,12 +445,14 @@ export const projects = {
             description: "Interactive meditation and breathing experience using particle-based visualizations for focus and mindfulness.",
             url: "https://aether-gestural-engine.vercel.app/",
             image: "/images/aether.png",
+            tagsL: ["Interactive", "Meditation", "Visualization"]
         },
         {
             name: "Enhanced Audio Visualizer",
             description: "Cinematic 3D, real-time, beat-reactive visuals that transform music into immersive motion.",
             url: "https://audio-visualizer-six-inky.vercel.app/",
             image: "/images/audio-visualizer.png",
+            tags: ["Audio", "Visualizer", "3D"]
         },
     ],
 };
