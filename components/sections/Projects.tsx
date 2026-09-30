@@ -19,6 +19,7 @@ interface Project {
 interface ProjectCategoryProps {
     title: string;
     projects: Project[];
+    view: 'cards' | 'table';
 }
 
 const categoryTitles = {
@@ -44,6 +45,15 @@ const filters = [
 function getStatusLabel(status: string) {
     if (status.toLowerCase() === 'poc') return 'POC';
     return status;
+}
+
+function getStatusClassName(status?: string) {
+    const normalizedStatus = status?.toLowerCase();
+    if (normalizedStatus === 'live' || normalizedStatus === 'production') return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300';
+    if (normalizedStatus === 'idea') return 'bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300';
+    if (normalizedStatus === 'poc' || normalizedStatus === 'prototype' || normalizedStatus === 'mvp') return 'bg-violet-100 text-violet-800 dark:bg-violet-950/60 dark:text-violet-300';
+    if (normalizedStatus === 'in-progress' || normalizedStatus === 'in progress') return 'bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300';
+    return 'bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300';
 }
 
 function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
@@ -176,7 +186,7 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
     return content;
 }
 
-function ProjectCategory({ title, projects }: ProjectCategoryProps) {
+function ProjectCategory({ title, projects, view }: ProjectCategoryProps) {
     const { theme } = useTheme();
 
     if (projects.length === 0) return null;
@@ -194,11 +204,77 @@ function ProjectCategory({ title, projects }: ProjectCategoryProps) {
                     {projects.length} {projects.length === 1 ? 'project' : 'projects'}
                 </span>
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {projects.map((project) => (
-                    <ProjectCard key={`${title}-${project.name}`} project={project} />
-                ))}
-            </div>
+            {view === 'cards' ? (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    {projects.map((project) => (
+                        <ProjectCard key={`${title}-${project.name}`} project={project} />
+                    ))}
+                </div>
+            ) : (
+                <div className={`overflow-x-auto rounded-lg border ${theme === 'glassmorphism'
+                    ? 'border-white/15 bg-white/5'
+                    : 'border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900'
+                    }`}>
+                    <table className="w-full min-w-[720px] border-collapse text-left">
+                        <thead className={theme === 'glassmorphism' ? 'bg-white/10' : 'bg-zinc-50 dark:bg-zinc-800/70'}>
+                            <tr className={`text-xs font-semibold uppercase tracking-wider ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                                <th scope="col" className="px-5 py-3">Project</th>
+                                <th scope="col" className="px-5 py-3">Status</th>
+                                <th scope="col" className="px-5 py-3">Focus</th>
+                                <th scope="col" className="px-5 py-3 text-right">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody className={`divide-y ${theme === 'glassmorphism' ? 'divide-white/10' : 'divide-zinc-100 dark:divide-zinc-800'}`}>
+                            {projects.map((project) => (
+                                <tr key={`${title}-${project.name}`} className={theme === 'glassmorphism' ? 'hover:bg-white/5' : 'hover:bg-zinc-50 dark:hover:bg-zinc-800/40'}>
+                                    <th scope="row" className="max-w-md px-5 py-4 align-top font-normal">
+                                        <div className={`font-semibold ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-100'}`}>
+                                            {project.name}
+                                        </div>
+                                        <p className={`mt-1 line-clamp-2 text-sm leading-relaxed ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                                            {project.description}
+                                        </p>
+                                    </th>
+                                    <td className="whitespace-nowrap px-5 py-4 align-top">
+                                        {project.status ? (
+                                            <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${getStatusClassName(project.status)}`}>
+                                                {getStatusLabel(project.status)}
+                                            </span>
+                                        ) : (
+                                            <span className={`text-sm ${theme === 'glassmorphism' ? 'text-white/50' : 'text-zinc-400'}`}>Unspecified</span>
+                                        )}
+                                    </td>
+                                    <td className="px-5 py-4 align-top">
+                                        <div className="flex max-w-sm flex-wrap gap-1.5">
+                                            {project.tags?.length ? project.tags.map((tag) => (
+                                                <span key={`${project.name}-${tag}`} className={`rounded px-2 py-1 text-xs ${theme === 'glassmorphism'
+                                                    ? 'bg-white/10 text-white/80'
+                                                    : 'bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300'
+                                                    }`}>
+                                                    {tag}
+                                                </span>
+                                            )) : <span className={`text-sm ${theme === 'glassmorphism' ? 'text-white/50' : 'text-zinc-400'}`}>-</span>}
+                                        </div>
+                                    </td>
+                                    <td className="whitespace-nowrap px-5 py-4 text-right align-top">
+                                        {project.url ? (
+                                            <a href={project.url} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 text-sm font-semibold ${theme === 'glassmorphism'
+                                                ? 'text-white hover:text-white/75'
+                                                : 'text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+                                                }`}>
+                                                Open project
+                                                <svg aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
+                                                </svg>
+                                            </a>
+                                        ) : <span className={`text-sm ${theme === 'glassmorphism' ? 'text-white/50' : 'text-zinc-400'}`}>Preview soon</span>}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     );
 }
@@ -206,6 +282,7 @@ function ProjectCategory({ title, projects }: ProjectCategoryProps) {
 export default function Projects() {
     const { theme } = useTheme();
     const [activeFilter, setActiveFilter] = useState('all');
+    const [view, setView] = useState<'cards' | 'table'>('cards');
 
     const allProjects = useMemo<Project[]>(() => Object.entries(projects).flatMap(([key, projectList]) => {
         const title = categoryTitles[key as keyof typeof categoryTitles];
@@ -278,9 +355,38 @@ export default function Projects() {
                             </button>
                         ))}
                     </div>
+
+                    <div className="flex items-center justify-between gap-4">
+                        <p className={`text-sm ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                            {visibleProjects.length} {visibleProjects.length === 1 ? 'project' : 'projects'}
+                        </p>
+                        <div role="group" aria-label="Project view" className={`inline-flex rounded-lg border p-1 ${theme === 'glassmorphism'
+                            ? 'border-white/15 bg-white/5'
+                            : 'border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
+                            }`}>
+                            {(['cards', 'table'] as const).map((option) => (
+                                <button
+                                    key={option}
+                                    type="button"
+                                    aria-pressed={view === option}
+                                    onClick={() => setView(option)}
+                                    className={`rounded-md px-3 py-1.5 text-sm font-medium capitalize transition-colors ${view === option
+                                        ? theme === 'glassmorphism'
+                                            ? 'bg-white text-zinc-900 shadow-sm'
+                                            : 'bg-white text-zinc-900 shadow-sm dark:bg-zinc-700 dark:text-white'
+                                        : theme === 'glassmorphism'
+                                            ? 'text-white/75 hover:text-white'
+                                            : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white'
+                                        }`}
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                {activeFilter === 'all' && featuredProjects.length > 0 && (
+                {view === 'cards' && activeFilter === 'all' && featuredProjects.length > 0 && (
                     <div className="mb-16">
                         <div className="mb-6 flex items-end justify-between gap-4">
                             <div>
@@ -302,7 +408,7 @@ export default function Projects() {
 
                 {visibleProjects.length > 0 ? (
                     groupedProjects.map((group) => (
-                        <ProjectCategory key={group.title} title={group.title} projects={group.projects} />
+                        <ProjectCategory key={group.title} title={group.title} projects={group.projects} view={view} />
                     ))
                 ) : (
                     <div className={`rounded-lg p-8 text-center ${theme === 'glassmorphism'
