@@ -268,7 +268,7 @@ export const projects = {
             url: "https://solarflow-web-beta.vercel.app/",
             image: "/images/solarflow.png",
             status: "idea",
-            tags: ["SaaS", "Workflow", "Solar"],
+            tags: ["SaaS", "Workflow", "Solar"]
         },
         {
             name: "PaperPublish IQ",
@@ -276,7 +276,7 @@ export const projects = {
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
             status: "idea",
-            tags: ["Research", "Publishing", "Workflow"],
+            tags: ["Research", "Publishing", "Workflow"]
         },
         {
             name: "WingzAI Platform",
@@ -293,7 +293,7 @@ export const projects = {
             url: "https://cyber2daytraining.vercel.app/",
             image: "/images/cyber2daytraining.png",
             status: "live",
-            tags: ["Training", "Security", "AI"],
+            tags: ["Training", "Security", "AI"]
         },
         {
             name: "Kapan",
@@ -303,14 +303,14 @@ export const projects = {
             status: "idea",
             tags: ["Messaging", "Privacy", "Teams"],
         },
-        {
-            name: "AI-Powered Crop Intelligence Assistant",
-            description: "Agricultural intelligence platform using computer vision and ML to detect crop diseases and recommend treatment plans.",
-            url: "https://crop-shield-dusky.vercel.app/",
-            image: "/images/hero-picture.png",
-            status: "poc",
-            tags: ["Computer Vision", "Agritech", "ML"],
-        },
+        // {
+        //     name: "AI-Powered Crop Intelligence Assistant",
+        //     description: "Agricultural intelligence platform using computer vision and ML to detect crop diseases and recommend treatment plans.",
+        //     url: "https://crop-shield-dusky.vercel.app/",
+        //     image: "/images/hero-picture.png",
+        //     status: "poc",
+        //     tags: ["Computer Vision", "Agritech", "ML"],
+        // },
         {
             name: "CodeShield Local",
             description: "Local AI-powered code security auditor that scans, explains, and helps fix vulnerabilities without sending code to the cloud.",
@@ -322,11 +322,11 @@ export const projects = {
         },
         {
             name: "Hyperlocal Heat Intelligence Platform",
-            description: "AI downscaling platform that combines weather, satellite, and GIS data into 100m-resolution predictive heat grids.",
-            url: "https://hyperlocal-heat-intelligence-platfo.vercel.app/",
+            description: "The heat early-warning layer for the world's hottest, most crowded cities. 48-hour, 100m street-level thermal stress forecasting for insurers, employers, and city responders.",
+            url: "https://hyperlocal-heat.vercel.app/",
             image: "/images/gis_dashboard_1779014141485.png",
-            status: "poc",
-            tags: ["GIS", "Climate", "AI"],
+            status: "Idea",
+            tags: ["GIS", "Climate", "AI"]
         },
     ],
 
@@ -349,7 +349,7 @@ export const projects = {
             status: "live",
             tags: ["Web Development", "project planning ", "project management", "chrome extension"],
             github: "https://github.com/carthworks/gantt-pro",
-            featured: true
+            featured: false
         },
         {
             name: "ExtractTheme Studio",
@@ -358,7 +358,7 @@ export const projects = {
             image: "/images/extract-theme.png",
             status: "live",
             tags: ["Web Development", "Design Systems", "Utilities"],
-            featured: true
+            featured: false
         },
 
         {
