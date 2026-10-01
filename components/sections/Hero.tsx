@@ -9,11 +9,11 @@ export default function Hero() {
 
     const getSectionClassName = () => {
         if (theme === 'glassmorphism') {
-            return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 glass-section';
+            return 'min-h-screen lg:min-h-0 lg:h-full flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 glass-section';
         } else if (theme === 'claymorphism') {
-            return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6';
+            return 'min-h-screen lg:min-h-0 lg:h-full flex items-center lg:items-start justify-center px-6 py-20 lg:py-6';
         }
-        return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900';
+        return 'min-h-screen lg:min-h-0 lg:h-full flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900';
     };
 
     const getTextColor = () => {
@@ -159,21 +159,14 @@ export default function Hero() {
                             ))}
                         </div>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col gap-2 pt-2">
-                            <a
-                                href="#projects"
-                                className={getButtonClassName('primary')}
-                                onClick={(e) => handleHeroNavClick(e, '#projects')}
-                            >
-                                View Projects
-                            </a>
+                        {/* CTA Button */}
+                        <div className="pt-2">
                             <a
                                 href="#contact"
                                 className={getButtonClassName('secondary')}
                                 onClick={(e) => handleHeroNavClick(e, '#contact')}
                             >
-                                Let's Solve a Real Problem
+                                Let&apos;s Solve a Real Problem
                             </a>
                         </div>
 
