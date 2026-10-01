@@ -157,3 +157,56 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* ── Hero Background Orb Animations ─────────────────────────────── */
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* --- Positions & sizes --- */
+.hero-orb-1 { width: 280px; height: 280px; top: -60px;  left: -80px;  animation: orbFloat1 9s  ease-in-out infinite alternate; }
+.hero-orb-2 { width: 200px; height: 200px; bottom: 10%; right: -60px; animation: orbFloat2 12s ease-in-out infinite alternate; }
+.hero-orb-3 { width: 160px; height: 160px; top: 45%;    left: 20%;    animation: orbFloat3 15s ease-in-out infinite alternate; }
+
+@keyframes orbFloat1 {
+  0%   { transform: translate(0px,   0px)   scale(1);    opacity: 0.55; }
+  33%  { transform: translate(20px, -30px)  scale(1.05); opacity: 0.65; }
+  66%  { transform: translate(-15px, 20px)  scale(0.97); opacity: 0.50; }
+  100% { transform: translate(10px,  40px)  scale(1.08); opacity: 0.60; }
+}
+@keyframes orbFloat2 {
+  0%   { transform: translate(0px,   0px)   scale(1);    opacity: 0.45; }
+  40%  { transform: translate(-25px, 15px)  scale(1.06); opacity: 0.55; }
+  80%  { transform: translate(15px, -20px)  scale(0.95); opacity: 0.40; }
+  100% { transform: translate(-10px, 30px)  scale(1.10); opacity: 0.50; }
+}
+@keyframes orbFloat3 {
+  0%   { transform: translate(0px,   0px)   scale(1);    opacity: 0.30; }
+  50%  { transform: translate(30px, -25px)  scale(1.08); opacity: 0.45; }
+  100% { transform: translate(-20px, 10px)  scale(0.92); opacity: 0.35; }
+}
+
+/* --- Minimalist theme colors --- */
+.hero-orb-min-1 { background: radial-gradient(circle, #6366f1, #8b5cf6); }
+.hero-orb-min-2 { background: radial-gradient(circle, #a78bfa, #c4b5fd); }
+.hero-orb-min-3 { background: radial-gradient(circle, #818cf8, #6366f1); }
+
+/* --- Glassmorphism theme colors --- */
+.hero-orb-glass-1 { background: radial-gradient(circle, rgba(99,102,241,0.8), rgba(139,92,246,0.6)); }
+.hero-orb-glass-2 { background: radial-gradient(circle, rgba(59,130,246,0.7), rgba(99,102,241,0.5)); }
+.hero-orb-glass-3 { background: radial-gradient(circle, rgba(167,139,250,0.6), rgba(196,181,253,0.4)); }
+
+/* --- Claymorphism theme colors --- */
+.hero-orb-clay-1 { background: radial-gradient(circle, #fba4c0, #f9a8d4); }
+.hero-orb-clay-2 { background: radial-gradient(circle, #93c5fd, #bfdbfe); }
+.hero-orb-clay-3 { background: radial-gradient(circle, #a5f3fc, #86efac); }
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb { animation: none !important; opacity: 0.25 !important; }
+}

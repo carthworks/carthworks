@@ -22,7 +22,7 @@ export default function Home() {
             {/* Desktop: Split screen layout */}
             <div className="hidden lg:grid lg:grid-cols-4 lg:h-screen lg:overflow-hidden">
                 {/* Left Side - Fixed Hero (1/4 width) */}
-                <div className="h-screen flex items-center border-r border-zinc-200 dark:border-zinc-800">
+                <div className="h-screen overflow-hidden flex items-center border-r border-zinc-200 dark:border-zinc-800">
                     <Hero />
                 </div>
 
