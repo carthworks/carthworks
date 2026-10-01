@@ -252,9 +252,9 @@ export const projects = {
             featured: false
         },
         {
-            name: "Security Posture Intelligence Platform",
-            description: "AI-augmented vulnerability management and continuous security posture monitoring across your entire infrastructure",
-            url: "https://github.com/cybersigmaINC/security-platform",
+            name: "SigmaSec - Posture Intelligence Security",
+            description: "Unified scanning, real exploitability intelligence, and AI-authored remediation for teams tired of triaging noise.",
+            url: "https://sigmasec.vercel.app/",
             image: "/images/formula.jpeg",
             status: "Prototype",
             tags: ["Nuclei Scanner", "Trivy SCA", "Gitleaks", "Vulnerability Management"],
