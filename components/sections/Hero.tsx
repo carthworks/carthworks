@@ -119,10 +119,10 @@ export default function Hero() {
 
     const getSectionClassName = () => {
         if (theme === 'glassmorphism')
-            return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 glass-section';
+            return 'w-full min-h-screen lg:min-h-0 lg:h-full overflow-hidden flex items-center justify-center px-6 py-20 lg:py-4 glass-section';
         if (theme === 'claymorphism')
-            return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6';
-        return 'min-h-screen lg:min-h-0 lg:h-full lg:overflow-y-auto flex items-center lg:items-start justify-center px-6 py-20 lg:py-6 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900';
+            return 'w-full min-h-screen lg:min-h-0 lg:h-full overflow-hidden flex items-center justify-center px-6 py-20 lg:py-4';
+        return 'w-full min-h-screen lg:min-h-0 lg:h-full overflow-hidden flex items-center justify-center px-6 py-20 lg:py-4 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900';
     };
 
     const getTextColor    = () => theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50';
@@ -220,7 +220,7 @@ export default function Hero() {
 
             {/* Content */}
             <div
-                className="w-full h-full flex items-center lg:items-start justify-center px-4 lg:px-4"
+                className="w-full h-full flex items-center justify-center px-4 lg:px-4"
                 style={{ position: 'relative', zIndex: 1 }}
             >
                 <div className="w-full max-w-sm">

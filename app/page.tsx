@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen lg:h-screen lg:overflow-hidden">
             {/* Mobile: Stack vertically */}
             <div className="lg:hidden">
                 <Hero />
