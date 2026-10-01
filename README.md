@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-carthworks-black?style=flat-square&logo=github)](https://github.com/carthworks)
 [![Behance](https://img.shields.io/badge/Behance-carthworks-1769ff?style=flat-square&logo=behance)](https://behance.net/carthworks)
 [![Flickr](https://img.shields.io/badge/Flickr-carthworks-ff0084?style=flat-square&logo=flickr)](https://flickr.com/photos/carthworks)
-[![Portfolio](https://img.shields.io/badge/Portfolio-carthworks.dev-6366f1?style=flat-square&logo=vercel)](https://carthworks.dev)
+[![Portfolio](https://img.shields.io/badge/Portfolio-carthworks.vercel.app-6366f1?style=flat-square&logo=vercel)](https://carthworks.vercel.app/)
 
 📍 Chennai, Tamil Nadu, India | 📧 tkarthikeyan@gmail.com | 📱 +91 94867 72206
 
@@ -20,7 +20,7 @@
 
 I build **production-grade AI and SaaS systems** with **20+ years of engineering experience**. From LLM-powered RAG pipelines and autonomous agents to multi-tenant platforms, I ship things that work at scale — with clean architecture, real security, and zero fluff.
 
-Creator of **[Gantto](https://gantto.vercel.app/)**, **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)**, **[ExtractTheme Studio](https://extract-theme.onrender.com/)**, and **30+ shipped products** across AI, security, SaaS, and developer tooling.
+Senior AI Engineer and SaaS Architect specializing in LLM integration (Qwen3, Llama3, GPT, Claude, Mistral) via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Creator of **[Gantto](https://gantto.vercel.app/)**, **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)**, **[ExtractTheme Studio](https://extract-theme.onrender.com/)**, and **43 shipped products** across AI, security, SaaS, and developer tooling.
 
 Currently co-founding multiple startups, translating deep technical expertise into product-focused execution.
 
@@ -28,15 +28,13 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 ## 💼 Professional Experience
 
-### 🏢 Current & Recent Roles
-
 | Company | Role | Period |
 |---------|------|--------|
 | **Virtusa** | Lead Consultant / Senior Lead Engineer (AI & Full-Stack) | 2023 – 2026 |
 | **Buckman** | Senior Digital Innovation Engineer | 2021 – 2023 |
 | **PushPros** | Senior Full-Stack Developer | 2020 – 2021 |
 | **AURISS Technologies** | Senior Engineer (AI & Cybersecurity SaaS) | 2017 – 2020 |
-| **Pacific Controls** | UI/Web Developer (IoT Platforms) | 2015 – 2016 |
+| **Pacific Controls, Dubai, UAE** | UI/Web Developer (IoT Platforms) | 2015 – 2016 |
 
 ---
 
@@ -72,38 +70,90 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 ---
 
-## 🌟 Featured Projects & Tools (2026)
+## 🌟 Featured Builds
 
-### 🧰 Developer Tools
+| Project | Category | Description | Status |
+|---------|----------|-------------|--------|
+| **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)** | Tools | Drop-in SKILL.md files that give AI coding agents specialised, consistent behaviour | 🟢 Live |
+| **[Security Posture Intelligence Platform](https://github.com/cybersigmaINC/security-platform)** | AI App | AI-augmented vulnerability management & continuous security posture monitoring | 🔶 Prototype |
 
-| Project | Description | Status |
-|---------|-------------|--------|
-| **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)** | Drop-in SKILL.md files that give AI coding agents specialised, consistent behaviour | 🟢 Live |
-| **[Gantto](https://gantto.vercel.app/)** | Privacy-first fullscreen Gantt chart & project timeline manager with NLP & Critical Path | 🟢 Live |
-| **[ExtractTheme Studio](https://extract-theme.onrender.com/)** | Extract CSS variables, Tailwind configs, WCAG matrices, fonts, logos & style guides in seconds | 🟢 Live |
-| **[SecuTools.io](https://secutools-io.vercel.app/)** | Practical cybersecurity utilities for engineers and researchers | 🟢 Live |
-| **[AI & LLM Handy Tools](https://aitoolsbox-io.vercel.app/)** | Curated toolbox for AI engineers, researchers, and prompt engineers | 🟢 Live |
+---
 
-### 🤖 AI Applications
+## 🤖 AI & LLM Applications (15 projects)
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| **[WingzAI Platform](https://wingzai.deltaphi.in/login)** | Unified workspace for AI agents, connectors, and automation workflows | 🟢 Live |
-| **[Security Posture Intelligence](https://github.com/cybersigmaINC/security-platform)** | AI-augmented vulnerability management & continuous security posture monitoring | 🔶 Prototype |
-| **[Hyperlocal Heat Intelligence](https://hyperlocal-heat-intelligence-platfo.vercel.app/)** | AI + GIS downscaling platform with 100m-resolution predictive heat grids | 🔬 PoC |
+| **[CogniScale](https://cogniscale-eta.vercel.app/)** | Dynamic, mathematically rigorous assessment and remediation platform | 🔷 MVP |
+| **[RAG System for Your Documents](https://ask-mydocs.vercel.app/)** | Ask questions and retrieve insights from your own documents using RAG | 🔬 PoC |
+| **[LibraDigitAI](https://libra-digit-web.vercel.app/)** | AI-powered digitization turning scanned library documents into searchable archives | 🔬 PoC |
+| **[Project Tracker](https://security-platform-plan.vercel.app/)** | Security-focused project tracker with vulnerability, SCA, container, and secret scanning | 🔬 PoC |
+| **[ModelMeter: AI FinOps & Observability](https://model-meter.vercel.app/)** | Provider-agnostic AI FinOps platform for monitoring LLM usage, costs, and reliability | 💡 Idea |
+| **[Security Posture Intelligence Platform](https://github.com/cybersigmaINC/security-platform)** | AI-augmented vulnerability management and continuous security posture monitoring | 🔶 Prototype |
+| **[Web Security Scanner](https://scanova-web.vercel.app/)** | Lightweight web security scanner for quick vulnerability and configuration checks | 🔬 PoC |
+| **[ActSMS](https://actsms.vercel.app/)** | On-device assistant converting transactional SMS into reminders, tasks, and alerts | 💡 Idea |
+| **[SolarFlow](https://solarflow-web-beta.vercel.app/)** | Track solar projects from lead to payment, customer updates, and collection follow-ups | 💡 Idea |
+| **[PaperPublish IQ](https://paperpublish-iq.vercel.app/)** | Research workflow platform guiding drafts toward publication with blind peer review | 💡 Idea |
+| **[WingzAI Platform](https://wingzai.deltaphi.in/login)** | Unified workspace to manage connectors, build AI agents, and automate security workflows | 🟢 Live |
+| **[Cybersecurity Workshop](https://cyber2daytraining.vercel.app/)** | AI-assisted cybersecurity workshop with hands-on training, learning paths, and practical labs | 🟢 Live |
+| **[Kapan](https://kapan01.vercel.app/)** | Private, internal communication platform for teams that value control and privacy | 💡 Idea |
 | **[CodeShield Local](https://code-shield-local.vercel.app/)** | Local AI-powered code security auditor — no code leaves your machine | 🔬 PoC |
-| **[LibraDigitAI](https://libra-digit-web.vercel.app/)** | AI-powered digitization system turning scanned library docs into searchable archives | 🔬 PoC |
-| **[Crop Intelligence Assistant](https://crop-shield-dusky.vercel.app/)** | Computer vision & ML for crop disease detection and treatment recommendations | 🔬 PoC |
-| **[RAG System for Your Docs](https://ask-mydocs.vercel.app/)** | Ask questions and retrieve insights from your own documents using RAG | 🔬 PoC |
+| **[Hyperlocal Heat Intelligence Platform](https://hyperlocal-heat.vercel.app/)** | 48-hour, 100m street-level thermal stress forecasting for insurers, employers, and city responders | 💡 Idea |
 
-### 🌐 Websites
+---
+
+## 🧰 Developer Tools (6 projects)
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| **[Royal Albatross Exports](https://royalalbatrossexports.in/)** | Premium fresh exports with reliable sourcing and global distribution | 🟢 Live |
-| **[Samarth UPSC](https://samarth-upsc.lovable.app/)** | Community-first platform for civil-service aspirants with expert mentors | 🟢 Live |
+| **[AI Agent Skills](https://carthworks.github.io/ai-agent-skills/)** | Drop-in SKILL.md files that give your AI agent specialised, consistent behaviour — instantly | 🟢 Live |
+| **[Gantto Project Timeline](https://gantto.vercel.app/)** | Privacy-first fullscreen Gantt chart & project timeline manager with NLP & Critical Path | 🟢 Live |
+| **[ExtractTheme Studio](https://extract-theme.onrender.com/)** | Extract CSS variables, Tailwind configs, WCAG matrices, fonts, logos & style guides in seconds | 🟢 Live |
+| **[SecuTools.io](https://secutools-io.vercel.app/)** | Practical, no-nonsense utilities for cybersecurity engineers and security researchers | 🟢 Live |
+| **[AI & LLM Handy Tools](https://aitoolsbox-io.vercel.app/)** | Curated toolbox of practical utilities for AI engineers, researchers, and prompt engineers | 🟢 Live |
+| **[MyTeleprompter](https://teleprompt-seven.vercel.app/)** | Easy-to-use teleprompter for speakers, presenters, and creators | 🟢 Live |
+
+---
+
+## 🌐 Websites (13 projects)
+
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[FIT BITE](https://fit-bite-beige.vercel.app/)** | Premium-quality fresh exports with reliable sourcing and global distribution | 🟢 Live |
+| **[FIT BITE CART](https://fit-bite-cart.vercel.app/)** | Your next good habit starts with a bite — fresh fruit e-commerce | 🟢 Live |
+| **[Royal Albatross Exports](https://royalalbatrossexports.in/)** | Premium-quality fresh exports with reliable sourcing and global distribution | 🟢 Live |
+| **[SN Exports](https://snexports.net/)** | Karur Cotton Export Manufacturing for high-quality cotton products | 🟢 Live |
+| **[Nesam Radio](https://nesammedia.royalalbatrossexports.in/)** | Tamil music, devotional programs, news, and podcasts streamed from Tamil Nadu | 🟢 Live |
+| **[DSR Photos & Videos](https://dsr-photos-web.vercel.app/)** | Professional photography and videography for weddings, editorial, and portrait sessions | 🟢 Live |
 | **[Chennai Braiding Company](https://cbclaces.vercel.app/)** | Specialized manufacturers of high-quality shoe laces and industrial ropes | 🟢 Live |
-| **[Cybersecurity Workshop](https://cyber2daytraining.vercel.app/)** | AI-assisted cybersecurity training with hands-on labs and learning paths | 🟢 Live |
+| **[Cyber Risk & Investment Platform](https://sih-26105-security-platform.vercel.app/)** | Multi-tenant Security Posture Intelligence Platform with AI remediation guidance | 💡 Idea |
+| **[HIRENCH HR Solutions](https://hirench.vercel.app/)** | Recruitment and HR consulting for staffing, executive search, and industry hiring | 🟢 Live |
+| **[Ark Veterinary Clinic](https://ark-veterinary-clinics.vercel.app/)** | Comprehensive veterinary care with a focus on preventive and clinical services | 🟢 Live |
+| **[Sri Kaliamman Textiles](https://srikaliamman-textiles.vercel.app/)** | Textile manufacturer website for product presentation and inbound enquiries | 🟢 Live |
+| **[30-Day Ethical Hacking Bootcamp](https://hacklab30.netlify.app/)** | Hands-on ethical hacking training to build real-world offensive security skills in 30 days | 🟢 Live |
+| **[IntraChat](https://intra-chat-eight.vercel.app/)** | Private, internal communication platform built for teams that value control and privacy | 🟢 Live |
+
+---
+
+## 🔌 Chrome Extensions (7 projects)
+
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[Chrome Web Store Developer Console](https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7)** | Developer-focused Chrome extension published on the Chrome Web Store | 🟢 Live |
+| **TrustLens - Website Trust & Risk Checker** | Instant website trust and risk analysis using real-time domain intelligence | 🔧 WIP |
+| **AI Image Signal Analyzer** | Analyzes visual and metadata signals to estimate probability of AI-generated images | 🔧 WIP |
+| **Gantto - Project Timeline Manager** | AI-assisted Gantt chart tool with progress tracking and smart task suggestions | 🔧 WIP |
+| **AppSec Inspector** | Local-first application security inspection for headers, secrets, and authentication checks | 🔧 WIP |
+| **Auto Formatter Pro** | Advanced code formatter with syntax highlighting, format conversion, and diff view | 🔧 WIP |
+| **Screenshotify** | Offline-first Chrome extension for capturing, annotating, blurring, cropping, and zooming screenshots | 🔧 WIP |
+
+---
+
+## 🎨 Creative & Interactive (2 projects)
+
+| Project | Description |
+|---------|-------------|
+| **[Aether - Gestural Focus Engine](https://aether-gestural-engine.vercel.app/)** | Interactive meditation and breathing experience using particle-based visualizations |
+| **[Enhanced Audio Visualizer](https://audio-visualizer-six-inky.vercel.app/)** | Cinematic 3D, real-time, beat-reactive visuals that transform music into immersive motion |
 
 ---
 
@@ -150,12 +200,12 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 ## 🌐 Portfolio & Links
 
+- **🌐 Live Portfolio**: [carthworks.vercel.app](https://carthworks.vercel.app/)
 - **🧰 AI Agent Skills**: [carthworks.github.io/ai-agent-skills](https://carthworks.github.io/ai-agent-skills/)
 - **📊 Gantto – Project Timeline**: [gantto.vercel.app](https://gantto.vercel.app/)
 - **🎨 UI Portfolio**: [behance.net/carthworks](https://behance.net/carthworks)
 - **📸 Photography**: [flickr.com/photos/carthworks](https://flickr.com/photos/carthworks)
 - **💻 Code Portfolio**: [github.com/carthworks](https://github.com/carthworks)
-- **🌐 Personal Portfolio**: [carthworks.dev](https://carthworks.dev)
 
 ---
 
@@ -179,13 +229,15 @@ Currently co-founding multiple startups, translating deep technical expertise in
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=carthworks&layout=compact&theme=radical&hide_border=true)
 
+![GitHub Contribution Graph](https://ghchart.rshah.org/10b981/carthworks)
+
 </div>
 
 ---
 
 <div align="center">
 
-### 💡 "30+ products shipped. 20+ years of engineering. Zero fluff."
+### 💡 "43 products shipped. 20+ years of engineering. Zero fluff."
 
 ⭐️ From [carthworks](https://github.com/carthworks)
 
