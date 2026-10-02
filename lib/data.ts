@@ -107,6 +107,15 @@ export const projects = {
             tags: ["E-commerce", "Fruits", "Website"],
         },
         {
+            url: "https://helios-inky-nine.vercel.app/",
+            image: "/images/nexmancer-helios.png",
+            status: "Live",
+            tags: ["Smart Biomass Stove", "Website"],
+            description: "Experience the evolution of solid fuel cooking with the NEXMANCER Helios. Engineered with active BLDC forced-draft aerodynamics, preheated secondary gasification, and intelligent thermocouple regulation — delivering unprecedented thermal efficiency and virtually smokeless combustion",
+            name: "NEXMANCER HELIOS",
+        }
+        ,
+        {
             name: "FIT BITE CART",
             description: "Your next good habit starts with a bite.",
             url: "https://fit-bite-cart.vercel.app/",
