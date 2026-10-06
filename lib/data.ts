@@ -236,8 +236,9 @@ export const projects = {
         },
         {
             name: "LibraDigitAI",
-            description: "AI-powered digitization system that turns scanned library documents into searchable, metadata-rich archives.",
-            url: "https://libra-digit-web.vercel.app/",
+            description: " comprehensive architectural overview of LibraDigit AI: engineered to empower libraries, museums, academic research facilities, and government registries with air-gapped OCR accuracy, standard cataloging, and permanent archival search.",
+            url: "https://libra-digit-ai.vercel.app/",
+            // url: "https://libra-digit-web.vercel.app/",
             image: "/images/ad_librDigitIT_2026.png",
             status: "poc",
             tags: ["AI", "OCR", "Archives"],
