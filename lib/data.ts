@@ -416,37 +416,50 @@ export const projects = {
             description: "Developer-focused Chrome extension published on the Chrome Web Store.",
             url: "https://chrome.google.com/webstore/devconsole/af690ea9-bcfb-4342-9a04-0bdecfbbc7b7",
             image: "/images/chrome_extension.png",
-            tags: ["Chrome Extension", "Developer Tools"],
+            status: "Live",
+            tags: ["Chrome Extension", "Developer Tools", "Analytics"],
         },
         {
             name: "TrustLens - Website Trust & Risk Checker",
             description: "Instant website trust and risk analysis using real-time domain intelligence.",
             url: null,
+            status: "WIP",
+            tags: ["Security", "Domain Intel", "Protection"],
         },
         {
             name: "AI Image Signal Analyzer",
             description: "Analyzes visual and metadata signals to estimate the probability of AI-generated images.",
             url: null,
+            status: "WIP",
+            tags: ["AI Detection", "Computer Vision", "Metadata"],
         },
         {
             name: "Gantto - Project Timeline Manager",
             description: "AI-assisted Gantt chart tool with progress tracking and smart task suggestions.",
             url: null,
+            status: "WIP",
+            tags: ["Productivity", "Gantt Timeline", "Planning"],
         },
         {
             name: "AppSec Inspector",
             description: "Local-first application security inspection tool for headers, secrets, and authentication checks.",
             url: null,
+            status: "WIP",
+            tags: ["Cybersecurity", "AppSec", "Headers"],
         },
         {
             name: "Auto Formatter Pro",
             description: "Advanced code formatter with syntax highlighting, format conversion, and diff view for structured data.",
             url: null,
+            status: "WIP",
+            tags: ["Developer Tools", "Formatter", "Diff View"],
         },
         {
             name: "Screenshotify",
             description: "Offline-first Chrome extension for capturing, annotating, blurring, cropping, and zooming screenshots.",
             url: null,
+            status: "WIP",
+            tags: ["Screen Capture", "Annotation", "Privacy"],
         },
     ],
     creative: [
@@ -464,5 +477,5 @@ export const projects = {
             image: "/images/audio-visualizer.png",
             tags: ["Audio", "Visualizer", "3D"]
         },
-    ],
+    ]
 };

@@ -4,6 +4,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { projects } from '@/lib/data';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
+import ChromeExtensionsTable from './ChromeExtensionsTable';
 
 interface Project {
     name: string;
@@ -190,6 +191,30 @@ function ProjectCategory({ title, projects, view }: ProjectCategoryProps) {
     const { theme } = useTheme();
 
     if (projects.length === 0) return null;
+
+    if (title === 'Chrome Extensions') {
+        return (
+            <div className="mb-14 last:mb-0">
+                <div className="mb-6 flex items-end justify-between gap-4 border-b border-zinc-200 pb-3 dark:border-zinc-800">
+                    <div>
+                        <h3 className={`text-2xl font-semibold ${theme === 'glassmorphism'
+                            ? 'text-white'
+                            : 'text-zinc-900 dark:text-zinc-50'
+                            }`}>
+                            {title}
+                        </h3>
+                        <p className={`mt-1 text-sm ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                            Browser utilities, developer toolkits, and privacy-first extensions.
+                        </p>
+                    </div>
+                    <span className={`text-sm ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                        {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+                    </span>
+                </div>
+                <ChromeExtensionsTable projects={projects} />
+            </div>
+        );
+    }
 
     return (
         <div className="mb-14 last:mb-0">
