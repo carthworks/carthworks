@@ -71,7 +71,7 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
     };
 
     const getCardClassName = () => {
-        const baseClasses = `group h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col ${featured ? 'md:flex-row' : ''} hover:-translate-y-1`;
+        const baseClasses = 'group h-full overflow-hidden rounded-lg transition-all duration-300 flex flex-col hover:-translate-y-1';
 
         if (theme === 'glassmorphism') {
             return `${baseClasses} glass-card text-white hover:bg-white/10`;
@@ -81,13 +81,13 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
         return `${baseClasses} bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xl`;
     };
 
-    const imageClassName = featured ? 'relative w-full md:w-2/5 h-56 md:h-auto min-h-56' : 'relative w-full h-44';
+    const imageClassName = featured ? 'relative w-full h-28' : 'relative w-full h-44';
 
     const content = (
         <div className={getCardClassName()}>
             <div className={`${imageClassName} bg-zinc-100 dark:bg-zinc-800 overflow-hidden`}>
                 {project.status && (
-                    <div className={`absolute top-4 left-4 z-10 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest shadow-sm ${getStatusColor(project.status)}`}>
+                    <div className={`absolute ${featured ? 'top-2.5 left-2.5 px-2 py-0.5 text-[9px]' : 'top-4 left-4 px-3 py-1 text-[10px]'} z-10 rounded-full font-bold uppercase tracking-widest shadow-sm ${getStatusColor(project.status)}`}>
                         {getStatusLabel(project.status)}
                     </div>
                 )}
@@ -98,10 +98,10 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
                         alt={project.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes={featured ? '(max-width: 768px) 100vw, 40vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw'}
+                        sizes={featured ? '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw'}
                     />
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center p-12 opacity-40 grayscale">
+                    <div className={`absolute inset-0 flex items-center justify-center ${featured ? 'p-6' : 'p-12'} opacity-40 grayscale`}>
                         <Image
                             src="/kt_logo_github_sized.png"
                             alt="KT Logo"
@@ -112,10 +112,10 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
                 )}
             </div>
 
-            <div className={`${featured ? 'md:w-3/5' : ''} flex flex-1 flex-col p-5`}>
-                <div className="mb-3 flex items-center justify-between gap-3">
+            <div className={`flex flex-1 flex-col ${featured ? 'p-3.5' : 'p-5'}`}>
+                <div className={`${featured ? 'mb-2 gap-1.5' : 'mb-3 gap-3'} flex items-center justify-between`}>
                     {project.category && (
-                        <span className={`rounded-full px-3 py-1 text-[11px] font-medium ${theme === 'glassmorphism'
+                        <span className={`truncate rounded-full ${featured ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-[11px]'} font-medium ${theme === 'glassmorphism'
                             ? 'bg-white/15 text-white'
                             : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300'
                             }`}>
@@ -123,27 +123,27 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
                         </span>
                     )}
                     {featured && (
-                        <span className={`text-[11px] font-semibold uppercase tracking-widest ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
+                        <span className={`shrink-0 text-[9px] font-semibold uppercase tracking-wider ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'}`}>
                             Featured
                         </span>
                     )}
                 </div>
 
-                <h4 className={`text-lg font-semibold leading-snug ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
+                <h4 className={`${featured ? 'text-sm' : 'text-lg'} font-semibold leading-snug ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
                     }`}>
                     {project.name}
                 </h4>
-                <p className={`mt-2 text-sm leading-relaxed ${featured ? '' : 'line-clamp-4'} ${theme === 'glassmorphism' ? 'text-white/85' : 'text-zinc-600 dark:text-zinc-400'
+                <p className={`${featured ? 'mt-1.5 text-xs line-clamp-2' : 'mt-2 text-sm line-clamp-4'} leading-relaxed ${theme === 'glassmorphism' ? 'text-white/85' : 'text-zinc-600 dark:text-zinc-400'
                     }`}>
                     {project.description}
                 </p>
 
                 {project.tags && project.tags.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                        {project.tags.slice(0, featured ? 5 : 3).map((tag) => (
+                    <div className={`${featured ? 'mt-2.5 gap-1' : 'mt-4 gap-2'} flex flex-wrap`}>
+                        {project.tags.slice(0, featured ? 2 : 3).map((tag) => (
                             <span
                                 key={`${project.name}-${tag}`}
-                                className={`rounded-md px-2 py-1 text-[11px] ${theme === 'glassmorphism'
+                                className={`rounded-md ${featured ? 'px-1.5 py-0.5 text-[10px]' : 'px-2 py-1 text-[11px]'} ${theme === 'glassmorphism'
                                     ? 'bg-white/10 text-white/80'
                                     : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300'
                                     }`}
@@ -154,14 +154,14 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
                     </div>
                 )}
 
-                <div className={`mt-auto pt-5 ${project.url ? '' : 'opacity-60'}`}>
-                    <div className={`flex items-center gap-2 text-sm font-medium ${theme === 'glassmorphism'
+                <div className={`mt-auto ${featured ? 'pt-3' : 'pt-5'} ${project.url ? '' : 'opacity-60'}`}>
+                    <div className={`flex items-center gap-1.5 ${featured ? 'text-xs' : 'text-sm'} font-medium ${theme === 'glassmorphism'
                         ? 'text-white'
                         : 'text-zinc-700 dark:text-zinc-300'
                         }`}>
                         <span>{project.url ? 'View Project' : 'Concept Preview'}</span>
                         {project.url && (
-                            <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className={`${featured ? 'h-3.5 w-3.5' : 'h-4 w-4'} transition-transform group-hover:translate-x-1`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
                             </svg>
                         )}
@@ -423,7 +423,7 @@ export default function Projects() {
                                 </p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                             {featuredProjects.map((project) => (
                                 <ProjectCard key={`featured-${project.name}`} project={project} featured />
                             ))}

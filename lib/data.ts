@@ -300,7 +300,8 @@ export const projects = {
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
             status: "idea",
-            tags: ["Research", "Publishing", "Workflow"]
+            tags: ["Research", "Publishing", "Workflow"], featured: true
+
         },
         {
             name: "WingzAI Platform",
@@ -350,7 +351,8 @@ export const projects = {
             url: "https://hyperlocal-heat.vercel.app/",
             image: "/images/gis_dashboard_1779014141485.png",
             status: "Idea",
-            tags: ["GIS", "Climate", "AI"]
+            tags: ["GIS", "Climate", "AI"],
+            featured: true
         },
     ],
 
