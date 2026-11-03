@@ -76,6 +76,17 @@ export default function Footer() {
                         >
                             Flickr
                         </a>
+                        <a
+                            href={personalInfo.courses}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`transition-colors ${theme === 'glassmorphism'
+                                    ? 'text-white/80 hover:text-white'
+                                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50'
+                                }`}
+                        >
+                            Courses
+                        </a>
                     </div>
                 </div>
 

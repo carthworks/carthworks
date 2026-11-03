@@ -124,7 +124,7 @@ export default function Contact() {
                         <div className="mt-8">
                             <h4 className={`text-sm mb-4 ${theme === 'glassmorphism' ? 'text-white/60' : 'text-zinc-500 dark:text-zinc-500'
                                 }`}>Connect</h4>
-                            <div className="flex gap-4">
+                            <div className="flex flex-wrap gap-4">
                                 <a
                                     href={`https://${personalInfo.github}`}
                                     target="_blank"
@@ -150,6 +150,19 @@ export default function Contact() {
                                         }`}
                                 >
                                     LinkedIn
+                                </a>
+                                <a
+                                    href={personalInfo.courses}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${theme === 'glassmorphism'
+                                        ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
+                                        : theme === 'claymorphism'
+                                            ? 'clay-card text-zinc-900 dark:text-zinc-50'
+                                            : 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200'
+                                        }`}
+                                >
+                                    Courses
                                 </a>
                             </div>
                         </div>

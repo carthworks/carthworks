@@ -10,6 +10,7 @@ export const personalInfo = {
     github: "github.com/carthworks",
     behance: "www.behance.net/carthworks",
     flickr: "www.flickr.com/photos/carthworks",
+    courses: "https://pdfcart.in/@karthikeyant",
     resume: "/resume.pdf",
 
     bio: "I build production-grade AI and SaaS systems with 20+ years of engineering experience. From LLM-powered RAG pipelines and autonomous agents to multi-tenant platforms, I ship things that work at scale — with clean architecture, real security, and zero fluff.",

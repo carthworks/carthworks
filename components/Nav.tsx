@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useTheme } from '@/contexts/ThemeContext';
+import { personalInfo } from '@/lib/data';
 
 export default function Nav() {
     const { theme } = useTheme();
@@ -240,6 +241,23 @@ export default function Nav() {
                                 {item.label}
                             </a>
                         ))}
+                        <a
+                            href={personalInfo.courses}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`ml-1 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                                theme === 'glassmorphism'
+                                    ? 'bg-white/20 text-white hover:bg-white/30'
+                                    : theme === 'claymorphism'
+                                        ? 'clay-card text-zinc-900 dark:text-zinc-50'
+                                        : 'bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200'
+                            }`}
+                        >
+                            <span>Courses</span>
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
+                            </svg>
+                        </a>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -296,6 +314,15 @@ export default function Nav() {
                                 {item.label}
                             </a>
                         ))}
+                        <a
+                            href={personalInfo.courses}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={getLinkClassName(personalInfo.courses, true)}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Courses ↗
+                        </a>
                     </div>
                 )}
             </div>
