@@ -184,6 +184,22 @@ export const projects = {
             tags: ["Security", "SaaS", "AI"],
 
         },
+        {
+            name: "SIH 26105 - Carbon Footprint Estimator & Planner",
+            url: "https://sih-26105-platform.vercel.app/",
+            description: "Carbon Footprint Estimator & Planner - SIH 26105 Platform",
+            image: "/images/cf-estimator.png",
+            status: "poc",
+            tags: ["Sustainability", "AI", "Education", "Platform"],
+        },
+        {
+            name: "Lakshmi Stores UK",
+            url: "https://www.lakshmistores.com/",
+            description: "The Best Indian Grocery Store in the UK - Saree, Salwar Kameez, Menswear & More ",
+            image: "/images/lakshmi-stores.png",
+            status: "Live",
+            tags: ["E-commerce", "Textiles", "Retail"],
+        },
 
         {
             name: "HIRENCH HR Solutions",
@@ -326,14 +342,14 @@ export const projects = {
             status: "live",
             tags: ["Training", "Security", "AI"]
         },
-        {
-            name: "Kapan",
-            description: "Private, internal communication platform built for teams that value control and privacy.",
-            url: "https://kapan01.vercel.app/",
-            image: "/images/kapan.png",
-            status: "idea",
-            tags: ["Messaging", "Privacy", "Teams"],
-        },
+        // {
+        //     name: "Kapan",
+        //     description: "Private, internal communication platform built for teams that value control and privacy.",
+        //     url: "https://kapan01.vercel.app/",
+        //     image: "/images/kapan.png",
+        //     status: "idea",
+        //     tags: ["Messaging", "Privacy", "Teams"],
+        // },
         // {
         //     name: "AI-Powered Crop Intelligence Assistant",
         //     description: "Agricultural intelligence platform using computer vision and ML to detect crop diseases and recommend treatment plans.",
