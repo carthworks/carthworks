@@ -8,15 +8,15 @@ export default function Experience() {
 
     const getSectionClassName = () => {
         if (theme === 'glassmorphism') {
-            return 'py-24 px-6 glass-section';
+            return 'py-12 px-6 glass-section';
         } else if (theme === 'claymorphism') {
-            return 'py-24 px-6';
+            return 'py-12 px-6';
         }
-        return 'py-24 px-6 bg-white dark:bg-zinc-900';
+        return 'py-12 px-6 bg-white dark:bg-zinc-900';
     };
 
     const getCardClassName = () => {
-        const baseClasses = 'p-6 rounded-lg transition-all';
+        const baseClasses = 'px-4 py-3 rounded-lg transition-all flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4';
 
         if (theme === 'glassmorphism') {
             return `${baseClasses} glass-card`;
@@ -41,38 +41,45 @@ export default function Experience() {
     return (
         <section id="experience" className={getSectionClassName()}>
             <div className="max-w-6xl mx-auto">
-                <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
-                    }`}>
-                    Experience
-                </h2>
-                <p className={`text-lg mb-12 max-w-2xl ${theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-600 dark:text-zinc-400'
-                    }`}>
-                    20+ years of engineering excellence across AI, SaaS, and full-stack development
-                </p>
+                <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+                    <div>
+                        <h2 className={`text-3xl lg:text-4xl font-bold ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
+                            }`}>
+                            Experience
+                        </h2>
+                        <p className={`mt-1 text-sm ${theme === 'glassmorphism' ? 'text-white/80' : 'text-zinc-600 dark:text-zinc-400'
+                            }`}>
+                            20+ years of engineering excellence across AI, SaaS, and full-stack development
+                        </p>
+                    </div>
+                </div>
 
-                <div className="space-y-8">
+                <div className="space-y-2.5">
                     {experience.map((job, index) => (
                         <div
                             key={index}
-                            className={`group relative pl-8 pb-8 border-l-2 last:pb-0 transition-colors ${getBorderColor()}`}
+                            className={`group relative pl-6 pb-2.5 border-l-2 last:pb-0 transition-colors ${getBorderColor()}`}
                         >
                             {/* Timeline dot */}
-                            <div className={`absolute left-[-9px] top-0 w-4 h-4 rounded-full transition-colors ${getDotColor()}`} />
+                            <div className={`absolute left-[-6px] top-3.5 w-2.5 h-2.5 rounded-full transition-colors ${getDotColor()}`} />
 
                             <div className={getCardClassName()}>
-                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                                    <h3 className={`text-xl font-semibold ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
+                                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 min-w-0">
+                                    <h3 className={`text-base font-semibold shrink-0 ${theme === 'glassmorphism' ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'
                                         }`}>
                                         {job.company}
                                     </h3>
-                                    <span className={`text-sm font-mono ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'
-                                        }`}>
-                                        {job.period}
+                                    <span className={`hidden sm:inline text-xs ${theme === 'glassmorphism' ? 'text-white/40' : 'text-zinc-400'}`}>
+                                        •
                                     </span>
+                                    <p className={`text-sm truncate ${theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-600 dark:text-zinc-300'}`}>
+                                        {job.role}
+                                    </p>
                                 </div>
-                                <p className={theme === 'glassmorphism' ? 'text-white/90' : 'text-zinc-700 dark:text-zinc-300'}>
-                                    {job.role}
-                                </p>
+                                <span className={`text-xs font-mono shrink-0 ${theme === 'glassmorphism' ? 'text-white/70' : 'text-zinc-500 dark:text-zinc-400'
+                                    }`}>
+                                    {job.period}
+                                </span>
                             </div>
                         </div>
                     ))}
