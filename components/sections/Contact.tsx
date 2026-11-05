@@ -1,8 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { personalInfo } from '@/lib/data';
 import { useTheme } from '@/contexts/ThemeContext';
+
+const SPAM_COOLDOWN_MS = 60_000;
+const MIN_FILL_TIME_MS = 2_500;
 
 export default function Contact() {
     const { theme } = useTheme();
@@ -11,19 +14,84 @@ export default function Contact() {
         email: '',
         subject: '',
         message: '',
+        website: '', // Honeypot field
     });
 
+    const [challenge, setChallenge] = useState({ a: 3, b: 4 });
+    const [challengeAnswer, setChallengeAnswer] = useState('');
     const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+    const formLoadedAt = useRef<number>(Date.now());
+
+    const generateChallenge = () => {
+        const a = Math.floor(Math.random() * 7) + 2;
+        const b = Math.floor(Math.random() * 7) + 1;
+        setChallenge({ a, b });
+        setChallengeAnswer('');
+    };
+
+    useEffect(() => {
+        formLoadedAt.current = Date.now();
+        generateChallenge();
+    }, []);
+
+    const isSpamContent = (text: string) => {
+        const urlMatches = text.match(/https?:\/\/|www\./gi);
+        if (urlMatches && urlMatches.length > 2) return true;
+        const spamPatterns = /\b(viagra|casino|crypto giveaway|seo rank|buy backlinks|telegram.*crypto)\b/i;
+        return spamPatterns.test(text);
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setErrorMessage('');
 
-        const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
+        // 1. Honeypot check (silently drop bot submissions)
+        if (formData.website.trim() !== '') {
+            setStatus('success');
+            return;
+        }
 
-        window.location.href = mailtoLink;
+        // 2. Time-trap check (bots submit almost instantaneously)
+        if (Date.now() - formLoadedAt.current < MIN_FILL_TIME_MS) {
+            setStatus('error');
+            setErrorMessage('Please take a moment before submitting.');
+            return;
+        }
+
+        // 3. Rate-limit / cooldown check
+        const lastSubmitted = Number(sessionStorage.getItem('contact_last_submit') || 0);
+        if (Date.now() - lastSubmitted < SPAM_COOLDOWN_MS) {
+            setStatus('error');
+            setErrorMessage('Please wait a minute before sending another message.');
+            return;
+        }
+
+        // 4. Math challenge check
+        if ( parseInt(challengeAnswer.trim(), 10) !== challenge.a + challenge.b ) {
+            setStatus('error');
+            setErrorMessage('Incorrect security answer. Please try again.');
+            generateChallenge();
+            return;
+        }
+
+        // 5. Content spam heuristic check
+        if (isSpamContent(`${formData.subject} ${formData.message}`)) {
+            setStatus('error');
+            setErrorMessage('Message flagged as spam. Please remove excessive links.');
+            return;
+        }
+
+        sessionStorage.setItem('contact_last_submit', String(Date.now()));
+
+        const subject = encodeURIComponent(formData.subject.trim());
+        const body = encodeURIComponent(`From: ${formData.name.trim()} (${formData.email.trim()})\n\n${formData.message.trim()}`);
+        window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
 
         setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', subject: '', message: '', website: '' });
+        formLoadedAt.current = Date.now();
+        generateChallenge();
 
         setTimeout(() => setStatus('idle'), 3000);
     };
@@ -33,6 +101,10 @@ export default function Contact() {
             ...formData,
             [e.target.name]: e.target.value,
         });
+        if (status === 'error') {
+            setStatus('idle');
+            setErrorMessage('');
+        }
     };
 
     const getSectionClassName = () => {
@@ -65,7 +137,7 @@ export default function Contact() {
     };
 
     const getButtonClassName = () => {
-        const baseClasses = 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200';
+        const baseClasses = 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 shrink-0';
 
         if (theme === 'glassmorphism') {
             return `${baseClasses} bg-white text-zinc-900 hover:bg-white/90 shadow-sm`;
@@ -184,6 +256,20 @@ export default function Contact() {
 
                     {/* Compact Contact Form */}
                     <form onSubmit={handleSubmit} className={`lg:col-span-7 space-y-3 ${getCardClassName()}`}>
+                        {/* Honeypot field — hidden from humans, traps automated bots */}
+                        <div className="absolute -left-[9999px] opacity-0 pointer-events-none" aria-hidden="true">
+                            <label htmlFor="website">Website</label>
+                            <input
+                                type="text"
+                                id="website"
+                                name="website"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                value={formData.website}
+                                onChange={handleChange}
+                            />
+                        </div>
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
                                 <label htmlFor="name" className="sr-only">Name</label>
@@ -192,6 +278,7 @@ export default function Contact() {
                                     id="name"
                                     name="name"
                                     placeholder="Your name"
+                                    maxLength={80}
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
@@ -205,6 +292,7 @@ export default function Contact() {
                                     id="email"
                                     name="email"
                                     placeholder="Your email"
+                                    maxLength={120}
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
@@ -220,6 +308,7 @@ export default function Contact() {
                                 id="subject"
                                 name="subject"
                                 placeholder="Subject"
+                                maxLength={150}
                                 value={formData.subject}
                                 onChange={handleChange}
                                 required
@@ -233,6 +322,7 @@ export default function Contact() {
                                 id="message"
                                 name="message"
                                 placeholder="How can I help?"
+                                maxLength={2000}
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
@@ -241,14 +331,41 @@ export default function Contact() {
                             />
                         </div>
 
-                        <div className="flex items-center justify-between gap-4 pt-1">
-                            {status === 'success' ? (
-                                <p className="text-xs text-emerald-600 dark:text-emerald-400">
-                                    Opening your email client...
-                                </p>
-                            ) : (
-                                <span />
-                            )}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+                            {/* Compact Anti-Spam Math Verification */}
+                            <div className="flex items-center gap-2">
+                                <label
+                                    htmlFor="spam-check"
+                                    className={`text-xs font-medium whitespace-nowrap ${
+                                        theme === 'glassmorphism' ? 'text-white/80' : 'text-zinc-500 dark:text-zinc-400'
+                                    }`}
+                                >
+                                    Human check: <span className="font-mono font-semibold">{challenge.a} + {challenge.b} =</span>
+                                </label>
+                                <input
+                                    id="spam-check"
+                                    type="number"
+                                    inputMode="numeric"
+                                    required
+                                    placeholder="?"
+                                    value={challengeAnswer}
+                                    onChange={(e) => {
+                                        setChallengeAnswer(e.target.value);
+                                        if (status === 'error') {
+                                            setStatus('idle');
+                                            setErrorMessage('');
+                                        }
+                                    }}
+                                    className={`w-16 px-2.5 py-1.5 text-xs text-center font-mono rounded-lg focus:outline-none focus:ring-2 transition-all ${
+                                        theme === 'glassmorphism'
+                                            ? 'bg-white/10 border border-white/20 text-white placeholder-white/50 focus:ring-white/50'
+                                            : theme === 'claymorphism'
+                                                ? 'clay-card text-zinc-900 dark:text-zinc-50'
+                                                : 'bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-50 focus:ring-zinc-900 dark:focus:ring-zinc-50'
+                                    }`}
+                                />
+                            </div>
+
                             <button type="submit" className={getButtonClassName()}>
                                 <span>Send Message</span>
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,6 +373,17 @@ export default function Contact() {
                                 </svg>
                             </button>
                         </div>
+
+                        {status === 'error' && errorMessage && (
+                            <p className="text-xs text-red-500 dark:text-red-400">
+                                {errorMessage}
+                            </p>
+                        )}
+                        {status === 'success' && (
+                            <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                                Opening your email client...
+                            </p>
+                        )}
                     </form>
                 </div>
             </div>
