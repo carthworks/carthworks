@@ -1,8 +1,8 @@
 export const personalInfo = {
     name: "Karthikeyan T",
-    title: "Senior AI Engineer | LLM Engineer | SaaS Architect",
+    title: "Senior Lead Software Engineer | Frontend Architect | Angular, React, TypeScript, LLM & RAG",
 
-    location: "India",
+    location: "Chennai, Tamil Nadu, India",
     phone: "+91 94867 72206",
     email: "tkarthikeyan@gmail.com",
 
@@ -11,22 +11,27 @@ export const personalInfo = {
     behance: "www.behance.net/carthworks",
     flickr: "www.flickr.com/photos/carthworks",
     courses: "https://pdfcart.in/@karthikeyant",
-    resume: "/resume.pdf",
+    resume: "/Karthikeyan_T_Resume_Nov2026_9486772206.pdf",
 
-    bio: "I build production-grade AI and SaaS systems with 20+ years of engineering experience. From LLM-powered RAG pipelines and autonomous agents to multi-tenant platforms, I ship things that work at scale — with clean architecture, real security, and zero fluff.",
+    bio: "I build enterprise web applications and AI-powered products, with 15+ years of engineering experience. From leading frontend architecture for a Citibank platform to LLM-powered RAG pipelines and AI agents, I ship software with clean architecture, real security, and zero fluff.",
 
     summary:
-        "Senior AI Engineer and SaaS Architect with 20+ years of engineering experience building and scaling multi-tenant web and SaaS platforms. Specializing in LLM integration (Qwen3, Llama3, GPT, Claude, Mistral) via Ollama, LangChain, LlamaIndex, and custom RAG pipelines. Creator of Gantto, AI Agent Skills, ExtractTheme Studio, and 30+ shipped products across AI, security, SaaS, and developer tooling.",
+        "Senior Lead Software Engineer and Frontend Architect with 15+ years of experience building enterprise web applications across banking, SaaS, IoT, and digital platforms. Deep expertise in Angular, React, and TypeScript, including leading frontend architecture for a Citibank platform. Experienced in integrating LLMs (Claude, GPT, Llama 3, Qwen3, Mistral) using Ollama, LangChain, LlamaIndex, and RAG pipelines. Creator of Gantto, AI Agent Skills, and ExtractTheme Studio, with products across AI, security, SaaS, and developer tooling.",
 };
 
 export const portfolioStats = [
-    { value: "20+", label: "Years engineering" },
+    { value: "15+", label: "Years engineering" },
     { value: "7+", label: "Products shipped" },
-    { value: "AI", label: "LLM, RAG, agents, " },
+    { value: "AI", label: "LLM, RAG, agents" },
     { value: "SaaS", label: "Multi-tenant systems" },
 ];
 
 export const skills = {
+    "Frontend Engineering": [
+        "Angular 16/17, React, TypeScript, JavaScript (ES6+)",
+        "HTML5, CSS3, SCSS, Angular Material, RxJS",
+        "Component architecture, state management, performance optimization",
+    ],
     "AI & LLM Engineering": [
         "Ollama + Qwen3 / Llama models integration",
         "RAG pipelines with LangChain, ChromaDB, Faiss, pgVector",
@@ -58,29 +63,29 @@ export const skills = {
 
 export const experience = [
     {
-        company: "Virtusa",
-        role: "Lead Consultant / Senior Lead Engineer (AI & Full-Stack)",
-        period: "2023 - 2026",
+        company: "Virtusa Consulting Services (Client: Citibank)",
+        role: "Senior Lead Software Engineer",
+        period: "May 2023 - May 2026",
     },
     {
-        company: "Buckman",
+        company: "Buckman Laboratories (India) Pvt Ltd",
         role: "Senior Digital Innovation Engineer",
-        period: "2021 - 2023",
+        period: "May 2021 - Mar 2023",
     },
     {
-        company: "PushPros",
-        role: "Senior Full-Stack Developer",
-        period: "2020 - 2021",
+        company: "PushPro",
+        role: "Senior Frontend Developer",
+        period: "Jun 2020 - Mar 2021",
     },
     {
-        company: "AURISS Technologies",
-        role: "Senior Engineer (AI & Cybersecurity SaaS)",
-        period: "2017 - 2020",
+        company: "Auriss Technologies",
+        role: "Senior Frontend Developer",
+        period: "Oct 2017 - Feb 2020",
     },
     {
         company: "Pacific Controls, Dubai, UAE",
-        role: "UI/Web Developer (IoT Platforms)",
-        period: "2015 - 2016",
+        role: "UI / Web Developer",
+        period: "Feb 2015 - Oct 2016",
     },
 ];
 
@@ -237,7 +242,7 @@ export const projects = {
         },
         {
             name: "LibraDigitAI",
-            description: " comprehensive architectural overview of LibraDigit AI: engineered to empower libraries, museums, academic research facilities, and government registries with air-gapped OCR accuracy, standard cataloging, and permanent archival search.",
+            description: "LibraDigit AI is engineered to empower libraries, museums, academic research facilities, and government registries with air-gapped OCR accuracy, standard cataloging, and permanent archival search.",
             url: "https://libra-digit-ai.vercel.app/",
             // url: "https://libra-digit-web.vercel.app/",
             image: "/images/ad_librDigitIT_2026.png",
@@ -247,7 +252,7 @@ export const projects = {
         },
         {
             name: "Project tracker",
-            description: "Multi-tenant Security Posture Intelligence Platformthat unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
+            description: "Multi-tenant Security Posture Intelligence Platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
             url: "https://security-platform-plan.vercel.app/",
             image: "/images/sec-platform.png",
             status: "poc",
@@ -370,11 +375,11 @@ export const projects = {
 
         {
             name: "Gantto Project Timeline",
-            description: "A premium, privacy-first fullscreen Gantt chart and project timeline manager Chrome Extension & Web Application.Effortlessly plan, schedule, and track projects with Natural Language processing, Critical Path analysis, smart templates, and interactive timelines.",
+            description: "A premium, privacy-first fullscreen Gantt chart and project timeline manager Chrome Extension & Web Application. Effortlessly plan, schedule, and track projects with Natural Language processing, Critical Path analysis, smart templates, and interactive timelines.",
             url: "https://gantto.vercel.app/",
             image: "/images/gantto.png",
             status: "live",
-            tags: ["Web Development", "project planning ", "project management", "chrome extension"],
+            tags: ["Web Development", "project planning", "project management", "chrome extension"],
             github: "https://github.com/carthworks/gantt-pro",
             featured: false
         },
@@ -471,7 +476,7 @@ export const projects = {
             description: "Interactive meditation and breathing experience using particle-based visualizations for focus and mindfulness.",
             url: "https://aether-gestural-engine.vercel.app/",
             image: "/images/aether.png",
-            tagsL: ["Interactive", "Meditation", "Visualization"]
+            tags: ["Interactive", "Meditation", "Visualization"]
         },
         {
             name: "Enhanced Audio Visualizer",
