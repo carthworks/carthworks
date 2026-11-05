@@ -27,6 +27,7 @@ const categoryTitles = {
     aiApplications: 'AI & LLM Applications',
     websites: 'Websites',
     tools: 'Tools',
+    courses: 'Courses',
     extensions: 'Chrome Extensions',
     creative: 'Creative Projects',
 };
@@ -39,6 +40,7 @@ const filters = [
     { label: 'AI Apps', value: 'AI & LLM Applications' },
     { label: 'Websites', value: 'Websites' },
     { label: 'Tools', value: 'Tools' },
+    { label: 'Courses', value: 'Courses' },
     { label: 'Extensions', value: 'Chrome Extensions' },
     { label: 'Creative', value: 'Creative Projects' },
 ];

@@ -501,5 +501,56 @@ export const projects = {
             image: "/images/audio-visualizer.png",
             tags: ["Audio", "Visualizer", "3D"]
         },
+    ],
+    courses: [
+        {
+            name: "Angular 22: The New Era of Signals, Zoneless Change Detection & AI-Ready Development",
+            description: "Practical guide to modern Angular 22 covering Signals, Signal Forms, resource()/rxResource()/httpResource(), Zoneless change detection, Vitest, AI-assisted development, a full portal project, and 110 interview items.",
+            url: "https://pdfcart.in/p/angular-22-the-new-era-of-signals-zoneless-chang",
+            image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793785014473_1793785014443-Angular_22_Signals_Course_Guide.png",
+            status: "Live",
+            tags: ["Angular 22", "Signals", "Zoneless", "Course"],
+            featured: true,
+        },
+        {
+            name: "The Software Job-Ready Bundle: SQL, Coding Interviews, and Job Hunting",
+            description: "Complete 3-PDF bundle combining practical SQL query patterns, coding interview strategies with AI code review, and the 2027 software engineering job-hunt playbook.",
+            url: "https://pdfcart.in/p/the-software-job-ready-bundle-sql-coding-intervi",
+            image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793705423682_1793705423655-Crack_the_Coding_Interview_Round.png",
+            status: "Live",
+            tags: ["Bundle", "SQL", "Coding Interviews", "Career"],
+        },
+        {
+            name: "Crack the Coding Interview Round: Patterns, AI Code Review, and What to Say Out Loud",
+            description: "Master core coding interview patterns, leverage AI code review effectively, and learn how to communicate your problem-solving thought process out loud.",
+            url: "https://pdfcart.in/p/crack-the-coding-interview-round-patterns-ai-cod",
+            image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793705423682_1793705423655-Crack_the_Coding_Interview_Round.png",
+            status: "Live",
+            tags: ["Coding Interviews", "DSA Patterns", "AI Code Review"],
+        },
+        {
+            name: "Get Hired in 2027: The Practical Job-Hunt Playbook for Software Engineers",
+            description: "Actionable job-hunting playbook for software engineers and college students with resume strategies, checklists, and interview preparation.",
+            url: "https://pdfcart.in/p/get-hired-in-2027-the-practical-job-hunt-playboo",
+            image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793642373347_1793642373316-Get_Hired_in_2027_cover.png",
+            status: "Live",
+            tags: ["Career", "Job Hunt", "Software Engineering"],
+        },
+        {
+            name: "SQL That Does the Work: The 20% of SQL Behind 80% of Real Queries",
+            description: "Focused guide to the most frequently used production SQL query patterns at work and the common pitfalls to avoid.",
+            url: "https://pdfcart.in/p/sql-that-does-the-work-the-20-of-sql-behind-80-o",
+            image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793639000798_1793639000768-cover-SQL-ThatDoesTheWork.png",
+            status: "Live",
+            tags: ["SQL", "Database", "Backend"],
+        },
+        {
+            name: "Yoga for Hormonal Balance & PCOS/PCOD Recovery: A Printable Wellness Workbook",
+            description: "Printable wellness workbook featuring guided yoga routines, trackers, and practical exercises for hormonal balance and PCOS/PCOD recovery.",
+            url: "https://pdfcart.in/p/yoga-for-hormonal-balance-pcospcod-recovery-a-pr",
+            image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793688644573_1793688644534-Yoga_for_Hormonal_Balance_and_PCOS_Recovery_poster.png",
+            status: "Live",
+            tags: ["Wellness", "Workbook", "PDF"],
+        },
     ]
 };
