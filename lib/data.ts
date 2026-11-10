@@ -105,6 +105,15 @@ export const certifications = [
 export const projects = {
     websites: [
         {
+            name: "Structura Constructions",
+            url: "https://structura-constructions.vercel.app/",
+            image: "/images/structura.png",
+            status: "Live",
+            tags: ["Constructions", "Website"],
+            description: "Structura Constructions is a construction company that specializes in building high-quality homes for families.",
+        },
+
+        {
             name: "FIT BITE",
             description: "Premium-quality fresh exports with reliable sourcing and global distribution.",
             url: "https://fit-bite-beige.vercel.app/",
@@ -235,7 +244,7 @@ export const projects = {
             url: "https://intra-chat-eight.vercel.app/",
             image: "/images/intrachat.png",
             tags: ["Messaging", "Privacy", "Teams"],
-        },
+        }
     ],
     aiApplications: [
         {
@@ -375,7 +384,7 @@ export const projects = {
             status: "Idea",
             tags: ["GIS", "Climate", "AI"],
             featured: true
-        },
+        }
     ],
 
     tools: [
@@ -432,7 +441,7 @@ export const projects = {
             image: "/images/teleprompt.png",
             status: "live",
             tags: ["Creator Tools", "Video"]
-        },
+        }
     ],
     extensions: [
         {
@@ -484,7 +493,7 @@ export const projects = {
             url: null,
             status: "WIP",
             tags: ["Screen Capture", "Annotation", "Privacy"],
-        },
+        }
     ],
     creative: [
         {
@@ -500,7 +509,7 @@ export const projects = {
             url: "https://audio-visualizer-six-inky.vercel.app/",
             image: "/images/audio-visualizer.png",
             tags: ["Audio", "Visualizer", "3D"]
-        },
+        }
     ],
     courses: [
         {
@@ -551,6 +560,6 @@ export const projects = {
             image: "https://videos.igniterapp.com/academies/pdfcart/sellers/81289ad8-280c-44cb-88c8-472fb65400e9/covers/1793688644573_1793688644534-Yoga_for_Hormonal_Balance_and_PCOS_Recovery_poster.png",
             status: "Live",
             tags: ["Wellness", "Workbook", "PDF"],
-        },
+        }
     ]
 };
