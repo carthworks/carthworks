@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import ThemeSelector from "@/components/ThemeSelector";
 import Nav from "@/components/Nav";
 import VisitTracker from "@/components/VisitTracker";
+import PageLoader from "@/components/PageLoader";
 import { personalInfo } from "@/lib/data";
 
 const inter = Inter({
@@ -98,6 +99,7 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
                 <ThemeProvider>
+                    <PageLoader />
                     <Nav />
                     <ThemeSelector />
                     <VisitTracker />
