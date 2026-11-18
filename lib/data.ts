@@ -263,7 +263,7 @@ export const projects = {
             url: "https://ask-mydocs.vercel.app/",
             image: "/images/askmydocs.png",
             status: "poc",
-            tags: ["RAG", "LLM", "Documents"],
+            tags: ["RAG", "LLM", "Documents", "Privacy", "Enterprise"],
         },
         {
             name: "LibraDigitAI",
@@ -272,7 +272,7 @@ export const projects = {
             // url: "https://libra-digit-web.vercel.app/",
             image: "/images/ad_librDigitIT_2026.png",
             status: "poc",
-            tags: ["AI", "OCR", "Archives"],
+            tags: ["AI", "OCR", "Archives", "Preservation", "Digital Archives"],
             featured: false,
         },
         // {
@@ -289,7 +289,7 @@ export const projects = {
             url: "https://model-meter.vercel.app/",
             image: "/images/hero_dashboard.png",
             status: "idea",
-            tags: ["FinOps", "Observability", "LLM"],
+            tags: ["FinOps", "Observability", "LLM", "Cost Management", "Performance Monitoring"],
             featured: false
         },
         {
@@ -302,12 +302,12 @@ export const projects = {
             featured: true
         },
         {
-            name: "Web Security Scanner",
-            description: "A lightweight web security scanner for quick vulnerability and configuration checks.",
-            url: "https://scanova-web.vercel.app/",
+            name: "Scanova Security. Defensive Vulnerability Scanner",
+            description: "A lightweight web security scanner for quick vulnerability and configuration checks. Currently under development with public access available.",
+            url: "https://scanova-tan.vercel.app/",
             image: "/images/scanova.png",
             status: "poc",
-            tags: ["Security", "Scanner", "Web"],
+            tags: ["Security", "Scanner", "Web", "CVEs", "NVD"],
         },
         {
             name: "ActSMS",
@@ -315,7 +315,7 @@ export const projects = {
             url: "https://actsms.vercel.app/",
             image: "/images/act-sms.png",
             status: "idea",
-            tags: ["Mobile", "Automation", "Privacy"],
+            tags: ["Mobile", "Automation", "Privacy", "SMS", "Reminders", "Tasks"],
         },
         {
             name: "SolarFlow",
@@ -323,7 +323,7 @@ export const projects = {
             url: "https://solarflow-web-beta.vercel.app/",
             image: "/images/solarflow.png",
             status: "idea",
-            tags: ["SaaS", "Workflow", "Solar"]
+            tags: ["SaaS", "Workflow", "Solar", "Automation", "CRM"]
         },
         {
             name: "PaperPublish IQ",
@@ -331,7 +331,7 @@ export const projects = {
             url: "https://paperpublish-iq.vercel.app/",
             image: "/images/paperpublish.png",
             status: "idea",
-            tags: ["Research", "Publishing", "Workflow"], featured: true
+            tags: ["Research", "Publishing", "Workflow", "Education", "AI"], featured: true
 
         },
         {
@@ -340,7 +340,7 @@ export const projects = {
             url: "https://wingzai.deltaphi.in/login",
             image: "/images/wingzai.png",
             status: "live",
-            tags: ["AI Agents", "Automation", "Connectors"],
+            tags: ["AI Agents", "Automation", "Connectors", "Security", "Compliance"],
             featured: false,
         },
         {
@@ -349,7 +349,7 @@ export const projects = {
             url: "https://cyber2daytraining.vercel.app/",
             image: "/images/cyber2daytraining.png",
             status: "live",
-            tags: ["Training", "Security", "AI"]
+            tags: ["Training", "Security", "AI", "Hands-on", "Labs"]
         },
         // {
         //     name: "Kapan",
@@ -373,7 +373,7 @@ export const projects = {
             url: "https://code-shield-local.vercel.app/",
             image: "/images/codeshieldai.png",
             status: "poc",
-            tags: ["Local AI", "AppSec", "Privacy"]
+            tags: ["Local AI", "AppSec", "Privacy", "Security", "Vulnerability", "Fixes"],
             // featured: true,
         },
         {
@@ -382,7 +382,7 @@ export const projects = {
             url: "https://hyperlocal-heat.vercel.app/",
             image: "/images/gis_dashboard_1779014141485.png",
             status: "Idea",
-            tags: ["GIS", "Climate", "AI"],
+            tags: ["GIS", "Climate", "AI", "Heatwave", "Forecasting", "Urban Planning", "Risk Management"],
             featured: true
         }
     ],
