@@ -248,12 +248,12 @@ export const projects = {
     ],
     aiApplications: [
         {
-            name: "CogniScale",
+            name: "Sensighty",
             description: "CogniScale was built to replace rigid, one-size-fits-all testing with a dynamic, mathematically rigorous, and ethically grounded assessment and remediation platform",
-            url: "https://cogniscale-eta.vercel.app/",
+            url: "https://sensighty.vercel.app/",
             image: "/images/landing-page.png",
             status: "MVP",
-            tags: ["RAG", "LLM", "Documents"]
+            tags: ["RAG", "LLM", "Documents", "Assessments", "Adaptive Learning"]
 
         }
         ,
@@ -275,14 +275,14 @@ export const projects = {
             tags: ["AI", "OCR", "Archives"],
             featured: false,
         },
-        {
-            name: "Project tracker",
-            description: "Multi-tenant Security Posture Intelligence Platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
-            url: "https://security-platform-plan.vercel.app/",
-            image: "/images/sec-platform.png",
-            status: "poc",
-            tags: ["Project", "tasks", "tracker"],
-        },
+        // {
+        //     name: "Project tracker",
+        //     description: "Multi-tenant Security Posture Intelligence Platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
+        //     url: "https://security-platform-plan.vercel.app/",
+        //     image: "/images/sec-platform.png",
+        //     status: "poc",
+        //     tags: ["Project", "tasks", "tracker"],
+        // },
         {
             name: "ModelMeter: AI FinOps & Observability",
             description: "Provider-agnostic AI FinOps platform for monitoring LLM usage, costs, performance, and reliability.",
