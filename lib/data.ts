@@ -105,6 +105,14 @@ export const certifications = [
 export const projects = {
     websites: [
         {
+            url: "https://ms-electrical-solution.vercel.app/",
+            image: "/images/ms-electrical.png",
+            status: "Live",
+            tags: ["Electrical", "Website"],
+            description: "MS Electrical Solution is an electrical company that specializes in providing electrical solutions to customers.",
+            name: "MS Electrical Solution",
+        },
+        {
             name: "Structura Constructions",
             url: "https://structura-constructions.vercel.app/",
             image: "/images/structura.png",
