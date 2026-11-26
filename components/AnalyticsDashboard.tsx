@@ -106,19 +106,25 @@ function BarList({
 export default function AnalyticsDashboard({ stats }: AnalyticsDashboardProps) {
     const router = useRouter();
     const [query, setQuery] = useState('');
+    const [visitorFilter, setVisitorFilter] = useState<'all' | 'new' | 'returning'>('all');
+    const [page, setPage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
     const [refreshing, setRefreshing] = useState(false);
     const [loggingOut, setLoggingOut] = useState(false);
 
     const filteredVisits = useMemo(() => {
         const q = query.trim().toLowerCase();
-        if (!q) return stats.recent;
-        return stats.recent.filter((v) =>
-            [
+        return stats.recent.filter((v) => {
+            if (visitorFilter === 'new' && v.returning) return false;
+            if (visitorFilter === 'returning' && !v.returning) return false;
+            if (!q) return true;
+            return [
                 v.ip,
                 v.path,
                 v.source,
                 v.referrer,
                 v.utmSource,
+                v.utmMedium,
                 v.utmCampaign,
                 v.country,
                 v.country ? countryName(v.country) : '',
@@ -131,9 +137,19 @@ export default function AnalyticsDashboard({ stats }: AnalyticsDashboardProps) {
                 v.language,
             ]
                 .filter(Boolean)
-                .some((field) => String(field).toLowerCase().includes(q))
-        );
-    }, [query, stats.recent]);
+                .some((field) => String(field).toLowerCase().includes(q));
+        });
+    }, [query, visitorFilter, stats.recent]);
+
+    const totalPages = Math.max(1, Math.ceil(filteredVisits.length / pageSize));
+    const currentPage = Math.min(page, totalPages);
+    const paginatedVisits = useMemo(() => {
+        const start = (currentPage - 1) * pageSize;
+        return filteredVisits.slice(start, start + pageSize);
+    }, [filteredVisits, currentPage, pageSize]);
+
+    const rangeStart = filteredVisits.length === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+    const rangeEnd = Math.min(currentPage * pageSize, filteredVisits.length);
 
     function handleRefresh() {
         setRefreshing(true);
@@ -390,7 +406,7 @@ export default function AnalyticsDashboard({ stats }: AnalyticsDashboardProps) {
 
                 {/* Recent Visits Log */}
                 <section className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
                         <div>
                             <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
                                 Recent Visits ({filteredVisits.length})
@@ -399,129 +415,220 @@ export default function AnalyticsDashboard({ stats }: AnalyticsDashboardProps) {
                                 Full breakdown of who visited, where they came from, and where they are
                             </p>
                         </div>
-                        <input
-                            type="search"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            placeholder="Filter by city, country, source, browser, IP..."
-                            className="w-full sm:w-72 rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-xs text-zinc-200 placeholder-zinc-600 focus:border-indigo-500/70 focus:outline-none"
-                        />
+                        <div className="flex flex-wrap items-center gap-2">
+                            <div className="inline-flex rounded-lg border border-white/10 bg-black/40 p-0.5 text-[11px]">
+                                {(['all', 'new', 'returning'] as const).map((mode) => (
+                                    <button
+                                        key={mode}
+                                        type="button"
+                                        onClick={() => {
+                                            setVisitorFilter(mode);
+                                            setPage(1);
+                                        }}
+                                        className={`px-2.5 py-1 rounded-md capitalize transition-colors ${
+                                            visitorFilter === mode
+                                                ? 'bg-indigo-600 text-white'
+                                                : 'text-zinc-400 hover:text-zinc-200'
+                                        }`}
+                                    >
+                                        {mode}
+                                    </button>
+                                ))}
+                            </div>
+                            <input
+                                type="search"
+                                value={query}
+                                onChange={(e) => {
+                                    setQuery(e.target.value);
+                                    setPage(1);
+                                }}
+                                placeholder="Search city, country, source, browser, IP..."
+                                className="w-full sm:w-64 rounded-lg border border-white/10 bg-black/40 px-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-600 focus:border-indigo-500/70 focus:outline-none"
+                            />
+                        </div>
                     </div>
 
                     {filteredVisits.length === 0 ? (
                         <p className="text-xs text-zinc-500 py-6 text-center">
                             {stats.recent.length === 0
                                 ? 'No visits recorded yet. Open your portfolio homepage to record a visit.'
-                                : 'No visits match your filter.'}
+                                : 'No visits match your search or filter.'}
                         </p>
                     ) : (
-                        <div className="overflow-x-auto">
-                            <table className="w-full border-collapse text-xs">
-                                <thead>
-                                    <tr className="border-b border-white/[0.08] text-left text-[11px] uppercase tracking-wider text-zinc-500">
-                                        <th className="py-2.5 px-3">When</th>
-                                        <th className="py-2.5 px-3">Who</th>
-                                        <th className="py-2.5 px-3">From</th>
-                                        <th className="py-2.5 px-3">Where</th>
-                                        <th className="py-2.5 px-3">Page</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-white/[0.04]">
-                                    {filteredVisits.map((v, idx) => {
-                                        const dev = deviceBadge(v.device);
-                                        const locationParts = [v.city, v.region, v.country ? countryName(v.country) : undefined].filter(Boolean);
-                                        return (
-                                            <tr
-                                                key={`${v.ts}-${idx}`}
-                                                className="hover:bg-white/[0.02] transition-colors"
-                                            >
-                                                {/* When */}
-                                                <td
-                                                    className="py-3 px-3 whitespace-nowrap text-zinc-400"
-                                                    title={new Date(v.ts).toLocaleString()}
+                        <>
+                            <div className="overflow-x-auto">
+                                <table className="w-full border-collapse text-xs">
+                                    <thead>
+                                        <tr className="border-b border-white/[0.08] text-left text-[11px] uppercase tracking-wider text-zinc-500">
+                                            <th className="py-2.5 px-3">When</th>
+                                            <th className="py-2.5 px-3">Who</th>
+                                            <th className="py-2.5 px-3">From</th>
+                                            <th className="py-2.5 px-3">Where</th>
+                                            <th className="py-2.5 px-3">Page</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-white/[0.04]">
+                                        {paginatedVisits.map((v, idx) => {
+                                            const dev = deviceBadge(v.device);
+                                            const locationParts = [v.city, v.region, v.country ? countryName(v.country) : undefined].filter(Boolean);
+                                            return (
+                                                <tr
+                                                    key={`${v.ts}-${idx}`}
+                                                    className="hover:bg-white/[0.02] transition-colors"
                                                 >
-                                                    <div>{timeAgo(v.ts)}</div>
-                                                    <div className="text-[10px] text-zinc-600">
-                                                        {new Date(v.ts).toLocaleTimeString([], {
-                                                            hour: '2-digit',
-                                                            minute: '2-digit',
-                                                        })}
-                                                    </div>
-                                                </td>
+                                                    {/* When */}
+                                                    <td
+                                                        className="py-3 px-3 whitespace-nowrap text-zinc-400"
+                                                        title={new Date(v.ts).toLocaleString()}
+                                                    >
+                                                        <div>{timeAgo(v.ts)}</div>
+                                                        <div className="text-[10px] text-zinc-600">
+                                                            {new Date(v.ts).toLocaleTimeString([], {
+                                                                hour: '2-digit',
+                                                                minute: '2-digit',
+                                                            })}
+                                                        </div>
+                                                    </td>
 
-                                                {/* Who */}
-                                                <td className="py-3 px-3 whitespace-nowrap">
-                                                    <div className="flex items-center gap-1.5 text-zinc-200">
-                                                        <span title={dev.label}>{dev.icon}</span>
-                                                        <span>
-                                                            {v.browser ?? 'Unknown'} · {v.os ?? 'Unknown'}
-                                                        </span>
-                                                        {v.returning !== undefined && (
-                                                            <span
-                                                                className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${
-                                                                    v.returning
-                                                                        ? 'bg-emerald-500/15 text-emerald-300'
-                                                                        : 'bg-indigo-500/15 text-indigo-300'
-                                                                }`}
-                                                            >
-                                                                {v.returning ? 'Returning' : 'New'}
+                                                    {/* Who */}
+                                                    <td className="py-3 px-3 whitespace-nowrap">
+                                                        <div className="flex items-center gap-1.5 text-zinc-200">
+                                                            <span title={dev.label}>{dev.icon}</span>
+                                                            <span>
+                                                                {v.browser ?? 'Unknown'} · {v.os ?? 'Unknown'}
                                                             </span>
+                                                            {v.returning !== undefined && (
+                                                                <span
+                                                                    className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                                                                        v.returning
+                                                                            ? 'bg-emerald-500/15 text-emerald-300'
+                                                                            : 'bg-indigo-500/15 text-indigo-300'
+                                                                    }`}
+                                                                >
+                                                                    {v.returning ? 'Returning' : 'New'}
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
+                                                            {v.ip}
+                                                            {v.language ? ` · ${v.language}` : ''}
+                                                            {v.screen ? ` · ${v.screen}` : ''}
+                                                        </div>
+                                                    </td>
+
+                                                    {/* From */}
+                                                    <td className="py-3 px-3 max-w-[200px]">
+                                                        <div className="text-zinc-200 truncate">
+                                                            {v.source ?? 'Direct'}
+                                                        </div>
+                                                        {(v.utmCampaign || v.utmMedium || v.referrer) && (
+                                                            <div
+                                                                className="text-[11px] text-zinc-500 truncate"
+                                                                title={v.referrer || undefined}
+                                                            >
+                                                                {v.utmCampaign
+                                                                    ? `campaign: ${v.utmCampaign}`
+                                                                    : v.utmMedium
+                                                                      ? `medium: ${v.utmMedium}`
+                                                                      : v.referrer}
+                                                            </div>
                                                         )}
-                                                    </div>
-                                                    <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
-                                                        {v.ip}
-                                                        {v.language ? ` · ${v.language}` : ''}
-                                                        {v.screen ? ` · ${v.screen}` : ''}
-                                                    </div>
-                                                </td>
+                                                    </td>
 
-                                                {/* From */}
-                                                <td className="py-3 px-3 max-w-[200px]">
-                                                    <div className="text-zinc-200 truncate">
-                                                        {v.source ?? 'Direct'}
-                                                    </div>
-                                                    {(v.utmCampaign || v.utmMedium || v.referrer) && (
-                                                        <div
-                                                            className="text-[11px] text-zinc-500 truncate"
-                                                            title={v.referrer || undefined}
-                                                        >
-                                                            {v.utmCampaign
-                                                                ? `campaign: ${v.utmCampaign}`
-                                                                : v.utmMedium
-                                                                  ? `medium: ${v.utmMedium}`
-                                                                  : v.referrer}
+                                                    {/* Where */}
+                                                    <td className="py-3 px-3 whitespace-nowrap">
+                                                        <div className="text-zinc-200">
+                                                            {countryFlag(v.country)}{' '}
+                                                            {locationParts.length > 0
+                                                                ? locationParts.join(', ')
+                                                                : 'Unknown'}
                                                         </div>
-                                                    )}
-                                                </td>
+                                                        {v.timezone && (
+                                                            <div className="text-[11px] text-zinc-500">
+                                                                {v.timezone}
+                                                            </div>
+                                                        )}
+                                                    </td>
 
-                                                {/* Where */}
-                                                <td className="py-3 px-3 whitespace-nowrap">
-                                                    <div className="text-zinc-200">
-                                                        {countryFlag(v.country)}{' '}
-                                                        {locationParts.length > 0
-                                                            ? locationParts.join(', ')
-                                                            : 'Unknown'}
-                                                    </div>
-                                                    {v.timezone && (
-                                                        <div className="text-[11px] text-zinc-500">
-                                                            {v.timezone}
-                                                        </div>
-                                                    )}
-                                                </td>
+                                                    {/* Page */}
+                                                    <td
+                                                        className="py-3 px-3 font-mono text-zinc-300 max-w-[180px] truncate"
+                                                        title={v.path}
+                                                    >
+                                                        {v.path}
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
 
-                                                {/* Page */}
-                                                <td
-                                                    className="py-3 px-3 font-mono text-zinc-300 max-w-[180px] truncate"
-                                                    title={v.path}
-                                                >
-                                                    {v.path}
-                                                </td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
+                            {/* Pagination Controls */}
+                            <div className="mt-4 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-zinc-400">
+                                <div className="flex items-center gap-3">
+                                    <span>
+                                        Showing <span className="text-zinc-200 font-medium">{rangeStart}–{rangeEnd}</span> of{' '}
+                                        <span className="text-zinc-200 font-medium">{filteredVisits.length}</span>
+                                    </span>
+                                    <label className="inline-flex items-center gap-1.5 text-zinc-500">
+                                        <span>Rows:</span>
+                                        <select
+                                            value={pageSize}
+                                            onChange={(e) => {
+                                                setPageSize(Number(e.target.value));
+                                                setPage(1);
+                                            }}
+                                            className="rounded-md border border-white/10 bg-black/50 px-2 py-1 text-xs text-zinc-200 focus:border-indigo-500/70 focus:outline-none"
+                                        >
+                                            {[10, 25, 50].map((size) => (
+                                                <option key={size} value={size}>
+                                                    {size}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div className="flex items-center gap-1.5">
+                                    <button
+                                        type="button"
+                                        onClick={() => setPage(1)}
+                                        disabled={currentPage <= 1}
+                                        className="rounded-md border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] disabled:opacity-35 disabled:cursor-not-allowed px-2.5 py-1 transition-colors"
+                                    >
+                                        First
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                                        disabled={currentPage <= 1}
+                                        className="rounded-md border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] disabled:opacity-35 disabled:cursor-not-allowed px-2.5 py-1 transition-colors"
+                                    >
+                                        Prev
+                                    </button>
+                                    <span className="px-2 text-zinc-300 font-mono tabular-nums">
+                                        {currentPage} / {totalPages}
+                                    </span>
+                                    <button
+                                        type="button"
+                                        onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                                        disabled={currentPage >= totalPages}
+                                        className="rounded-md border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] disabled:opacity-35 disabled:cursor-not-allowed px-2.5 py-1 transition-colors"
+                                    >
+                                        Next
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setPage(totalPages)}
+                                        disabled={currentPage >= totalPages}
+                                        className="rounded-md border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] disabled:opacity-35 disabled:cursor-not-allowed px-2.5 py-1 transition-colors"
+                                    >
+                                        Last
+                                    </button>
+                                </div>
+                            </div>
+                        </>
                     )}
                 </section>
 

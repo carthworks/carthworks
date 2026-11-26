@@ -230,7 +230,7 @@ export async function getStats(): Promise<AnalyticsStats> {
                 redis.get<number>('counter:total'),
                 redis.scard('ips:unique'),
                 redis.scard('visitors:unique'),
-                redis.lrange('visits:recent', 0, 99),
+                redis.lrange('visits:recent', 0, 199),
                 scanCounterPrefix(redis, 'counter:page:'),
                 scanCounterPrefix(redis, 'counter:country:'),
                 scanCounterPrefix(redis, 'counter:source:'),
@@ -283,7 +283,7 @@ export async function getStats(): Promise<AnalyticsStats> {
     }
 
     // In-memory fallback stats
-    const recent = memStore.slice(0, 100).map(hydrateRecord);
+    const recent = memStore.slice(0, 200).map(hydrateRecord);
     const ipSet = new Set<string>();
     const visitorSet = new Set<string>();
     for (const v of memStore) {
