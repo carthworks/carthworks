@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { AnalyticsStats } from '@/lib/analytics';
 
@@ -111,6 +111,29 @@ export default function AnalyticsDashboard({ stats }: AnalyticsDashboardProps) {
     const [pageSize, setPageSize] = useState(10);
     const [refreshing, setRefreshing] = useState(false);
     const [loggingOut, setLoggingOut] = useState(false);
+    const [ignoringThisBrowser, setIgnoringThisBrowser] = useState(false);
+
+    useEffect(() => {
+        try {
+            setIgnoringThisBrowser(window.localStorage.getItem('cw_ignore_analytics') === '1');
+        } catch {
+            // ignore
+        }
+    }, []);
+
+    function toggleIgnoreThisBrowser() {
+        try {
+            const next = !ignoringThisBrowser;
+            if (next) {
+                window.localStorage.setItem('cw_ignore_analytics', '1');
+            } else {
+                window.localStorage.removeItem('cw_ignore_analytics');
+            }
+            setIgnoringThisBrowser(next);
+        } catch {
+            // ignore
+        }
+    }
 
     const filteredVisits = useMemo(() => {
         const q = query.trim().toLowerCase();
@@ -252,7 +275,19 @@ export default function AnalyticsDashboard({ stats }: AnalyticsDashboardProps) {
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={toggleIgnoreThisBrowser}
+                            title="Skip tracking visits from this browser even if your IP changes"
+                            className={`rounded-lg border px-3 py-2 text-xs font-medium transition-colors ${
+                                ignoringThisBrowser
+                                    ? 'border-emerald-500/40 bg-emerald-500/15 text-emerald-300'
+                                    : 'border-white/10 bg-white/[0.03] hover:bg-white/[0.08] text-zinc-300'
+                            }`}
+                        >
+                            {ignoringThisBrowser ? 'This browser ignored' : 'Ignore this browser'}
+                        </button>
                         <button
                             type="button"
                             onClick={handleRefresh}

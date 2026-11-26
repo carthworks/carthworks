@@ -67,6 +67,7 @@ export function isIgnoredIp(rawIp: string): boolean {
         ip === '127.0.0.1' ||
         ip === '127.0.0.0' ||
         ip === '::1' ||
+        ip === '::1::' ||
         ip === '::ffff:127.0.0.1' ||
         ip === 'localhost' ||
         ip.startsWith('127.')
