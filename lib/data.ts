@@ -513,6 +513,15 @@ export const projects = {
     ],
     creative: [
         {
+            url: "https://jobjester-six.vercel.app",
+            name: "Jobjester",
+            description: "Funny Job Title Generator",
+            tags: ["Fun", "LLM", "Web"],
+            image: "/images/jobjester-karthik.png",
+            status: "Live",
+            featured: false
+        },
+        {
             name: "Aether - Gestural Focus Engine",
             description: "Interactive meditation and breathing experience using particle-based visualizations for focus and mindfulness.",
             url: "https://aether-gestural-engine.vercel.app/",
