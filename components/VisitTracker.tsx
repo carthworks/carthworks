@@ -26,6 +26,15 @@ export default function VisitTracker() {
 
     useEffect(() => {
         if (!pathname || pathname.startsWith('/analytics')) return;
+        const host = window.location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1' || host === '::1' || host === '0.0.0.0') {
+            return;
+        }
+        try {
+            if (window.localStorage.getItem('cw_ignore_analytics') === '1') return;
+        } catch {
+            // ignore storage errors
+        }
         // Avoid double-send in React Strict Mode for the same path
         if (lastTrackedPath.current === pathname) return;
         lastTrackedPath.current = pathname;

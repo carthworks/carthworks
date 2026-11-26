@@ -49,11 +49,43 @@ export function anonymiseIp(raw: string): string {
     return 'unknown';
 }
 
-export function extractIp(req: NextRequest): string {
+export function extractRawIp(req: NextRequest): string {
     const forwarded = req.headers.get('x-forwarded-for');
     const real = req.headers.get('x-real-ip');
     const raw = forwarded ?? real ?? '127.0.0.1';
-    return anonymiseIp(raw);
+    return raw.split(',')[0].trim();
+}
+
+export function extractIp(req: NextRequest): string {
+    return anonymiseIp(extractRawIp(req));
+}
+
+export function isIgnoredIp(rawIp: string): boolean {
+    const ip = rawIp.trim().toLowerCase();
+    if (
+        !ip ||
+        ip === '127.0.0.1' ||
+        ip === '127.0.0.0' ||
+        ip === '::1' ||
+        ip === '::ffff:127.0.0.1' ||
+        ip === 'localhost' ||
+        ip.startsWith('127.')
+    ) {
+        return true;
+    }
+
+    const anon = anonymiseIp(ip).toLowerCase();
+    const configured = (process.env.ANALYTICS_IGNORE_IPS ?? '')
+        .split(',')
+        .map((s) => s.trim().toLowerCase())
+        .filter(Boolean);
+
+    for (const entry of configured) {
+        if (ip === entry || anon === entry || anonymiseIp(entry).toLowerCase() === anon) {
+            return true;
+        }
+    }
+    return false;
 }
 
 // ── User-Agent & Source parsing (Edge-compatible, zero deps) ───────────────

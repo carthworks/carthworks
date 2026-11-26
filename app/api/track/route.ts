@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
+    anonymiseIp,
     detectBrowser,
     detectDevice,
     detectOS,
-    extractIp,
+    extractRawIp,
     extractSource,
+    isIgnoredIp,
     recordVisit,
 } from '@/lib/analytics';
+import { ANALYTICS_COOKIE_NAME, verifySessionToken } from '@/lib/analytics-auth';
 
 export const runtime = 'edge';
 
@@ -35,6 +38,23 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ ok: true, skipped: 'private' });
         }
 
+        // Skip localhost requests
+        const host = (req.headers.get('host') ?? '').toLowerCase();
+        if (host.startsWith('localhost') || host.startsWith('127.0.0.1') || host.startsWith('[::1]')) {
+            return NextResponse.json({ ok: true, skipped: 'localhost' });
+        }
+
+        // Skip owner's authenticated browser session
+        const sessionToken = req.cookies.get(ANALYTICS_COOKIE_NAME)?.value;
+        if (sessionToken && (await verifySessionToken(sessionToken))) {
+            return NextResponse.json({ ok: true, skipped: 'owner' });
+        }
+
+        const rawIp = extractRawIp(req);
+        if (isIgnoredIp(rawIp)) {
+            return NextResponse.json({ ok: true, skipped: 'ignored-ip' });
+        }
+
         const ua = (req.headers.get('user-agent') ?? '').slice(0, 300);
 
         // Silently ignore bots hitting the tracker
@@ -43,7 +63,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ ok: true, skipped: 'bot' });
         }
 
-        const ip = extractIp(req);
+        const ip = anonymiseIp(rawIp);
         const referrer = cleanStr(body.referrer, 300) ?? '';
         const utmSource = cleanStr(body.utmSource, 64);
         const utmMedium = cleanStr(body.utmMedium, 64);
