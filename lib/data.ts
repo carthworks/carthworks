@@ -289,8 +289,8 @@ export const projects = {
             status: "Live",
             description: "Minmurasu CRM is a your client growth console to monitor live campaign ROI, qualified lead pipelines, SEO/GEO rankings, and automated WhatsApp conversions.",
             tags: ["CRM", "AI", "Website"],
-            name: "Minmurasu C  RM",
-        }
+            name: "Minmurasu CRM"
+        },
         // {
         //     name: "Project tracker",
         //     description: "Multi-tenant Security Posture Intelligence Platform that unifies vulnerability, SCA, container, and secret scanning with AI remediation guidance.",
