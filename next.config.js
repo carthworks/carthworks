@@ -12,6 +12,32 @@ const nextConfig = {
     async headers() {
         return [
             {
+                source: '/analytics/:path*',
+                headers: [
+                    {
+                        key: 'X-Robots-Tag',
+                        value: 'noindex, nofollow, noarchive, nosnippet',
+                    },
+                    {
+                        key: 'Cache-Control',
+                        value: 'no-store, max-age=0',
+                    },
+                ],
+            },
+            {
+                source: '/analytics',
+                headers: [
+                    {
+                        key: 'X-Robots-Tag',
+                        value: 'noindex, nofollow, noarchive, nosnippet',
+                    },
+                    {
+                        key: 'Cache-Control',
+                        value: 'no-store, max-age=0',
+                    },
+                ],
+            },
+            {
                 source: '/(.*)',
                 headers: [
                     {

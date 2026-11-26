@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/private/', '/analytics', '/api/'],
+            disallow: ['/private/', '/api/'],
         },
         sitemap: 'https://carthworks.dev/sitemap.xml',
     };
